@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/OnlineShop/app/src/main/res/layout/address_report.xml" value="0.18055555555555555" />
+        <entry key="..\:/OnlineShop/app/src/main/res/layout/cart_toolbar_view.xml" value="0.1" />
+        <entry key="..\:/OnlineShop/app/src/main/res/layout/list_toolbar_view.xml" value="0.18055555555555555" />
         <entry key="..\:/OnlineShop/app/src/main/res/menu/bottom_nav_menu.xml" value="0.18489583333333334" />
       </map>
     </option>
