@@ -3,25 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/AndroidProjectKotlin/OnlineShop/app/src/main/res/drawable-v24/cursor_color.xml" value="0.1388888888888889" />
-        <entry key="..\:/AndroidProjectKotlin/OnlineShop/app/src/main/res/drawable-v24/ic_baseline_logout_24.xml" value="0.1125" />
-        <entry key="..\:/AndroidProjectKotlin/OnlineShop/app/src/main/res/drawable-v24/ic_facebook.xml" value="0.2203125" />
-        <entry key="..\:/AndroidProjectKotlin/OnlineShop/app/src/main/res/drawable-v24/ic_google.xml" value="0.2203125" />
-        <entry key="..\:/AndroidProjectKotlin/OnlineShop/app/src/main/res/drawable/border.xml" value="0.17592592592592593" />
-        <entry key="..\:/AndroidProjectKotlin/OnlineShop/app/src/main/res/layout/address_report.xml" value="0.29213483146067415" />
-        <entry key="..\:/AndroidProjectKotlin/OnlineShop/app/src/main/res/layout/fragment_about.xml" value="0.33" />
-        <entry key="..\:/AndroidProjectKotlin/OnlineShop/app/src/main/res/layout/fragment_add_address.xml" value="0.19411764705882353" />
-        <entry key="..\:/AndroidProjectKotlin/OnlineShop/app/src/main/res/layout/fragment_address.xml" value="0.20416666666666666" />
-        <entry key="..\:/AndroidProjectKotlin/OnlineShop/app/src/main/res/layout/fragment_contact.xml" value="0.2125984251968504" />
-        <entry key="..\:/AndroidProjectKotlin/OnlineShop/app/src/main/res/layout/fragment_login.xml" value="0.20416666666666666" />
-        <entry key="..\:/AndroidProjectKotlin/OnlineShop/app/src/main/res/layout/fragment_me.xml" value="0.25" />
-        <entry key="..\:/AndroidProjectKotlin/OnlineShop/app/src/main/res/layout/fragment_register.xml" value="0.25" />
-        <entry key="..\:/AndroidProjectKotlin/OnlineShop/app/src/main/res/layout/fragment_setting.xml" value="0.22" />
-        <entry key="..\:/AndroidProjectKotlin/OnlineShop/app/src/main/res/layout/wishlist_report.xml" value="0.33" />
-        <entry key="..\:/AndroidProjectKotlin/OnlineShop/app/src/main/res/menu/bottom_nav_menu.xml" value="0.22" />
-        <entry key="..\:/AndroidProjectKotlin/OnlineShop/app/src/main/res/menu/me_menu.xml" value="0.25" />
-        <entry key="..\:/AndroidProjectKotlin/OnlineShop/app/src/main/res/xml/root_preferences.xml" value="0.33" />
-        <entry key="..\:/OnlineShop/app/src/main/res/menu/bottom_nav_menu.xml" value="0.18489583333333334" />
+        <entry key="..\:/OnlineShop/app/src/main/res/drawable-v24/ic_search.xml" value="0.1" />
+        <entry key="..\:/OnlineShop/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/OnlineShop/app/src/main/res/layout/cart_toolbar_view.xml" value="0.25" />
+        <entry key="..\:/OnlineShop/app/src/main/res/layout/fragment_kids_product.xml" value="0.25" />
+        <entry key="..\:/OnlineShop/app/src/main/res/layout/fragment_me.xml" value="0.25" />
+        <entry key="..\:/OnlineShop/app/src/main/res/layout/fragment_men_product.xml" value="0.25" />
+        <entry key="..\:/OnlineShop/app/src/main/res/layout/fragment_one_sale_product.xml" value="0.17083333333333334" />
+        <entry key="..\:/OnlineShop/app/src/main/res/layout/fragment_register.xml" value="0.17083333333333334" />
+        <entry key="..\:/OnlineShop/app/src/main/res/layout/fragment_shop_tap.xml" value="0.18489583333333334" />
+        <entry key="..\:/OnlineShop/app/src/main/res/layout/fragment_woman_product.xml" value="0.18" />
+        <entry key="..\:/OnlineShop/app/src/main/res/layout/list_toolbar_view.xml" value="0.25" />
+        <entry key="..\:/OnlineShop/app/src/main/res/layout/shimmer_layout.xml" value="0.18489583333333334" />
+        <entry key="..\:/OnlineShop/app/src/main/res/layout/shop_item.xml" value="0.18489583333333334" />
+        <entry key="..\:/OnlineShop/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25" />
       </map>
     </option>
   </component>
