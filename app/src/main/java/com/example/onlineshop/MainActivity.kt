@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.shopTabFragment, R.id.categoryFragment, R.id.meFragment
             )
         )
-//        setupActionBarWithNavController(navController, appBarConfiguration)
+        setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
 }
