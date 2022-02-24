@@ -7,16 +7,356 @@
     tools:context=".ui.meScreen.MeFragment">
 
     <TextView
-        android:id="@+id/text_notifications"
+        android:id="@+id/regesterAndLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/white"
+        android:paddingStart="5dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:text="@string/login_register"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/hiText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingStart="5dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:text="welcome , Enas Alosta"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/myOrders"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/myOrders"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="@color/white"
+        android:padding="5dp"
+        android:text="@string/orders"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/hiText" />
+
+    <LinearLayout
+        android:id="@+id/layoutOfMyOrders"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/myOrders">
+
+
+        <!--                <LinearLayout-->
+        <!--                    android:id="@+id/processing"-->
+        <!--                    android:layout_width="0dp"-->
+        <!--                    android:layout_height="70dp"-->
+        <!--                    android:layout_weight="1"-->
+        <!--                    android:gravity="center"-->
+        <!--                    android:orientation="vertical"-->
+        <!--                    app:layout_constraintTop_toBottomOf="@id/hiText"-->
+        <!--                    tools:ignore="UseCompoundDrawables">-->
+
+        <!--                    <ImageView-->
+        <!--                        android:layout_width="wrap_content"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:contentDescription="@string/processing"-->
+        <!--                        android:fontFamily="serif"-->
+        <!--                        android:src="@drawable/ic_processing" />-->
+
+        <!--                    <TextView-->
+        <!--                        android:layout_width="wrap_content"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:fontFamily="serif"-->
+        <!--                        android:gravity="bottom"-->
+        <!--                        android:paddingTop="20dp"-->
+        <!--                        android:text="@string/processing"-->
+        <!--                        android:textColor="@color/black"-->
+        <!--                        android:textSize="12sp" />-->
+        <!--                </LinearLayout>-->
+
+
+        <!--                <LinearLayout-->
+        <!--                    android:id="@+id/shipping"-->
+        <!--                    android:layout_width="0dp"-->
+        <!--                    android:layout_height="70dp"-->
+        <!--                    android:layout_weight="1"-->
+        <!--                    android:gravity="center"-->
+        <!--                    android:orientation="vertical"-->
+        <!--                    app:layout_constraintTop_toBottomOf="@id/hiText"-->
+        <!--                    tools:ignore="UseCompoundDrawables">-->
+
+        <!--                    <ImageView-->
+        <!--                        android:layout_width="wrap_content"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:contentDescription="@string/wallet"-->
+        <!--                        android:src="@drawable/ic_shipping" />-->
+
+        <!--                    <TextView-->
+        <!--                        android:layout_width="wrap_content"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:fontFamily="serif"-->
+        <!--                        android:gravity="bottom"-->
+        <!--                        android:paddingTop="20dp"-->
+        <!--                        android:text="@string/shipping"-->
+        <!--                        android:textColor="@color/black"-->
+        <!--                        android:textSize="12sp"-->
+        <!--                        app:layout_constraintStart_toStartOf="parent"-->
+        <!--                        app:layout_constraintTop_toTopOf="parent" />-->
+
+        <!--                </LinearLayout>-->
+
+        <LinearLayout
+            android:id="@+id/paidLayout"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/hiText"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/paid_orders"
+                android:src="@drawable/check_yes"
+                android:text="@string/_1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="bottom"
+                android:paddingTop="20dp"
+                android:text="@string/paid_orders"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/unPaied"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/hiText"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/unpaid"
+                android:src="@drawable/checked_no"
+                android:text="@string/_1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="bottom"
+                android:paddingTop="20dp"
+                android:text="@string/unpaid_orders"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/paidNumbers"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/update"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@id/layoutOfMyOrders"
+        app:layout_constraintEnd_toEndOf="@id/layoutOfMyOrders"
+        app:layout_constraintHorizontal_bias=".21"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/myOrders" />
+
+    <TextView
+        android:id="@+id/unPaidNumbers"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/update"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@id/layoutOfMyOrders"
+        app:layout_constraintEnd_toEndOf="@id/layoutOfMyOrders"
+        app:layout_constraintHorizontal_bias=".8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/myOrders" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/empty_state_group1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="emptyAnimationView,empty_text" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/wishRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        android:paddingTop="10dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/wishList"
+        tools:listitem="@layout/wishlist_report" />
+
+    <TextView
+        android:id="@+id/empty_text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="5dp"
+        android:padding="5dp"
+        android:text="Add your favorites to your wishlist now !"
+        android:textColor="#FF757777"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/empty_text" />
+
+    <TextView
+        android:id="@+id/wishList"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:padding="5dp"
+        android:text="@string/wish_list"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutOfMyOrders" />
+
+    <ImageView
+        android:id="@+id/seeAllArrow"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:contentDescription="@string/see_more"
+        android:padding="5dp"
+        android:src="@drawable/see_more"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutOfMyOrders" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/empty_state_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="goHome_btn,empty_text1" />
+
+    <TextView
+        android:id="@+id/empty_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="5dp"
+        android:text="you don't have wishlist"
+        android:textColor="#FF757777"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/emptyAnimationView" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/goHome_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/border"
+        android:backgroundTint="@null"
+        android:padding="5dp"
+        android:text="  Go Shopping "
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="normal"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/empty_text1" />
+
+    <TextView
+        android:id="@+id/tv_logged"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/please_log_in"
+        android:textColor="#FF757777"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/empty_text" />
+
+    <ImageButton
+        android:id="@+id/emptyAnimationView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:background="@drawable/favorite"
+        android:backgroundTint="#FF757777"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/wishList"
+        app:layout_constraintVertical_bias="0.4" />
+
+    <TextView
+        android:id="@+id/seeAllText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="5dp"
+        android:text="@string/see_more"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/seeAllArrow"
+        app:layout_constraintEnd_toStartOf="@id/seeAllArrow"
+        app:layout_constraintTop_toTopOf="@id/seeAllArrow" />
 </androidx.constraintlayout.widget.ConstraintLayout>
