@@ -10,13 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.OnlineShop">
         <activity
-            android:name=".ui.entry.WeclomeActivity"
+            android:name=".ui.entry.WelcomeActivity"
             android:exported="false" />
-        <activity
-            android:name=".ui.entry.Splashivity"
-            android:exported="false" />
+
         <activity
             android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.entry.SplashActivity"
             android:exported="true"
             android:label="@string/app_name">
             <intent-filter>

@@ -3,8 +3,7 @@
     <string name="title_shop">Shop</string>
     <string name="title_category">Category</string>
     <string name="title_me">Me</string>
-<<<<<<< Updated upstream
-=======
+
 
 
     <string name="shop_online">Shop Online</string>
@@ -89,5 +88,8 @@
     <string name="todo">todo</string>
     <string name="it_is_empty_here">empyt</string>
 
->>>>>>> Stashed changes
+
+
+    <string name="itemtitle">itemtitle</string>
+
 </resources>
