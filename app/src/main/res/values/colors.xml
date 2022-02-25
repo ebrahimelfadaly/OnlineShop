@@ -8,6 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+
     <color name="gray">#373737</color>
     <color name="blue">#030693</color>
     <color name="green">#409313</color>
@@ -24,4 +25,13 @@
     <color name="redLight">#F40606</color>
     <color name="background">#E8E2DC</color>
     <color name="darkRed">#EEFF0000</color>
+
+
+    <color name="fui_transparent">#00000000</color>
+
+    
 </resources>
+
+
+</resources>
+
