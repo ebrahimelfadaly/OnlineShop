@@ -8,19 +8,32 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
         android:theme="@style/Theme.OnlineShop">
+        <activity
+            android:name=".ui.Payment.StripeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.Payment.PayTapsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.Payment.CheckoutActivity"
+            android:exported="false"
+            android:label="@string/title_activity_checkout"
+            android:theme="@style/Theme.OnlineShop.NoActionBar" />
+        <activity
+            android:name=".ui.Payment.PayPalActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.entry.WelcomeActivity"
             android:exported="false" />
-
-
         <activity
             android:name=".ui.entry.SplashActivity"
             android:exported="false"
-            android:label="@string/app_name"/>
-            <activity
-                android:name=".MainActivity"
-                android:exported="true" >
+            android:label="@string/app_name" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
