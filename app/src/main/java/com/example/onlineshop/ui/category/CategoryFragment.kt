@@ -31,7 +31,7 @@ class CategoryFragment : Fragment() {
         _binding = FragmentCategoryBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-       
+
         return root
     }
 
