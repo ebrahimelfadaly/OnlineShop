@@ -5,8 +5,6 @@
     <string name="title_me">Me</string>
 
 
-
-
     <string name="shop_online">Shop Online</string>
     <string name="no_internet_connection">No Internet Connection</string>
 
@@ -86,5 +84,36 @@
     <string name="_8_characters_minimum">8 characters minimum</string>
     <string name="at_least_one_letter">at least one letter</string>
     <string name="at_least_one_number">at least one number</string>
+
+    <string name="todo">todo</string>
+    <string name="it_is_empty_here">empyt</string>
+
+
+    <string name="itemtitle">itemtitle</string>
+    <string name="title_activity_checkout">CheckoutActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <string name="waiting_for_payment">waitForPayment</string>
+    <string name="payment_type">PaymentType</string>
+    <string name="total">total</string>
+    <string name="_170">170</string>
+    <string name="egp">egp</string>
+    <string name="cancel">cancel</string>
+    <string name="pay_now">paynow</string>
+    <string name="see_details">seedetails</string>
+    <string name="see_all">seeall</string>
+    <string name="image">image</string>
+    <string name="_5_black">5black</string>
+    <string name="title">title</string>
+    <string name="color">color</string>
+
+
 
 </resources>
