@@ -103,11 +103,7 @@ dependencies {
     implementation 'com.facebook.shimmer:shimmer:0.5.0@aar'
 
 
-    //paypal
-    implementation 'com.paypal.sdk:paypal-android-sdk:2.16.0'
 
-    //payTabs
-    implementation 'com.paytabs:payment-sdk:6.0.5'
 
     //stripe
     implementation 'com.stripe:stripe-android:15.1.0'
