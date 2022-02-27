@@ -100,5 +100,20 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
+    <string name="waiting_for_payment">waitForPayment</string>
+    <string name="payment_type">PaymentType</string>
+    <string name="total">total</string>
+    <string name="_170">170</string>
+    <string name="egp">egp</string>
+    <string name="cancel">cancel</string>
+    <string name="pay_now">paynow</string>
+    <string name="see_details">seedetails</string>
+    <string name="see_all">seeall</string>
+    <string name="image">image</string>
+    <string name="_5_black">5black</string>
+    <string name="title">title</string>
+    <string name="color">color</string>
+
+
 
 </resources>
