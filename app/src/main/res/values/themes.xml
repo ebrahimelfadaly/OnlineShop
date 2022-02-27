@@ -19,4 +19,10 @@
         <item name="android:textColor">@color/black</item>
         <item name="android:colorControlNormal">@color/black</item>
     </style>
+    <style name="Theme.OnlineShop.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.OnlineShop.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.OnlineShop.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
