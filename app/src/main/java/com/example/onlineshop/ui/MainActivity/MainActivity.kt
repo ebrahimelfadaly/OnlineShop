@@ -1,12 +1,11 @@
-package com.example.onlineshop
+package com.example.onlineshop.ui.MainActivity
 
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.onlineshop.R
 import com.example.onlineshop.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
