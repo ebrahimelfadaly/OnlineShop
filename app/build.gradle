@@ -54,6 +54,7 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
+
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib:1.6.10"
 
@@ -103,11 +104,7 @@ dependencies {
     implementation 'com.facebook.shimmer:shimmer:0.5.0@aar'
 
 
-    //paypal
-    implementation 'com.paypal.sdk:paypal-android-sdk:2.16.0'
 
-    //payTabs
-   // implementation 'com.paytabs:payment-sdk:6.0.5'
 
     //stripe
     implementation 'com.stripe:stripe-android:15.1.0'
