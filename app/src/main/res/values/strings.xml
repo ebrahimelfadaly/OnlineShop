@@ -107,7 +107,18 @@
     <string name="_5_black">5black</string>
     <string name="title">title</string>
     <string name="color">color</string>
-
+    <string name="your_bag_is_empty">emptybag</string>
+    <string name="log_in_to_see_shopping_cart">log in to see cart</string>
+    <string name="checkout">checkout</string>
+    <string name="add_to_bag">add to bag</string>
+    <string name="add_to_wish_list">add to wish list</string>
+    <string name="description">descrption</string>
+    <string name="vendor">vendor</string>
+    <string name="status">status</string>
+    <string name="size">size</string>
+    <string name="set_as_default_address">Set As Default Address</string>
+    <string name="_1_5">-1-5</string>
+    <string name="image_slider">image slider</string>
 
 
 </resources>
