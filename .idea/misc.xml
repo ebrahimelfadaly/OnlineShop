@@ -58,9 +58,11 @@
         <entry key="..\:/AndroidProjectKotlin/OnlineShop/app/src/main/res/menu/me_menu.xml" value="0.25" />
         <entry key="..\:/AndroidProjectKotlin/OnlineShop/app/src/main/res/xml/root_preferences.xml" value="0.33" />
 
+
         <entry key="..\:/OnlineShop/app/src/main/res/menu/bottom_nav_menu.xml" value="0.18489583333333334" />
 
   
+
 
 
         <entry key="..\:/OnlineShop/app/src/main/res/drawable-v24/ic_search.xml" value="0.1" />
@@ -72,6 +74,7 @@
         <entry key="..\:/OnlineShop/app/src/main/res/layout/activity_splash.xml" value="0.1" />
         <entry key="..\:/OnlineShop/app/src/main/res/layout/activity_welcome.xml" value="0.18489583333333334" />
         <entry key="..\:/OnlineShop/app/src/main/res/layout/cart_toolbar_view.xml" value="0.25" />
+        <entry key="..\:/OnlineShop/app/src/main/res/layout/fragment_add_address.xml" value="0.11851851851851852" />
         <entry key="..\:/OnlineShop/app/src/main/res/layout/fragment_category.xml" value="0.16574074074074074" />
         <entry key="..\:/OnlineShop/app/src/main/res/layout/fragment_kids_product.xml" value="0.25" />
         <entry key="..\:/OnlineShop/app/src/main/res/layout/fragment_me.xml" value="0.25" />
@@ -80,11 +83,14 @@
         <entry key="..\:/OnlineShop/app/src/main/res/layout/fragment_register.xml" value="0.17083333333333334" />
         <entry key="..\:/OnlineShop/app/src/main/res/layout/fragment_shop_tap.xml" value="0.18489583333333334" />
         <entry key="..\:/OnlineShop/app/src/main/res/layout/fragment_woman_product.xml" value="0.2" />
+        <entry key="..\:/OnlineShop/app/src/main/res/layout/item_order_confirm.xml" value="0.18489583333333334" />
+        <entry key="..\:/OnlineShop/app/src/main/res/layout/item_order_display.xml" value="0.33" />
         <entry key="..\:/OnlineShop/app/src/main/res/layout/list_toolbar_view.xml" value="0.25" />
+        <entry key="..\:/OnlineShop/app/src/main/res/layout/one_order_details.xml" value="0.33" />
         <entry key="..\:/OnlineShop/app/src/main/res/layout/shimmer_layout.xml" value="0.18489583333333334" />
         <entry key="..\:/OnlineShop/app/src/main/res/layout/shop_item.xml" value="0.18489583333333334" />
+        <entry key="..\:/OnlineShop/app/src/main/res/layout/wishlist_report.xml" value="0.18489583333333334" />
         <entry key="..\:/OnlineShop/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25" />
-
         <entry key="..\:/Users/Dell/Documents/GitHub/OnlineShop/app/src/main/res/drawable/btn_border.xml" value="0.1814814814814815" />
         <entry key="..\:/Users/Dell/Documents/GitHub/OnlineShop/app/src/main/res/drawable/button_bg.xml" value="0.1814814814814815" />
         <entry key="..\:/Users/Dell/Documents/GitHub/OnlineShop/app/src/main/res/drawable/ic_double_arrow_24.xml" value="0.1814814814814815" />
@@ -117,7 +123,6 @@
         <entry key="..\:/Users/Dell/Documents/GitHub/OnlineShop/app/src/main/res/layout/shop_item.xml" value="0.1" />
         <entry key="..\:/Users/Dell/Documents/GitHub/OnlineShop/app/src/main/res/layout/subcategory_title.xml" value="0.10144927536231885" />
         <entry key="..\:/Users/Dell/Documents/GitHub/OnlineShop/app/src/main/res/xml/activity_splash.xml" value="0.10144927536231885" />
-
 
       </map>
     </option>
