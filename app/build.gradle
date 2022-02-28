@@ -107,7 +107,7 @@ dependencies {
     implementation 'com.paypal.sdk:paypal-android-sdk:2.16.0'
 
     //payTabs
-    implementation 'com.paytabs:payment-sdk:6.0.5'
+   // implementation 'com.paytabs:payment-sdk:6.0.5'
 
     //stripe
     implementation 'com.stripe:stripe-android:15.1.0'
