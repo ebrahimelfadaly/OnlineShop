@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -10,8 +9,7 @@
     android:background="@color/white"
     android:elevation="10dp"
     android:paddingStart="16dp"
-    android:paddingEnd="16dp"
-    >
+    android:paddingEnd="16dp">
 
     <TextView
         android:id="@+id/fullName_txt"
@@ -22,7 +20,7 @@
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Ola Abaza" />
+        tools:text="@string/ebrahim" />
 
     <TextView
         android:id="@+id/country_txt"
@@ -55,8 +53,7 @@
         android:adjustViewBounds="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/fullName_txt"
-        app:layout_constraintTop_toBottomOf="@+id/fullName_txt"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/fullName_txt" />
 
     <View
         android:id="@+id/line1"

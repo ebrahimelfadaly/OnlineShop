@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -21,8 +20,7 @@
         android:paddingRight="20dp"
         android:paddingLeft="20dp"
         android:layout_marginRight="30dp"
-        android:layout_marginTop="20dp"
-        />
+        android:layout_marginTop="20dp" />
     <TextView
         android:id="@+id/underLine"
         android:layout_width="60dp"
@@ -30,7 +28,6 @@
         app:layout_constraintStart_toStartOf="@id/subCategoryTitle"
         app:layout_constraintEnd_toEndOf="@id/subCategoryTitle"
         app:layout_constraintTop_toBottomOf="@id/subCategoryTitle"
-        android:background="@color/white"
-        />
+        android:background="@color/white" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
