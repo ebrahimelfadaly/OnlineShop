@@ -1,0 +1,358 @@
+Index: app/src/main/java/com/example/onlineshop/ui/ShopTap/ShopTapFragment.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.onlineshop.ui.ShopTap\r\n\r\nimport android.os.Bundle\r\nimport android.view.LayoutInflater\r\nimport android.view.View\r\nimport android.view.ViewGroup\r\nimport android.widget.TextView\r\nimport androidx.fragment.app.Fragment\r\nimport androidx.lifecycle.Observer\r\nimport androidx.lifecycle.ViewModelProvider\r\nimport com.example.onlineshop.databinding.FragmentShopTapBinding\r\n\r\n\r\nclass ShopTapFragment : Fragment() {\r\n\r\n    private lateinit var shopViewModel: ShopViewModel\r\n    private var _binding: FragmentShopTapBinding? = null\r\n\r\n    // This property is only valid between onCreateView and\r\n    // onDestroyView.\r\n    private val binding get() = _binding!!\r\n\r\n    override fun onCreateView(\r\n        inflater: LayoutInflater,\r\n        container: ViewGroup?,\r\n        savedInstanceState: Bundle?\r\n    ): View? {\r\n        shopViewModel =\r\n            ViewModelProvider(this).get(ShopViewModel::class.java)\r\n\r\n        _binding = FragmentShopTapBinding.inflate(inflater, container, false)\r\n        val root: View = binding.root\r\n\r\n        val textView: TextView = binding.textHome\r\n        shopViewModel.text.observe(viewLifecycleOwner, Observer {\r\n            textView.text = it\r\n        })\r\n        return root\r\n    }\r\n\r\n    override fun onDestroyView() {\r\n        super.onDestroyView()\r\n        _binding = null\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/onlineshop/ui/ShopTap/ShopTapFragment.kt b/app/src/main/java/com/example/onlineshop/ui/ShopTap/ShopTapFragment.kt
+--- a/app/src/main/java/com/example/onlineshop/ui/ShopTap/ShopTapFragment.kt	(revision 92c12ed0ede4ef48c9d5c6956a0e3455d73984c0)
++++ b/app/src/main/java/com/example/onlineshop/ui/ShopTap/ShopTapFragment.kt	(date 1645722003947)
+@@ -1,45 +1,87 @@
+ package com.example.onlineshop.ui.ShopTap
+ 
++import android.graphics.Color
++import android.graphics.drawable.ColorDrawable
+ import android.os.Bundle
+ import android.view.LayoutInflater
+ import android.view.View
+ import android.view.ViewGroup
++import androidx.appcompat.widget.SearchView;
+ import android.widget.TextView
+ import androidx.fragment.app.Fragment
+ import androidx.lifecycle.Observer
+ import androidx.lifecycle.ViewModelProvider
++import com.example.onlineshop.R
+ import com.example.onlineshop.databinding.FragmentShopTapBinding
++import com.example.onlineshop.ui.ShopTap.shopTapcategory.KidsProductFragment
++import com.example.onlineshop.ui.ShopTap.shopTapcategory.MenProductFragment
++import com.example.onlineshop.ui.ShopTap.shopTapcategory.OneSaleProductFragment
++import com.example.onlineshop.ui.ShopTap.shopTapcategory.WomanProductFragment
++import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItemAdapter
++import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItems
++import kotlinx.android.synthetic.main.activity_main.*
++import kotlinx.android.synthetic.main.cart_toolbar_view.view.*
++import kotlinx.android.synthetic.main.fragment_shop_tap.*
++import kotlinx.android.synthetic.main.list_toolbar_view.view.*
+ 
+ 
+ class ShopTapFragment : Fragment() {
+ 
+-    private lateinit var shopViewModel: ShopViewModel
+-    private var _binding: FragmentShopTapBinding? = null
+ 
+-    // This property is only valid between onCreateView and
+-    // onDestroyView.
+-    private val binding get() = _binding!!
+ 
+     override fun onCreateView(
+         inflater: LayoutInflater,
+         container: ViewGroup?,
+         savedInstanceState: Bundle?
+     ): View? {
+-        shopViewModel =
+-            ViewModelProvider(this).get(ShopViewModel::class.java)
+-
+-        _binding = FragmentShopTapBinding.inflate(inflater, container, false)
+-        val root: View = binding.root
+-
+-        val textView: TextView = binding.textHome
+-        shopViewModel.text.observe(viewLifecycleOwner, Observer {
+-            textView.text = it
+-        })
+-        return root
++        val view =inflater.inflate(R.layout.fragment_shop_tap, container, false)
++        return view
+     }
+ 
+     override fun onDestroyView() {
+         super.onDestroyView()
+-        _binding = null
++
++    }
++
++    override fun onActivityCreated(savedInstanceState: Bundle?) {
++        super.onActivityCreated(savedInstanceState)
++        requireActivity().toolbar_title.text = "Shop"
++        setUpTabBar()
++        changeToolbar()
++
++    }
++
++    private fun changeToolbar() {
++        requireActivity().findViewById<SearchView>(R.id.mainSearchView).visibility=View.GONE
++        requireActivity().findViewById<View>(R.id.nav_view).visibility = View.VISIBLE
++        requireActivity().toolbar.visibility = View.VISIBLE
++        requireActivity().findViewById<View>(R.id.favourite).favouriteButton.setColorFilter(getResources().getColor(R.color.black))
++        requireActivity().findViewById<View>(R.id.cartView).cartButton.setColorFilter(getResources().getColor(R.color.black))
++        requireActivity().settingIcon.setColorFilter(getResources().getColor(R.color.black))
++        requireActivity().findViewById<View>(R.id.searchIcon).visibility = View.VISIBLE
++        requireActivity().findViewById<View>(R.id.settingIcon).visibility = View.INVISIBLE
++        requireActivity().findViewById<View>(R.id.favourite).visibility = View.VISIBLE
++        requireActivity().findViewById<View>(R.id.cartView).visibility = View.VISIBLE
++        requireActivity().toolbar_title.setTextColor(Color.BLACK)
++
++        requireActivity().toolbar.setBackgroundDrawable(ColorDrawable(Color.WHITE))
++        requireActivity().toolbar.setNavigationIcon(null)
++    }
++    private fun setUpTabBar() {
++        val adapter = FragmentPagerItemAdapter(
++            childFragmentManager,
++            FragmentPagerItems.with(activity)
++                .add("Woman", WomanProductFragment::class.java)
++                .add("Kids", KidsProductFragment::class.java)
++                .add("Men", MenProductFragment::class.java)
++                .add("On Sale", OneSaleProductFragment::class.java)
++
++                .create()
++        )
++
++        viewpager.adapter = adapter
++        viewpagertab.setViewPager(viewpager)
++
++
+     }
+ }
+\ No newline at end of file
+Index: app/build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>plugins {\r\n    id 'com.android.application'\r\n    id 'kotlin-android'\r\n}\r\n\r\nandroid {\r\n    compileSdk 32\r\n\r\n    defaultConfig {\r\n        applicationId \"com.example.onlineshop\"\r\n        minSdk 27\r\n        targetSdk 32\r\n        versionCode 1\r\n        versionName \"1.0\"\r\n\r\n        testInstrumentationRunner \"androidx.test.runner.AndroidJUnitRunner\"\r\n    }\r\n\r\n    buildTypes {\r\n        release {\r\n            minifyEnabled false\r\n            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'\r\n        }\r\n    }\r\n    compileOptions {\r\n        sourceCompatibility JavaVersion.VERSION_1_8\r\n        targetCompatibility JavaVersion.VERSION_1_8\r\n    }\r\n    kotlinOptions {\r\n        jvmTarget = '1.8'\r\n    }\r\n    buildFeatures {\r\n        viewBinding true\r\n    }\r\n}\r\n\r\ndependencies {\r\n\r\n    implementation 'androidx.core:core-ktx:1.7.0'\r\n    implementation 'androidx.appcompat:appcompat:1.4.1'\r\n    implementation 'com.google.android.material:material:1.5.0'\r\n    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'\r\n    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'\r\n    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'\r\n    implementation 'androidx.navigation:navigation-fragment-ktx:2.4.1'\r\n    implementation 'androidx.navigation:navigation-ui-ktx:2.4.1'\r\n    testImplementation 'junit:junit:4.+'\r\n    androidTestImplementation 'androidx.test.ext:junit:1.1.3'\r\n    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/build.gradle b/app/build.gradle
+--- a/app/build.gradle	(revision 92c12ed0ede4ef48c9d5c6956a0e3455d73984c0)
++++ b/app/build.gradle	(date 1645721722025)
+@@ -1,8 +1,11 @@
+ plugins {
+     id 'com.android.application'
+     id 'kotlin-android'
+-}
++    id 'kotlin-kapt'
+ 
++    id 'kotlin-android-extensions'
++}
++apply plugin: 'kotlin-kapt'
+ android {
+     compileSdk 32
+ 
+@@ -35,8 +38,9 @@
+ }
+ 
+ dependencies {
+-
+     implementation 'androidx.core:core-ktx:1.7.0'
++    implementation 'androidx.appcompat:appcompat:1.4.1'
++    implementation 'com.google.android.material:material:1.6.0-alpha02'
+     implementation 'androidx.appcompat:appcompat:1.4.1'
+     implementation 'com.google.android.material:material:1.5.0'
+     implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+@@ -44,7 +48,57 @@
+     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
+     implementation 'androidx.navigation:navigation-fragment-ktx:2.4.1'
+     implementation 'androidx.navigation:navigation-ui-ktx:2.4.1'
+-    testImplementation 'junit:junit:4.+'
++    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
++    implementation 'androidx.annotation:annotation:1.3.0'
++    testImplementation 'junit:junit:'
+     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
++    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
++    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.6.10"
++
++    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
++    //navigation arch component
++    implementation "androidx.navigation:navigation-fragment-ktx:2.4.1"
++    implementation "androidx.navigation:navigation-ui-ktx:2.4.1"
++
++    //retrofit
++    implementation "com.squareup.retrofit2:retrofit:2.9.0"
++    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
++    implementation 'com.squareup.retrofit2:converter-scalars:2.9.0'
++
++
++    // ViewModel
++    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1"
++
++    // LiveData
++    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.1"
++
++    //coroutines
++    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0-native-mt'
++
++    //GSON
++    implementation 'com.google.code.gson:gson:2.9.0'
++
++
++
++
++    //smart tab
++    implementation 'com.ogaclejapan.smarttablayout:library:2.0.0@aar'
++    implementation 'com.ogaclejapan.smarttablayout:utils-v4:2.0.0@aar'
++
++    implementation 'androidx.preference:preference-ktx:1.2.0'
++
++
++    //material spinner
++    implementation 'com.jaredrummler:material-spinner:1.3.1'
++    implementation 'com.google.android.material:material:1.5.0'
++
++    implementation 'me.spark:submitbutton:1.0.1'
++
++    //shimmer
++    implementation "androidx.recyclerview:recyclerview:1.2.1"
++    implementation 'com.amitshekhar.android:android-networking:1.0.2'
++    implementation 'com.github.bumptech.glide:glide:4.13.1'
++    implementation 'com.facebook.shimmer:shimmer:0.5.0@aar'
++
+ }
+\ No newline at end of file
+Index: app/src/main/res/values/themes.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><resources xmlns:tools=\"http://schemas.android.com/tools\">\r\n    <!-- Base application theme. -->\r\n    <style name=\"Theme.OnlineShop\" parent=\"Theme.MaterialComponents.DayNight.DarkActionBar\">\r\n        <!-- Primary brand color. -->\r\n        <item name=\"colorPrimary\">@color/purple_500</item>\r\n        <item name=\"colorPrimaryVariant\">@color/purple_700</item>\r\n        <item name=\"colorOnPrimary\">@color/white</item>\r\n        <!-- Secondary brand color. -->\r\n        <item name=\"colorSecondary\">@color/teal_200</item>\r\n        <item name=\"colorSecondaryVariant\">@color/teal_700</item>\r\n        <item name=\"colorOnSecondary\">@color/black</item>\r\n        <!-- Status bar color. -->\r\n        <item name=\"android:statusBarColor\" tools:targetApi=\"l\">?attr/colorPrimaryVariant</item>\r\n        <!-- Customize your theme here. -->\r\n    </style>\r\n</resources>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/values/themes.xml b/app/src/main/res/values/themes.xml
+--- a/app/src/main/res/values/themes.xml	(revision 92c12ed0ede4ef48c9d5c6956a0e3455d73984c0)
++++ b/app/src/main/res/values/themes.xml	(date 1645722142679)
+@@ -1,6 +1,6 @@
+ <resources xmlns:tools="http://schemas.android.com/tools">
+     <!-- Base application theme. -->
+-    <style name="Theme.OnlineShop" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
++    <style name="Theme.OnlineShop" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+         <!-- Primary brand color. -->
+         <item name="colorPrimary">@color/purple_500</item>
+         <item name="colorPrimaryVariant">@color/purple_700</item>
+@@ -13,4 +13,10 @@
+         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+         <!-- Customize your theme here. -->
+     </style>
++    <style name="CustomToolbarStyle">
++        <item name="android:textColorPrimary">@color/black</item>
++        <item name="android:textColorSecondary">@color/black</item>
++        <item name="android:textColor">@color/black</item>
++        <item name="android:colorControlNormal">@color/black</item>
++    </style>
+ </resources>
+\ No newline at end of file
+Index: app/src/main/res/values/strings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><resources>\r\n    <string name=\"app_name\">OnlineShop</string>\r\n    <string name=\"title_shop\">Shop</string>\r\n    <string name=\"title_category\">Category</string>\r\n    <string name=\"title_me\">Me</string>\r\n</resources>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/values/strings.xml b/app/src/main/res/values/strings.xml
+--- a/app/src/main/res/values/strings.xml	(revision 92c12ed0ede4ef48c9d5c6956a0e3455d73984c0)
++++ b/app/src/main/res/values/strings.xml	(date 1645721637068)
+@@ -3,4 +3,88 @@
+     <string name="title_shop">Shop</string>
+     <string name="title_category">Category</string>
+     <string name="title_me">Me</string>
++
++
++
++
++    <string name="shop_online">Shop Online</string>
++    <string name="no_internet_connection">No Internet Connection</string>
++
++
++    <string name="please_connect_to_a_network">Please connect to a network</string>
++    <string name="shopOnlie">- #SHOP ONLIE SALE -</string>
++
++    <string name="shopping_bag">Shopping bag</string>
++    <string name="settings">Settings</string>
++    <string name="log_out">Log out</string>
++    <string name="orders">Orders</string>
++    <string name="login_register">loginAndregister</string>
++    <string name="paid_orders">Paid Orders</string>
++    <string name="unpaid" />
++    <string name="unpaid_orders">Unpaid Orders</string>
++    <string name="wish_list">WishList</string>
++    <string name="see_more">see more</string>
++    <string name="_1">1</string>
++    <string name="please_log_in">log in to look your wishList</string>
++    <!-- Preference Titles -->
++    <string name="messages_header">Messages</string>
++    <string name="sync_header">Sync</string>
++
++    <!-- Messages Preferences -->
++    <string name="signature_title">Your signature</string>
++    <string name="reply_title">Default reply action</string>
++
++    <!-- Sync Preferences -->
++    <string name="sync_title">Sync email periodically</string>
++    <string name="attachment_title">Download incoming attachments</string>
++    <string name="attachment_summary_on">Automatically download attachments for incoming emails
++    </string>
++    <string name="attachment_summary_off">Only download attachments when manually requested</string>
++
++    <string name="hello_blank_fragment">Hello blank fragment</string>
++    <string name="address">Address</string>
++    <string name="currency">Currency</string>
++    <string name="about_us">About us</string>
++    <string name="contact_us">Contact us</string>
++    <string name="about_us_tv">This App is our graduation project in ITI Masoura ,\n\n
++        enjoy with it. :) \n\n
++
++
++    </string>
++    <string name="team">Team</string>
++    <string name="team_tv"> team of the product :\n
++                                  Enas Alosta\n
++                                  Ebrahim Alfadaly\n
++                                  Rania \n
++                                  Norhan \n
++    </string>
++    <string name="enas">enasalosta9@gmail.com</string>
++    <string name="ebrahim">elfadalyebrahim@gmail.com</string>
++    <string name="rania">ran.glalah@gmail.com</string>
++    <string name="nourhan">noursayed535@gmail.com</string>
++    <string name="full_name">*Full Name</string>
++    <string name="phone_number">*Phone Number</string>
++    <string name="city">*City</string>
++    <string name="country">*Country</string>
++    <string name="set_as_default">Set as default</string>
++    <string name="add_new_address">Add New Address</string>
++    <!-- Strings related to login -->
++    <string name="prompt_email">Email</string>
++    <string name="prompt_password">Password</string>
++    <string name="action_sign_in">Sign in or register</string>
++    <string name="action_sign_in_short">Sign in</string>
++    <string name="welcome">"Welcome!"</string>
++    <string name="invalid_username">Not a valid username</string>
++    <string name="invalid_password">Password must be >5 characters</string>
++    <string name="login_failed">"Login failed"</string>
++    <string name="App_name">Online Shop</string>
++    <string name="log_in">Log In</string>
++    <string name="register">Register</string>
++    <string name="email">Email</string>
++    <string name="password">Password</string>
++    <string name="or_join_with">or join with</string>
++    <string name="_8_characters_minimum">8 characters minimum</string>
++    <string name="at_least_one_letter">at least one letter</string>
++    <string name="at_least_one_number">at least one number</string>
++
+ </resources>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"DesignSurface\">\r\n    <option name=\"filePathToZoomLevelMap\">\r\n      <map>\r\n        <entry key=\"..\\:/OnlineShop/app/src/main/res/menu/bottom_nav_menu.xml\" value=\"0.18489583333333334\" />\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_11\" default=\"true\" project-jdk-name=\"Android Studio default JDK\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/build/classes\" />\r\n  </component>\r\n  <component name=\"ProjectType\">\r\n    <option name=\"id\" value=\"Android\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 92c12ed0ede4ef48c9d5c6956a0e3455d73984c0)
++++ b/.idea/misc.xml	(date 1645721807845)
+@@ -3,6 +3,7 @@
+   <component name="DesignSurface">
+     <option name="filePathToZoomLevelMap">
+       <map>
++        <entry key="..\:/OnlineShop/app/src/main/res/layout/list_toolbar_view.xml" value="0.18055555555555555" />
+         <entry key="..\:/OnlineShop/app/src/main/res/menu/bottom_nav_menu.xml" value="0.18489583333333334" />
+       </map>
+     </option>
