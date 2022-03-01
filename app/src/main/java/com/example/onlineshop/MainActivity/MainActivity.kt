@@ -1,14 +1,17 @@
-package com.example.onlineshop.ui.MainActivity
+package com.example.onlineshop.MainActivity
 
+import android.content.IntentFilter
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.onlineshop.Network.NetworkChange
 import com.example.onlineshop.R
 import com.example.onlineshop.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+      lateinit var networkChange: NetworkChange
 
     private lateinit var binding: ActivityMainBinding
 
@@ -23,9 +26,12 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
-        var x=5
+
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
+//        networkChange= NetworkChange(this)
+//        this.registerReceiver(networkChange, IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"))
+
         navView.setupWithNavController(navController)
     }
 }
