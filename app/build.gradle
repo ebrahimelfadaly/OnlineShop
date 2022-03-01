@@ -2,10 +2,11 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
-
+    id 'androidx.navigation.safeargs.kotlin'
     id 'kotlin-android-extensions'
 }
 apply plugin: 'kotlin-kapt'
+
 android {
     compileSdk 32
 
@@ -75,8 +76,12 @@ dependencies {
     // LiveData
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.1"
 
+    implementation "androidx.lifecycle:lifecycle-extensions:2.3.0"
+
+
     //coroutines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0-native-mt'
+
 
     //GSON
     implementation 'com.google.code.gson:gson:2.9.0'
