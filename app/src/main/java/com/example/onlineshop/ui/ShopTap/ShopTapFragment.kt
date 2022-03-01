@@ -28,7 +28,6 @@ import kotlinx.android.synthetic.main.list_toolbar_view.view.*
 class ShopTapFragment : Fragment() {
 
 
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
