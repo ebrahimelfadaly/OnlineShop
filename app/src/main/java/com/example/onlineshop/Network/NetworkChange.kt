@@ -23,7 +23,7 @@ class NetworkChange(context: Context): BroadcastReceiver() {
 
     }
 
-    @Suppress("CAST_NEVER_SUCCEEDS")
+    @SuppressLint("LogNotTimber", "ResourceAsColor")
     override fun onReceive(p0: Context?, p1: Intent?) {
         val status = getConnectivityStatusString(p0!!)
         if ("android.net.conn.CONNECTIVITY_CHANGE" == p1?.action) {
