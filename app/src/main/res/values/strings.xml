@@ -105,7 +105,7 @@
     <string name="total">total</string>
     <string name="_170">170</string>
     <string name="egp">egp</string>
-    <string name="cancel">cancel</string>
+    <string name="cancel">Cancel</string>
     <string name="pay_now">paynow</string>
     <string name="see_details">seedetails</string>
     <string name="see_all">seeall</string>
@@ -125,6 +125,25 @@
     <string name="set_as_default_address">Set As Default Address</string>
     <string name="_1_5">–1-5</string>
     <string name="image_slider">image slider</string>
+
+
+    //ebrahim
+    <string-array name="sortArr">
+        <item>SORT</item>
+        <item>price: Low to High</item>
+        <item>price: High to Low</item>
+        <item>Alphabetically</item>
+        <item>none</item>
+    </string-array>
+    <string-array name="filterArr">
+        <item>FILTER</item>
+        <item>shoes</item>
+        <item>t-shirts</item>
+        <item>accessories</item>
+        <item>none</item>
+    </string-array>
+
+    <string name="no_results_found">No results found</string>
 
 
 </resources>
