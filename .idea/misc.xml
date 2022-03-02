@@ -84,7 +84,30 @@
         <entry key="..\:/OnlineShop/app/src/main/res/layout/shimmer_layout.xml" value="0.18489583333333334" />
         <entry key="..\:/OnlineShop/app/src/main/res/layout/shop_item.xml" value="0.18489583333333334" />
         <entry key="..\:/OnlineShop/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25" />
+<<<<<<< Updated upstream
 
+=======
+        <entry key="..\:/Users/Dell/Documents/GitHub/OnlineShop/OnlineShop/app/src/main/res/drawable/ic__favorite_border_24.xml" value="0.19166666666666668" />
+        <entry key="..\:/Users/Dell/Documents/GitHub/OnlineShop/OnlineShop/app/src/main/res/drawable/ic_add.xml" value="0.19166666666666668" />
+        <entry key="..\:/Users/Dell/Documents/GitHub/OnlineShop/OnlineShop/app/src/main/res/drawable/ic_bag.xml" value="0.19166666666666668" />
+        <entry key="..\:/Users/Dell/Documents/GitHub/OnlineShop/OnlineShop/app/src/main/res/drawable/ic_baseline_arrow_forward_ios_24.xml" value="0.19166666666666668" />
+        <entry key="..\:/Users/Dell/Documents/GitHub/OnlineShop/OnlineShop/app/src/main/res/drawable/ic_baseline_keyboard_arrow_down_24.xml" value="0.19166666666666668" />
+        <entry key="..\:/Users/Dell/Documents/GitHub/OnlineShop/OnlineShop/app/src/main/res/drawable/ic_min.xml" value="0.19166666666666668" />
+        <entry key="..\:/Users/Dell/Documents/GitHub/OnlineShop/OnlineShop/app/src/main/res/drawable/ic_trash1.xml" value="0.19166666666666668" />
+        <entry key="..\:/Users/Dell/Documents/GitHub/OnlineShop/OnlineShop/app/src/main/res/layout/cart_toolbar_view.xml" value="0.14402173913043478" />
+        <entry key="..\:/Users/Dell/Documents/GitHub/OnlineShop/OnlineShop/app/src/main/res/layout/fragment_about.xml" value="0.14402173913043478" />
+        <entry key="..\:/Users/Dell/Documents/GitHub/OnlineShop/OnlineShop/app/src/main/res/layout/fragment_cart.xml" value="0.14402173913043478" />
+        <entry key="..\:/Users/Dell/Documents/GitHub/OnlineShop/OnlineShop/app/src/main/res/layout/fragment_product_details.xml" value="0.14402173913043478" />
+        <entry key="..\:/Users/Dell/Documents/GitHub/OnlineShop/OnlineShop/app/src/main/res/layout/fragment_shop_tap.xml" value="0.14402173913043478" />
+        <entry key="..\:/Users/Dell/Documents/GitHub/OnlineShop/OnlineShop/app/src/main/res/layout/image_slider.xml" value="0.14402173913043478" />
+        <entry key="..\:/Users/Dell/Documents/GitHub/OnlineShop/OnlineShop/app/src/main/res/layout/item_adress.xml" value="0.14402173913043478" />
+        <entry key="..\:/Users/Dell/Documents/GitHub/OnlineShop/OnlineShop/app/src/main/res/layout/item_cart.xml" value="0.14402173913043478" />
+        <entry key="..\:/Users/Dell/Documents/GitHub/OnlineShop/OnlineShop/app/src/main/res/layout/item_order_display.xml" value="0.13360507246376813" />
+        <entry key="..\:/Users/Dell/Documents/GitHub/OnlineShop/OnlineShop/app/src/main/res/layout/list_toolbar_view.xml" value="0.1" />
+        <entry key="..\:/Users/Dell/Documents/GitHub/OnlineShop/OnlineShop/app/src/main/res/layout/one_show_order.xml" value="0.14402173913043478" />
+        <entry key="..\:/Users/Dell/Documents/GitHub/OnlineShop/OnlineShop/app/src/main/res/layout/shop_item.xml" value="0.1" />
+        <entry key="..\:/Users/Dell/Documents/GitHub/OnlineShop/OnlineShop/app/src/main/res/layout/wishlist_report.xml" value="0.14402173913043478" />
+>>>>>>> Stashed changes
         <entry key="..\:/Users/Dell/Documents/GitHub/OnlineShop/app/src/main/res/drawable/btn_border.xml" value="0.1814814814814815" />
         <entry key="..\:/Users/Dell/Documents/GitHub/OnlineShop/app/src/main/res/drawable/button_bg.xml" value="0.1814814814814815" />
         <entry key="..\:/Users/Dell/Documents/GitHub/OnlineShop/app/src/main/res/drawable/ic_double_arrow_24.xml" value="0.1814814814814815" />
