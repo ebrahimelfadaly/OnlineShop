@@ -8,6 +8,10 @@ plugins {
 apply plugin: 'kotlin-kapt'
 android {
     compileSdk 32
+    buildFeatures {
+        viewBinding true
+        dataBinding=true
+    }
 
     defaultConfig {
         applicationId "com.example.onlineshop"
