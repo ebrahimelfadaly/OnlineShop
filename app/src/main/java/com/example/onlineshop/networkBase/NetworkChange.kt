@@ -1,4 +1,4 @@
-package com.example.onlineshop.Network
+package com.example.onlineshop.networkBase
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -6,8 +6,8 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.view.View
-import com.example.onlineshop.Network.NetworkUtils.NETWORK_STATUS_NOT_CONNECTED
-import com.example.onlineshop.Network.NetworkUtils.getConnectivityStatusString
+import com.example.onlineshop.networkBase.NetworkUtils.NETWORK_STATUS_NOT_CONNECTED
+import com.example.onlineshop.networkBase.NetworkUtils.getConnectivityStatusString
 import com.example.onlineshop.R
 
 class NetworkChange(context: Context): BroadcastReceiver() {

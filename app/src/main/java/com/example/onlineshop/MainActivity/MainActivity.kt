@@ -1,12 +1,11 @@
 package com.example.onlineshop.MainActivity
 
-import android.content.IntentFilter
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
-import com.example.onlineshop.Network.NetworkChange
+import com.example.onlineshop.networkBase.NetworkChange
 import com.example.onlineshop.R
 import com.example.onlineshop.databinding.ActivityMainBinding
 
