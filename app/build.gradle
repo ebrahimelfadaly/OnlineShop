@@ -168,6 +168,10 @@ dependencies {
     implementation 'br.com.simplepass:loading-button-android:2.2.0'
 
 
+    //easy permission
+    implementation 'com.vmadalin:easypermissions-ktx:1.0.0'
+
+
 
 
 }
