@@ -1,11 +1,13 @@
 package com.example.onlineshop.data.itemPojo
 
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
-//@Entity(tableName = "wishList")
+@Entity(tableName = "wishList")
 data class Product (
-	//@PrimaryKey
+	@PrimaryKey
 	@SerializedName("id") val id : Long,
 	@SerializedName("title") val title : String?,
 	@SerializedName("body_html") val body_html : String?,
