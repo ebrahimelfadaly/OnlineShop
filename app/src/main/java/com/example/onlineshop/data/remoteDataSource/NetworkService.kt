@@ -49,11 +49,22 @@ interface NetworkService {
     suspend fun getPriceRulesList(): Response<priceRules>
 
 
+    //  log/reg   //
+
+
+
+//login
+
     @GET("customers.json?limit=250")
     suspend fun getCustomers(): Response<Customers>
 
+
+//register
+
     @POST("customers.json")
     suspend fun createCustomer(@Body customer: CustomerX): Response<CustomerX>?
+
+
 
     @POST("customers/{customer_id}/addresses.json")
     suspend fun createCustomerAddress(
@@ -96,6 +107,11 @@ interface NetworkService {
         @Path("customer_id") id: String,
         @Path("address_id") addressID: String
     ): Response<CreateAddressX>
+
+
+    //   log/reg  //
+
+
 
     @POST("orders.json")
     suspend fun createOrder(

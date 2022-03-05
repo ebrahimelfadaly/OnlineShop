@@ -105,6 +105,7 @@
                     android:backgroundTint="@color/white"
                     android:hint="@string/full_name"
                     android:textColorHint="#FF757777"
+                    android:inputType="text"
                     android:textCursorDrawable="@drawable/cursor_color" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -127,6 +128,7 @@
                     android:layout_margin="10dp"
                     android:backgroundTint="@color/white"
                     android:hint="@string/email"
+                    android:inputType="textEmailAddress"
                     android:textColorHint="#FF757777"
                     android:textCursorDrawable="@drawable/cursor_color" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -142,6 +144,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_emailField"
                 app:passwordToggleEnabled="true"
+                app:counterEnabled="true"
+                app:counterMaxLength="15"
                 tools:ignore="MissingConstraints">
 
                 <EditText
@@ -151,7 +155,37 @@
                     android:layout_margin="10dp"
                     android:backgroundTint="@color/white"
                     android:hint="@string/password"
+                    android:maxLength="15"
                     android:inputType="textPassword"
+                    android:textColorHint="#FF757777"
+                    android:textCursorDrawable="@drawable/cursor_color" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tv_passConfField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/cardview_dark_background"
+                app:boxStrokeColor="#FF757777"
+                app:hintTextColor="@color/cardview_dark_background"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_passField"
+                app:passwordToggleEnabled="true"
+                app:counterEnabled="true"
+                app:counterMaxLength="15"
+                tools:ignore="MissingConstraints">
+
+                <EditText
+                    android:id="@+id/passwordCon_edt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:backgroundTint="@color/white"
+                    android:hint="@string/confirm_password"
+                    android:inputType="textPassword"
+                    android:maxLength="15"
                     android:textColorHint="#FF757777"
                     android:textCursorDrawable="@drawable/cursor_color" />
 
@@ -216,7 +250,7 @@
                 app:backgroundTint="@null"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_pass2" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_passConfField" />
 
             <TextView
                 android:id="@+id/tv_join"

@@ -39,7 +39,7 @@ android {
     }
     compileSdkVersion 32
     buildFeatures {
-        viewBinding true
+        viewBinding = true
 
     }
 }
@@ -170,6 +170,12 @@ dependencies {
 
     //easy permission
     implementation 'com.vmadalin:easypermissions-ktx:1.0.0'
+
+    //firebase
+    implementation 'com.firebaseui:firebase-ui-auth:7.1.1'
+    implementation 'com.jakewharton.timber:timber:4.7.1'
+
+
 
 
 
