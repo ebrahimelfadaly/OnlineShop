@@ -1,4 +1,4 @@
-package com.example.onlineshop.data.remoteDataSource
+package com.example.onlineshop.data.remoteDataSource.network
 
 import androidx.room.Delete
 import com.example.onlineshop.data.entity.ads_discount_codes.AllCodes
@@ -40,9 +40,9 @@ interface NetworkService {
     fun getAllProductsList(): Call<AllProducts>
 
 
-
-  //  @GET("price_rules/950461759686/discount_codes.json")
-  //  fun getAllDiscountCodeList(): Call<AllCodes>
+  //get number
+    @GET("price_rules/950461759686/discount_codes.json")
+    fun getAllDiscountCodeList(): Call<AllCodes>
 
 
     @GET("price_rules.json")
@@ -115,6 +115,7 @@ interface NetworkService {
     @GET("orders/{id}.json")
     fun getOneOrders(@Path("id") id: Long) : Observable<OneOrderResponce>
 
-   // @DELETE("orders/{id}.json")
-   // fun deleteOrder(@Path("id")order_id : Long) : Call<Delete>
+    @DELETE("orders/{id}.json")
+   fun deleteOrder(@Path("id")order_id : Long) : Call<Delete>
+
 }

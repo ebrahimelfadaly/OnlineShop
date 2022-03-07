@@ -1,4 +1,4 @@
-package com.example.onlineshop.data.remoteDataSource
+package com.example.onlineshop.data.remoteDataSource.network
 
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient

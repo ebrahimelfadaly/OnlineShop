@@ -1,15 +1,64 @@
 package com.example.onlineshop.ui.login_register.ui.login
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import android.util.Patterns
-//import com.example.onlineshop.ui.login_register.data.LoginRepository
-//import com.example.onlineshop.ui.login_register.data.Result
 
-//import com.example.onlineshop.ui.login_register.R
+import android.app.Application
+import androidx.lifecycle.*
+import com.example.onlineshop.data.entity.customer.Customer
+import com.example.onlineshop.data.entity.customer.CustomerX
+import com.example.onlineshop.networkBase.SingleLiveEvent
+import com.example.onlineshop.repository.IRepository
+import com.example.onlineshop.ui.login_register.FirebaseUserLiveData
+//import com.example.onlineshop.ui.login_register.FirebaseUserLiveData
+import kotlinx.coroutines.launch
+import timber.log.Timber
 
-class LoginViewModel() : ViewModel() {
+class LoginViewModel(val repositoryImpl: IRepository, application: Application) : AndroidViewModel(application) {
+
+    private val customerList = SingleLiveEvent<List<Customer>>()
+    private val postResult = SingleLiveEvent<CustomerX?>()
+
+    fun getPostResult(): LiveData<CustomerX?> {
+        return postResult
+    }
+
+    fun getCustomerList(): LiveData<List<Customer>> {
+        return customerList
+    }
+
+    enum class AuthenticationState {
+        AUTHENTICATED, UNAUTHENTICATED, INVALID_AUTHENTICATION
+    }
+
+    val authenticationState = FirebaseUserLiveData().map { user ->
+        if (user != null) {
+            AuthenticationState.AUTHENTICATED
+        } else {
+            AuthenticationState.UNAUTHENTICATED
+        }
+    }
+
+
+    fun getAllCustomers() {
+        viewModelScope.launch {
+            var list = repositoryImpl.fetchCustomersData()
+            list.let { customerList.postValue(list!!) }
+        }
+    }
+
+    fun createCustomers(firstName: String, email: String, pass: String) {
+        var customer = Customer(firstName, email, pass)
+        var customerx :CustomerX?= CustomerX(customer)
+
+        val jop = viewModelScope.launch { customerx =
+            customerx?.let { repositoryImpl.createCustomers(it) }
+        }
+        jop.invokeOnCompletion {
+            postResult.postValue(customerx)
+            Timber.i("isLogged" + customerx)
+
+        }
+    }
+
 /*
     private val _loginForm = MutableLiveData<LoginFormState>()
     val loginFormState: LiveData<LoginFormState> = _loginForm
