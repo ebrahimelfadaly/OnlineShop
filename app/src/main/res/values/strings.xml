@@ -9,7 +9,7 @@
     <string name="no_internet_connection">No Internet Connection</string>
 
 
-    <string name="please_connect_to_a_network">Please connect to a network</string>
+
     <string name="shopOnlie">- #SHOP ONLIE SALE -</string>
 
     <string name="shopping_bag">Shopping bag</string>
@@ -84,6 +84,8 @@
     <string name="_8_characters_minimum">8 characters minimum</string>
     <string name="at_least_one_letter">at least one letter</string>
     <string name="at_least_one_number">at least one number</string>
+    <string name="thereIsNoNetwork">There is no network</string>
+
 
     <string name="todo">todo</string>
     <string name="it_is_empty_here">empyt</string>
@@ -144,6 +146,7 @@
     </string-array>
 
     <string name="no_results_found">No results found</string>
+    <string name="please_connect_to_a_network">Please connect to a network</string>
 
 
 </resources>
