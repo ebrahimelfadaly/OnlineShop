@@ -1,0 +1,48 @@
+package com.example.onlineshop.ui.product
+
+import android.content.Context
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.lifecycle.MutableLiveData
+import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.example.onlineshop.R
+
+class ProductItemAdapter(private val context: Context, private val itemName: List<com.example.onlineshop.data.entity.customProduct.Product>, var intentTOProductDetails: MutableLiveData<com.example.onlineshop.data.entity.customProduct.Product>)
+    : RecyclerView.Adapter<ProductItemAdapter.ViewHolderItem>() {
+
+
+    class ViewHolderItem(itemView: View): RecyclerView.ViewHolder(itemView)
+    {
+        val itemName: TextView = itemView.findViewById(R.id.itemTitle)
+        val itemIcon : ImageView = itemView.findViewById(R.id.itemIcon)
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderItem {
+        val view= LayoutInflater.from(parent.context).inflate(R.layout.shop_item,parent,false)
+        return ViewHolderItem(view)
+    }
+
+    override fun onBindViewHolder(holder: ViewHolderItem, position: Int) {
+        holder.itemName.text= itemName[position].title
+
+        Glide.with(context)
+            .load( itemName[position].image!!.src )
+            .into(holder.itemIcon)
+        holder.itemView.setOnClickListener {
+
+
+        }
+    }
+
+    override fun getItemCount(): Int {
+        return itemName.size
+    }
+//interface OnclickBrand{
+//        fun getItemProduct(smartCollection: SmartCollection,position: Int)
+//    }
+
+}

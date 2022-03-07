@@ -10,7 +10,7 @@
 
 
     <string name="please_connect_to_a_network">Please connect to a network</string>
-    <string name="shopOnlie">- #SHOP ONLIE SALE -</string>
+    <string name="shopOnlie"> BRANDS </string>
 
     <string name="shopping_bag">Shopping bag</string>
     <string name="settings">Settings</string>
@@ -21,6 +21,9 @@
     <string name="unpaid" />
     <string name="unpaid_orders">Unpaid Orders</string>
     <string name="wish_list">WishList</string>
+    <string name="Delete_Item_From_Wish_List">Delete Item From WishList</string>
+    <string name="are_you_sure">Are You Sure?</string>
+    <string name="AllWishList">All WishList</string>
     <string name="see_more">see more</string>
     <string name="_1">1</string>
     <string name="please_log_in">log in to look your wishList</string>
@@ -128,6 +131,7 @@
 
 
     //ebrahim
+    <string name="no_results_found">No results found</string>
     <string-array name="sortArr">
         <item>SORT</item>
         <item>price: Low to High</item>
@@ -135,6 +139,7 @@
         <item>Alphabetically</item>
         <item>none</item>
     </string-array>
+
     <string-array name="filterArr">
         <item>FILTER</item>
         <item>shoes</item>
@@ -142,8 +147,6 @@
         <item>accessories</item>
         <item>none</item>
     </string-array>
-
-    <string name="no_results_found">No results found</string>
 
 
 </resources>

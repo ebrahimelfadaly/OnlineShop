@@ -10,6 +10,7 @@ import com.example.onlineshop.data.entity.customer.*
 import com.example.onlineshop.data.entity.order.Orders
 import com.example.onlineshop.data.entity.orderGet.GetOrders
 import com.example.onlineshop.data.entity.orderGet.OneOrderResponce
+import com.example.onlineshop.data.entity.smart_collection.Brands
 import com.example.onlineshop.data.itemPojo.OrderObject
 import com.example.onlineshop.data.itemPojo.ProductCartModule
 import com.example.onlineshop.data.itemPojo.ProductItem
@@ -26,6 +27,7 @@ interface IRepository {
 
 
    ////////////////////cart list////////////////
+
    fun getAllCartList(): LiveData<List<ProductCartModule>>
 
    suspend fun saveCartList(withItem: ProductCartModule)
@@ -68,6 +70,7 @@ interface IRepository {
    fun getCreateOrderResponse(): SingleLiveEvent<OneOrderResponce?>
 
    ///////////////////products/////////////////////////
+   fun getAllBrands():MutableLiveData<Brands>
    fun getWomanProductsList(): MutableLiveData<ProductsList>?
    fun getKidsProductsList(): MutableLiveData<ProductsList>
    fun getMenProductsList(): MutableLiveData<ProductsList>

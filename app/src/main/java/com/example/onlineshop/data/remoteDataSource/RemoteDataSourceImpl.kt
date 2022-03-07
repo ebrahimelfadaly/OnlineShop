@@ -10,6 +10,7 @@ import com.example.onlineshop.data.entity.customer.*
 import com.example.onlineshop.data.entity.order.Orders
 import com.example.onlineshop.data.entity.orderGet.GetOrders
 import com.example.onlineshop.data.entity.orderGet.OneOrderResponce
+import com.example.onlineshop.data.entity.smart_collection.Brands
 import com.example.onlineshop.data.itemPojo.ProductItem
 import com.example.onlineshop.data.remoteDataSource.network.Network
 import com.example.onlineshop.networkBase.SingleLiveEvent
@@ -29,6 +30,7 @@ class RemoteDataSourceImpl :RemoteDataIN {
     var menProducts = MutableLiveData<ProductsList>()
     var onSaleProducts = MutableLiveData<ProductsList>()
     var allProductsListt = MutableLiveData<AllProducts>()
+    var allBrand=  MutableLiveData<Brands>()
 
 
     var allDiscountCode = MutableLiveData<AllCodes>()
@@ -186,6 +188,32 @@ class RemoteDataSourceImpl :RemoteDataIN {
             })
         }
         return allDiscountCode
+    }
+
+    override fun getAllBrands(): MutableLiveData<Brands> {
+        CoroutineScope(Dispatchers.IO).launch {
+
+            Network.apiService.getAllBrands().enqueue(object : Callback<Brands?> {
+
+                override fun onResponse(
+                    call: Call<Brands?>,
+                    response: Response<Brands?>
+                ) {
+                    if (response.isSuccessful) {
+                        allBrand.postValue(response.body())
+                        Log.i("output", response.body().toString())
+
+                    }
+                }
+
+                override fun onFailure(call: Call<Brands?>, t: Throwable) {
+                    Log.i("output", t.message.toString())
+                    t.printStackTrace()
+
+                }
+            })
+        }
+        return allBrand
     }
 
     override fun getProuduct(id: Long) {
