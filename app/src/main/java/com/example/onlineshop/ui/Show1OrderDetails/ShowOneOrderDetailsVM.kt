@@ -11,7 +11,7 @@ import com.example.onlineshop.repository.IRepository
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.internal.schedulers.IoScheduler
 
-class Show1OrderDetailsVM  (val repositoryImpl: IRepository, application: Application) :
+class ShowOneOrderDetailsVM  (val repositoryImpl: IRepository, application: Application) :
     AndroidViewModel(application) {
     private val orderLiveData : MutableLiveData<OneOrderResponce> = MutableLiveData()
     var payNowMutableData: MutableLiveData<GetOrders.Order> = MutableLiveData()
