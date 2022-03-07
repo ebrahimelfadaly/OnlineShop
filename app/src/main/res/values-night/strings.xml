@@ -44,4 +44,6 @@
     <string name="_8_characters_minimum">8 characters minimum</string>
     <string name="at_least_one_letter">at least one letter</string>
     <string name="at_least_one_number">at least one number</string>
+    <string name="thereIsNoNetwork">There is no network</string>
+
 </resources>
