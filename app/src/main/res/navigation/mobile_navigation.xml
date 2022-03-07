@@ -20,6 +20,28 @@
     <fragment
         android:id="@+id/meFragment"
         android:name="com.example.onlineshop.ui.meScreen.MeFragment"
+
+        android:label="@string/title_me"
+        tools:layout="@layout/fragment_me" />
+    <fragment
+        android:id="@+id/products"
+        android:name="com.example.onlineshop.ui.product.Products"
+        android:label="fragment_products"
+        tools:layout="@layout/fragment_products">
+        <argument
+            android:name="id"
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/womanProductFragment"
+        android:name="com.example.onlineshop.ui.ShopTap.shopTapcategory.WomanProductFragment"
+        android:label="fragment_woman_product"
+        tools:layout="@layout/fragment_woman_product" >
+        <action
+            android:id="@+id/action_womanProductFragment_to_products"
+            app:destination="@id/products" />
+    </fragment>
+
         android:label="fragment_me"
         tools:layout="@layout/fragment_me" >
         <action
@@ -237,6 +259,7 @@
         app:launchSingleTop="true"/>
     <action android:id="@+id/action_global_categoryFragment" app:destination="@id/categoryFragment"
         app:launchSingleTop="true"/>
+
 
 
 

@@ -70,10 +70,10 @@ class ShopTapFragment : Fragment() {
         val adapter = FragmentPagerItemAdapter(
             childFragmentManager,
             FragmentPagerItems.with(activity)
-                .add("Woman", WomanProductFragment::class.java)
-                .add("Kids", KidsProductFragment::class.java)
-                .add("Men", MenProductFragment::class.java)
-                .add("On Sale", OneSaleProductFragment::class.java)
+                .add("Shop", WomanProductFragment::class.java)
+//                .add("Kids", KidsProductFragment::class.java)
+//                .add("Men", MenProductFragment::class.java)
+//                .add("Sale", OneSaleProductFragment::class.java)
 
                 .create()
         )
