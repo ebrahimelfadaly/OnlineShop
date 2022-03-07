@@ -38,6 +38,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
         networkChange= NetworkChange(this)
+
        this.registerReceiver(networkChange, IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"))
           val wishListNotificationAdapter=WishListNotificationAdapter(findViewById(R.id.favourite))
         val cartIconAdapter  = CartNotificationAdapter(findViewById(R.id.cartView))
@@ -80,8 +81,6 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        navView.setupWithNavController(navController)
-    }
 
     override fun onDestroy() {
         super.onDestroy()

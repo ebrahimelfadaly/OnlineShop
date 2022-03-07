@@ -27,10 +27,10 @@ interface NetworkService {
     @GET("collections/398034632935/products.json")
     fun getKidsProductsList(): Call<ProductsList>
 
-    @GET("collections/398034665703/products.json")
+    @GET("collections/398034567399/products.json")
     fun getMenProductsList(): Call<ProductsList>
 
-    @GET("collections/398033617127/products.json")
+    @GET("collections/398034665703/products.json")
     fun getOnSaleProductsList(): Call<ProductsList>
 
     @GET("collections/{collection_id}/products.json")
