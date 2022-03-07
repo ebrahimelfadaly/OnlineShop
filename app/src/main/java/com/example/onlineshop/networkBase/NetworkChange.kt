@@ -27,7 +27,7 @@ class NetworkChange(context: Context): BroadcastReceiver() {
     override fun onReceive(p0: Context?, p1: Intent?) {
         val status = getConnectivityStatusString(p0!!)
         if ("android.net.conn.CONNECTIVITY_CHANGE" == p1?.action) {
-            val activity : Activity = p1 as Activity
+            val activity : Activity = p0 as Activity
             if (status == NETWORK_STATUS_NOT_CONNECTED){
                 isOnline=false
                 activity.findViewById<View>(R.id.viewInternetConnection).visibility= View.VISIBLE

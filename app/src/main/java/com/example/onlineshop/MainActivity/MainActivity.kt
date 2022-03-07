@@ -1,5 +1,6 @@
 package com.example.onlineshop.MainActivity
 
+import android.content.IntentFilter
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -28,8 +29,8 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
-//        networkChange= NetworkChange(this)
-//        this.registerReceiver(networkChange, IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"))
+        networkChange= NetworkChange(this)
+        this.registerReceiver(networkChange, IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"))
 
         navView.setupWithNavController(navController)
     }
