@@ -12,6 +12,7 @@ import com.example.onlineshop.data.entity.orderGet.GetOrders
 import com.example.onlineshop.data.entity.orderGet.OneOrderResponce
 import com.example.onlineshop.data.entity.smart_collection.Brands
 import com.example.onlineshop.data.itemPojo.ProductItem
+
 import com.example.onlineshop.data.remoteDataSource.network.Network
 import com.example.onlineshop.networkBase.SingleLiveEvent
 import io.reactivex.Observable
@@ -38,6 +39,7 @@ class RemoteDataSourceImpl :RemoteDataIN {
     var deleteOrder : MutableLiveData<Boolean> = MutableLiveData<Boolean>()
     var getCreateOrderResponse = SingleLiveEvent<OneOrderResponce?>()
     var catProducts = MutableLiveData<List<Product>>()
+    var getProductBrand=MutableLiveData<ProductItem>()
     var allProducts = MutableLiveData<List<com.example.onlineshop.data.itemPojo.Product>>()
 
 
@@ -281,6 +283,8 @@ class RemoteDataSourceImpl :RemoteDataIN {
     override fun getOneOrders(id: Long): Observable<OneOrderResponce> {
         return Network.apiService.getOneOrders(id)
     }
+
+
 
     override suspend fun fetchCustomersData(): List<Customer>? {
         val response = Network.apiService.getCustomers()

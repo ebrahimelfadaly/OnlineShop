@@ -1,5 +1,6 @@
 package com.example.onlineshop.ui.product
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -10,9 +11,21 @@ import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.onlineshop.R
+import com.example.onlineshop.data.entity.allproducts.allProduct
 
-class ProductItemAdapter(private val context: Context, private val itemName: List<com.example.onlineshop.data.entity.customProduct.Product>, var intentTOProductDetails: MutableLiveData<com.example.onlineshop.data.entity.customProduct.Product>)
+import com.example.onlineshop.data.entity.customProduct.Product
+
+class ProductItemAdapter(private val context: Context, var intentTOProductDetails : MutableLiveData<allProduct>, var onclick:OnclickBrand)
     : RecyclerView.Adapter<ProductItemAdapter.ViewHolderItem>() {
+    private val itemName:ArrayList<allProduct> = ArrayList()
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun addList(brandList: MutableList<allProduct>)
+    {
+        this.itemName.clear()
+        this.itemName.addAll(brandList)
+        notifyDataSetChanged()
+    }
 
 
     class ViewHolderItem(itemView: View): RecyclerView.ViewHolder(itemView)
@@ -27,13 +40,15 @@ class ProductItemAdapter(private val context: Context, private val itemName: Lis
     }
 
     override fun onBindViewHolder(holder: ViewHolderItem, position: Int) {
+
+
         holder.itemName.text= itemName[position].title
 
         Glide.with(context)
-            .load( itemName[position].image!!.src )
+            .load( itemName[position].image.src )
             .into(holder.itemIcon)
         holder.itemView.setOnClickListener {
-
+      intentTOProductDetails.value=itemName[ position]
 
         }
     }
@@ -41,8 +56,8 @@ class ProductItemAdapter(private val context: Context, private val itemName: Lis
     override fun getItemCount(): Int {
         return itemName.size
     }
-//interface OnclickBrand{
-//        fun getItemProduct(smartCollection: SmartCollection,position: Int)
-//    }
+interface OnclickBrand{
+        fun getItemProduct(smartCollection: Product,position: Int)
+    }
 
 }

@@ -14,27 +14,29 @@ import com.example.onlineshop.ui.login_register.ui.login.LoginViewModel
 class ViewModelFactory(private val repositoryImpl: IRepository,private val application: Application):ViewModelProvider.Factory {
     @Suppress("unchecked_cast")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if(modelClass.isAssignableFrom(ShopViewModel::class.java)) {
-            return ShopViewModel(repositoryImpl, application) as T
-        }
+        return when {
+            modelClass.isAssignableFrom(ShopViewModel::class.java) -> {
+                ShopViewModel(repositoryImpl, application) as T
+            }
+            modelClass.isAssignableFrom(AllWishListViewModel::class.java) -> {
+                AllWishListViewModel(repositoryImpl, application) as T
+            }
+            modelClass.isAssignableFrom(MainActivityViewModel::class.java) -> {
+                MainActivityViewModel(repositoryImpl, application) as T
+            }
+            modelClass.isAssignableFrom(LoginViewModel::class.java) -> {
+                LoginViewModel(repositoryImpl, application) as T
+            }
+            modelClass.isAssignableFrom(CategoryViewModel::class.java) -> {
+                CategoryViewModel(repositoryImpl, application) as T
 
-        else if (modelClass.isAssignableFrom(AllWishListViewModel::class.java)) {
-            return AllWishListViewModel(repositoryImpl,application) as T
+            }
+            else -> {
+                throw IllegalArgumentException("ViewModel Not Found")
+            }
         }
-        else if (modelClass.isAssignableFrom(MainActivityViewModel::class.java)) {
-            return MainActivityViewModel(repositoryImpl,application) as T
-
-        else if (modelClass.isAssignableFrom(LoginViewModel::class.java)) {
-            return LoginViewModel(repositoryImpl,application) as T
-        }
-        else if (modelClass.isAssignableFrom(CategoryViewModel::class.java)) {
-            return CategoryViewModel(repositoryImpl,application) as T
-
-        }
-        else {
-            throw IllegalArgumentException("ViewModel Not Found")
-        }
-
+      }
     }
 
-}
+
+

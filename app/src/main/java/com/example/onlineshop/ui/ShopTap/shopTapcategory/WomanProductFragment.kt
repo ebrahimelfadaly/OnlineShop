@@ -14,6 +14,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
+import com.example.onlineshop.NavGraphDirections
 import com.example.onlineshop.R
 import com.example.onlineshop.ViewModelFactory
 import com.example.onlineshop.data.entity.customProduct.Product
@@ -92,23 +93,6 @@ class WomanProductFragment : Fragment(),ShopItemAdapter.OnclickBrand{
                 }
             })
 
-            //product details fragment
-            shopTabViewModel.intentTOProductDetails.observe(requireActivity(), {
-                if (NetworkChange.isOnline){
-                    shopTabViewModel.intentTOProductDetails = MutableLiveData()
-
-
-//                    val action = NavGraphDirections.actionGlobalProuductDetailsFragment(it.id.toLong())
-//                    findNavController().navigate(action)
-                    val action=WomanProductFragmentDirections.actionWomanProductFragmentToProducts(it.id)
-                    findNavController().navigate(action)
-
-//
-                }else{
-                    Toast.makeText(requireContext(),requireContext().resources.getString(R.string.no_internet_connection),
-                        Toast.LENGTH_SHORT).show()
-                }
-            })
 
 
             shopTabViewModel.fetchallDiscountCodeList().observe(viewLifecycleOwner, {
@@ -154,8 +138,9 @@ class WomanProductFragment : Fragment(),ShopItemAdapter.OnclickBrand{
     }
 
     override fun getItemProduct(smartCollection: SmartCollection, position: Int) {
-       shopTabViewModel.fetchGetProductB(smartCollection.id)
+       shopTabViewModel.getProductBrand(smartCollection.title)
       //  findNavController().navigate(R.id.products)
+
 
     }
 

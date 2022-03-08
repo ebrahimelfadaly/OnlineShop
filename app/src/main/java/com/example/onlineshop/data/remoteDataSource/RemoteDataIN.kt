@@ -11,6 +11,8 @@ import com.example.onlineshop.data.entity.order.Orders
 import com.example.onlineshop.data.entity.orderGet.GetOrders
 import com.example.onlineshop.data.entity.orderGet.OneOrderResponce
 import com.example.onlineshop.data.entity.smart_collection.Brands
+import com.example.onlineshop.data.itemPojo.ProductItem
+
 import com.example.onlineshop.networkBase.SingleLiveEvent
 import io.reactivex.Observable
 
@@ -34,6 +36,7 @@ interface RemoteDataIN {
     fun observeDeleteOrder(): MutableLiveData<Boolean>
 
     fun getOneOrders(id: Long) : Observable<OneOrderResponce>
+
 
     //customer and orders
 

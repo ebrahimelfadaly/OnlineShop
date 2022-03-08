@@ -1,24 +1,30 @@
 package com.example.onlineshop.ui.ShopTap
 
 import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import android.util.Log
+import androidx.lifecycle.*
 import com.example.onlineshop.data.entity.ads_discount_codes.AllCodes
 import com.example.onlineshop.data.entity.allproducts.AllProducts
+import com.example.onlineshop.data.entity.allproducts.allProduct
 import com.example.onlineshop.data.entity.customProduct.Product
 import com.example.onlineshop.data.entity.customProduct.ProductsList
 import com.example.onlineshop.data.entity.smart_collection.Brands
 import com.example.onlineshop.data.entity.smart_collection.SmartCollection
 import com.example.onlineshop.data.itemPojo.ProductItem
+import com.example.onlineshop.data.itemPojo.ProductsBrand.ProductsModel
+import com.example.onlineshop.data.remoteDataSource.network.Network
+
 import com.example.onlineshop.repository.IRepository
+import kotlinx.coroutines.handleCoroutineException
+import kotlinx.coroutines.launch
 
 class ShopViewModel(val repositoryImpl: IRepository, application: Application) :
     AndroidViewModel(application) {
 
     var intentTOProductDetails: MutableLiveData<SmartCollection> = MutableLiveData()
-  var  intentTOProductBrand: MutableLiveData<Product> = MutableLiveData()
+  var  intentTOProductBrand: MutableLiveData<allProduct> = MutableLiveData()
+    private val productsMutable = MutableLiveData<ProductsModel>()
+    val productsByBrand: LiveData<ProductsModel>get()  = productsMutable
 
 
     init {
@@ -29,6 +35,7 @@ class ShopViewModel(val repositoryImpl: IRepository, application: Application) :
         fetchWomanProductsList()
         fetchKidsProductsList()
         fetchAllBrands()
+
     }
 
 //    fun fetchAllProducts()=repositoryImpl.fetchAllProducts()
@@ -59,9 +66,22 @@ class ShopViewModel(val repositoryImpl: IRepository, application: Application) :
     fun fetchallDiscountCodeList(): MutableLiveData<AllCodes> {
         return repositoryImpl.getAllDiscountCodeList()
     }
-    fun fetchGetProductB(id:Long): MutableLiveData<List<Product>>
-    {
-        return repositoryImpl.fetchCatProducts(id)
-    }
+
+   fun getProductBrand(brandId:String?)
+   {
+       viewModelScope.launch {
+           val product=Network.apiService.getProductsByVendor(brandId!!)
+           if (product.isSuccessful)
+           {
+               productsMutable.postValue(product.body())
+               Log.i("TAG", "getProductBrand: ${product.body()}")
+           }
+           else
+           {
+               Log.i("productBrand", "getProductBrand:error ")
+           }
+       }
+   }
+
 
 }

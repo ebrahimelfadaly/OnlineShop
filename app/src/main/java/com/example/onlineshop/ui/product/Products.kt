@@ -3,17 +3,22 @@ package com.example.onlineshop.ui.product
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.SearchView
+import android.widget.Toast
+import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.navArgs
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
+import com.example.onlineshop.NavGraphDirections
 import com.example.onlineshop.R
 import com.example.onlineshop.ViewModelFactory
+import com.example.onlineshop.data.entity.allproducts.allProduct
 import com.example.onlineshop.data.remoteDataSource.RemoteDataSourceImpl
 import com.example.onlineshop.data.roomData.RoomDataSourceImpl
 import com.example.onlineshop.data.roomData.RoomService
@@ -24,9 +29,11 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_products.*
 
 
-class Products : Fragment() {
+class Products : Fragment() ,ProductItemAdapter.OnclickBrand{
     private lateinit var  shopTabViewModel : ShopViewModel
     var id:Long = 0
+     var args:String?=" "
+    lateinit var productAdapter: ProductItemAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,8 +44,7 @@ class Products : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val args: ProductsArgs by navArgs()
-        id = args.id
+
 
         requireActivity().toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_baseline_arrow_back_ios_24))
         requireActivity().toolbar.setNavigationOnClickListener {
@@ -57,6 +63,7 @@ class Products : Fragment() {
             )[ShopViewModel::class.java]
         // Inflate the layout for this fragment
         changeToolbar()
+        productAdapter= ProductItemAdapter(requireContext(),shopTabViewModel.intentTOProductBrand,this)
         return inflater.inflate(R.layout.fragment_products, container, false)
     }
 
@@ -64,26 +71,34 @@ class Products : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-
-
-        if (NetworkChange.isOnline) {
-
-            shopTabViewModel.fetchGetProductB(id).observe(viewLifecycleOwner, {
-                if (it != null) {
-
-               bindProductRecyclerView(it,shopTabViewModel.intentTOProductBrand)
-
+         args= arguments?.getString("Brand")
+        Log.i("ebtahimmmmm", "onActivityCreated: ${args}")
+        shopTabViewModel.fetchallProductsList().observe(viewLifecycleOwner,{
+            var productList=it.products
+            var list:MutableList<allProduct> =
+                mutableListOf()
+            for (i in productList)
+            {
+                if (i.vendor.equals(args)){
+                    list.add(i)
                 }
-            })
+            }
+            productAdapter.addList(list)
+            val layoutManager=GridLayoutManager(requireContext(),2)
 
-            //product details fragment
-
-
-
-
-        }else{
-
-        }
+            itemsRecViewproduct.adapter=productAdapter
+            itemsRecViewproduct.layoutManager=layoutManager
+        })
+        shopTabViewModel.intentTOProductBrand.observe(requireActivity(), {
+            if (NetworkChange.isOnline){
+                shopTabViewModel.intentTOProductDetails = MutableLiveData()
+                val action = NavGraphDirections.actionGlobalProuductDetailsFragment(it.id.toLong())
+                findNavController().navigate(action)
+            }else{
+                Toast.makeText(requireContext(),requireContext().resources.getString(R.string.no_internet_connection),
+                    Toast.LENGTH_SHORT).show()
+            }
+        })
 
 
 
@@ -113,18 +128,12 @@ class Products : Fragment() {
 
     }
 
-
-
-    private fun bindProductRecyclerView(
-        itemName: List<com.example.onlineshop.data.entity.customProduct.Product>,
-        intentTOProductDetails: MutableLiveData<com.example.onlineshop.data.entity.customProduct.Product>
+    override fun getItemProduct(
+        smartCollection: com.example.onlineshop.data.entity.customProduct.Product,
+        position: Int
     ) {
-
-        itemsRecViewproduct.adapter = ProductItemAdapter(requireContext(), itemName,intentTOProductDetails)
-
+        TODO("Not yet implemented")
     }
-
-
 
 
 }
