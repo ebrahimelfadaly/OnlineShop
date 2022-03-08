@@ -14,7 +14,9 @@ import com.example.onlineshop.data.entity.smart_collection.Brands
 import com.example.onlineshop.data.itemPojo.OrderObject
 import com.example.onlineshop.data.itemPojo.ProductCartModule
 import com.example.onlineshop.data.itemPojo.ProductItem
+
 import com.example.onlineshop.data.remoteDataSource.RemoteDataIN
+import com.example.onlineshop.data.remoteDataSource.network.Network
 
 import com.example.onlineshop.data.roomData.RoomDataSourceImpl
 import com.example.onlineshop.networkBase.SingleLiveEvent
@@ -87,6 +89,7 @@ interface IRepository {
    fun getAllWishList(): LiveData<List<com.example.onlineshop.data.itemPojo.Product>>
 
    suspend fun saveWishList(withItem: com.example.onlineshop.data.itemPojo.Product)
+   suspend fun getProductBrand(vendor: String) = Network.apiService.getProductsByVendor(vendor)
 
    suspend fun deleteOneWithItem(id: Long)
    fun getFourWishList(): LiveData<List<com.example.onlineshop.data.itemPojo.Product>>
