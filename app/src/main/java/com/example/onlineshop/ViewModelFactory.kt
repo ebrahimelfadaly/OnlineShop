@@ -8,7 +8,7 @@ import com.example.onlineshop.repository.IRepository
 import com.example.onlineshop.ui.AllWishList.AllWishListViewModel
 import com.example.onlineshop.ui.ProductDetalis.ProductDetailsVM
 import com.example.onlineshop.ui.ShopTap.ShopViewModel
-import com.example.onlineshop.ui.Show1OrderDetails.ShowOneOrderDetailsVM
+import com.example.onlineshop.ui.ShowOneOrderDetails.ShowOneOrderDetailsVM
 import com.example.onlineshop.ui.cart.OrderViewModel
 import com.example.onlineshop.ui.category.CategoryViewModel
 import com.example.onlineshop.ui.login_register.ui.login.LoginViewModel

@@ -1,4 +1,4 @@
-package com.example.onlineshop.ui.Cart
+package com.example.onlineshop.ui.cart
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,7 +8,7 @@ import com.example.onlineshop.R
 import com.example.onlineshop.data.itemPojo.ProductCartModule
 import com.example.onlineshop.databinding.ItemOrderConfirmBinding
 
-class OrderItemsAdapter(
+class OrderItemsAdapter (
     var orderList: ArrayList<ProductCartModule>, var orderViewModel: OrderViewModel
 ) : RecyclerView.Adapter<OrderItemsAdapter.VH>() {
 

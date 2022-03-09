@@ -1,4 +1,4 @@
-package com.example.onlineshop.ui.Cart
+package com.example.onlineshop.ui.cart
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
@@ -16,7 +16,7 @@ import com.example.onlineshop.repository.IRepository
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
-class OrderViewModel(val repositoryImpl: IRepository, application: Application) :
+class OrderViewModel (val repositoryImpl: IRepository, application: Application) :
     AndroidViewModel(application) {
     private val orderDetalis = SingleLiveEvent<Long>()
     private val delOrder = SingleLiveEvent<Long>()

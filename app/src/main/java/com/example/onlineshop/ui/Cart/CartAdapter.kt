@@ -1,4 +1,4 @@
-package com.example.onlineshop.ui.Cart
+package com.example.onlineshop.ui.cart
 
 import android.view.LayoutInflater
 import android.view.View
@@ -12,7 +12,7 @@ import com.example.onlineshop.data.itemPojo.ProductCartModule
 import com.example.onlineshop.databinding.ItemCartBinding
 import kotlin.random.Random
 
-class CartAdapter(
+class CartAdapter (
     var orderList: ArrayList<ProductCartModule>, var orderViewModel: OrderViewModel
 ) : RecyclerView.Adapter<CartAdapter.VH>() {
     private var lastPosition = -1

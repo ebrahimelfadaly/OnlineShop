@@ -161,6 +161,8 @@
     <string name="logInToCanAddToCart">logInToCanAddToCart</string>
     <string name="item_saved_in_cart">item_saved_in_cart</string>
     <string name="logInToCanAddToWishList">logInToCanAddToWishList</string>
+    <string name="my_orders">my_orders</string>
+    <string name="cancel_order">cancel_order</string>
 
 
 </resources>
