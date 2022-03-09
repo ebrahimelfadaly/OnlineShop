@@ -24,8 +24,7 @@
     <fragment
         android:id="@+id/meFragment"
         android:name="com.example.onlineshop.ui.meScreen.MeFragment"
-
-        android:label="@string/title_me"
+        android:label="fragment_me"
         tools:layout="@layout/fragment_me" />
 
     <action
@@ -94,7 +93,7 @@
 
     <fragment
         android:id="@+id/addressFragment"
-        android:name="com.example.onlineshop.ui.meScreen.settings.address.AddressFragment"
+        android:name="com.example.onlineshop.ui.address.AddressFragment"
         android:label="AddressFragment"
         tools:layout="@layout/fragment_address">
         <action
@@ -145,7 +144,7 @@
         />
     <action android:id="@+id/action_global_allWishListFragment" app:destination="@id/allWishListFragment"  app:popUpTo="@+id/allWishListFragment"
         app:launchSingleTop="true" />
-    <action android:id="@+id/action_global_signInFragment" app:destination="@id/signInFragment" app:popUpTo="@+id/signInFragment"
+    <action android:id="@+id/action_global_loginFragment" app:destination="@id/loginFragment" app:popUpTo="@+id/loginFragment"
         app:launchSingleTop="true"/>
     <fragment
         android:id="@+id/orderConfirmationFragment"
@@ -171,7 +170,7 @@
     <action android:id="@+id/action_global_addressFragment" app:destination="@id/addressFragment" />
     <fragment
         android:id="@+id/addAddressFragment"
-        android:name="com.example.onlineshop.ui.meScreen.settings.address.AddAddressFragment"
+        android:name="com.example.onlineshop.ui.address.AddAddressFragment"
         android:label="AddAddressFragment"
         tools:layout="@layout/fragment_add_address">
 
@@ -210,7 +209,7 @@
     <action android:id="@+id/action_global_displayOrderFragment" app:destination="@id/displayOrderFragment"/>
     <fragment
         android:id="@+id/settingFragment"
-        android:name="com.example.onlineshop.ui.meScreen.settings.SettingFragment"
+        android:name="com.example.onlineshop.ui.settings.SettingFragment"
         android:label="fragment_setting"
         tools:layout="@layout/fragment_setting" >
         <action
@@ -230,6 +229,14 @@
             app:exitAnim="@anim/slide_in_left"
             app:popEnterAnim="@anim/slide_in_right"
             app:popExitAnim="@anim/slide_in_left"/>
+        <action
+            android:id="@+id/action_settingFragment_to_contactFragment"
+            app:destination="@id/contactFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_in_left"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_in_left"/>
+
 
 
     </fragment>
@@ -253,18 +260,21 @@
     </fragment>
     <action android:id="@+id/action_global_showOneOrderFragment" app:destination="@id/showOneOrderFragment" />
 
-
-
     <fragment
         android:id="@+id/aboutFragment"
-        android:name="com.example.onlineshop.ui.meScreen.settings.AboutFragment"
+        android:name="com.example.onlineshop.ui.settings.AboutFragment"
         android:label="fragment_about"
         tools:layout="@layout/fragment_about" />
-
+    <fragment
+        android:id="@+id/contactFragment"
+        android:name="com.example.onlineshop.ui.settings.ContactFragment"
+        android:label="fragment_contact"
+        tools:layout="@layout/fragment_contact" />
     <action android:id="@+id/action_global_meFragment" app:destination="@id/meFragment"
         app:launchSingleTop="true"/>
     <action android:id="@+id/action_global_categoryFragment" app:destination="@id/categoryFragment"
         app:launchSingleTop="true"/>
+
 
 
 

@@ -75,7 +75,7 @@ class MeFragment : Fragment() {
 //        }
 
         bindingMeScreen.regesterAndLogin.setOnClickListener {
-            val action = NavGraphDirections.actionGlobalSignInFragment()
+            val action = NavGraphDirections.actionGlobalLoginFragment()
             findNavController().navigate(action)
         }
 

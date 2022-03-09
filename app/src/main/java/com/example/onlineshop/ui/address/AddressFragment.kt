@@ -1,4 +1,4 @@
-package com.example.onlineshop.ui.meScreen.settings.address
+package com.example.onlineshop.ui.address
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
