@@ -19,7 +19,7 @@
         enjoy with it. :) \n\n
     </string>
     <string name="team">Team</string>
-    <string name="team_tv">team of the product :\n
+    <string name="team_tv">Team of the product :\n\n
                                   Enas Alosta\n
                                   Ebrahim Alfadaly\n
                                   Rania \n
@@ -45,5 +45,10 @@
     <string name="at_least_one_letter">at least one letter</string>
     <string name="at_least_one_number">at least one number</string>
     <string name="thereIsNoNetwork">There is no network</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="save">Save</string>
+    <string name="change_password">Change Password</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_password">Confirm Password</string>
 
 </resources>

@@ -55,7 +55,7 @@
 
     </string>
     <string name="team">Team</string>
-    <string name="team_tv"> team of the product :\n
+    <string name="team_tv"> Team of the product :\n\n
                                   Enas Alosta\n
                                   Ebrahim Alfadaly\n
                                   Rania \n
@@ -155,7 +155,12 @@
 
 
     <string name="please_connect_to_a_network">Please connect to a network</string>
-
+    <string name="edit_profile">Edit Profile</string>
+    <string name="save">Save</string>
+    <string name="change_password">Change Password</string>
+    <string name="current_password">Current Password</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_password">Confirm Password</string>
 
 
 </resources>
