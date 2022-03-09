@@ -10,7 +10,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.ProductDetails.ProductDetailsFragment"
+        tools:context=".ui.productDetailsActivity.ProuductDetailsFragment"
         android:background="#f6f6f6">
 
         <ScrollView
@@ -22,7 +22,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="60dp"
-                tools:context=".ui.productDetailsActivity.ProductDetailsActivity">
+                tools:context=".ui.productDetails.ProductDetails">
 
 
                 <androidx.viewpager.widget.ViewPager
@@ -75,6 +75,7 @@
 
                     <TextView
                         android:id="@+id/colorNotEditable"
+
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/color"
@@ -99,6 +100,7 @@
 
                     <TextView
                         android:id="@+id/sizeNotEditable"
+
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
@@ -320,6 +322,7 @@
                         </LinearLayout>
                         <TextView
                             android:id="@+id/descriptionEditable"
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/description"

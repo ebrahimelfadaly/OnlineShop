@@ -1,4 +1,4 @@
-package com.example.onlineshop.ui.Show1OrderDetails
+package com.example.onlineshop.ui.ShowOneOrderDetails
 
 import android.annotation.SuppressLint
 import android.app.Application
@@ -11,7 +11,7 @@ import com.example.onlineshop.repository.IRepository
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.internal.schedulers.IoScheduler
 
-class ShowOneOrderDetailsVM  (val repositoryImpl: IRepository, application: Application) :
+class ShowOneOrderDetailsVM (val repositoryImpl: IRepository, application: Application) :
     AndroidViewModel(application) {
     private val orderLiveData : MutableLiveData<OneOrderResponce> = MutableLiveData()
     var payNowMutableData: MutableLiveData<GetOrders.Order> = MutableLiveData()
