@@ -4,9 +4,12 @@ import android.content.IntentFilter
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavAction
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.onlineshop.NavGraphDirections
 import com.example.onlineshop.networkBase.NetworkChange
@@ -21,22 +24,25 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     private lateinit var networkChange: NetworkChange
-
+    private var navHostFragment: Fragment? = null
+    private var navController: NavController? = null
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
 
-        val navView: BottomNavigationView = binding.navView
-
-        val navController = findNavController(R.id.nav_host_fragment_activity_main)
+        setContentView(R.layout.activity_main)
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.nav_view)
+        navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_activity_main)
+        navController = navHostFragment?.findNavController()
+        if (navController != null) {
+            bottomNavigationView.setupWithNavController(navController!!)
+        }
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
 
-        setSupportActionBar(binding.toolbar)
+        setSupportActionBar(toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
 
         networkChange = NetworkChange(this)
@@ -60,14 +66,14 @@ class MainActivity : AppCompatActivity() {
         wishListNotificationAdapter.favouriteButton.setOnClickListener {
 
             val action = NavGraphDirections.actionGlobalAllWishListFragment()
-            navController.navigate(action)
+            navController?.navigate(action)
         }
         viewModel.getAllCartList().observe(this, {
             cartIconAdapter.updateView(it.size)
         })
         cartIconAdapter.favouriteButton.setOnClickListener {
             val action = NavGraphDirections.actionGlobalCartFragment2()
-            navController.navigate(action)
+            navController?.navigate(action)
 
         }
 
@@ -80,11 +86,11 @@ class MainActivity : AppCompatActivity() {
 //            navGraph.startDestination = R.id.shopSearchFragment
 //            navController!!.graph = navGraph
             val action = NavGraphDirections.actionGlobalShopSearchFragment()
-            navController.navigate(action)
+            navController?.navigate(action)
 
         }
 
-        navView.setupWithNavController(navController)
+
     }
         override fun onDestroy() {
             super.onDestroy()

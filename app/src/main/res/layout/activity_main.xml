@@ -102,7 +102,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/no_internet_connection"
                     android:textColor="@color/darkRed"
-                    android:textSize="10sp"
+                    android:textSize="15sp"
                     tools:ignore="SmallSp" />
             </LinearLayout>
 
