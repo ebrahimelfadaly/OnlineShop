@@ -18,10 +18,11 @@ import com.facebook.shimmer.ShimmerFrameLayout
 import kotlinx.android.synthetic.main.fragment_category.shimmerFrameLayout1
 import kotlinx.android.synthetic.main.fragment_category.shimmerFrameLayout2
 import com.example.onlineshop.R
+import com.example.onlineshop.ViewModelFactory
 import com.example.onlineshop.data.entity.customProduct.Product
 import com.example.onlineshop.databinding.FragmentCategoryBinding
 import com.example.onlineshop.networkBase.NetworkChange
-import com.google.android.ads.mediationtestsuite.viewmodels.ViewModelFactory
+
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.cart_toolbar_view.view.*
 import kotlinx.android.synthetic.main.fragment_category.*
@@ -29,7 +30,7 @@ import kotlinx.android.synthetic.main.list_toolbar_view.view.*
 
 
 class CategoryFragment : Fragment() {
-   /* var mainCategoryIndex=0
+  /* var mainCategoryIndex=0
     var subCategoryIndex=0
     var colID:Long=268359696582
     lateinit var catViewModel:CategoryViewModel

@@ -1,4 +1,4 @@
-package com.example.onlineshop.ui.Show1OrderDetails
+package com.example.onlineshop.ui.ShowOneOrderDetails
 
 import android.util.Log
 import android.view.LayoutInflater
