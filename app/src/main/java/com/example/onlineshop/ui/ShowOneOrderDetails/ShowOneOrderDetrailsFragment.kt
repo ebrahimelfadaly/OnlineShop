@@ -1,24 +1,52 @@
 package com.example.onlineshop.ui.Show1OrderDetails
 
+import android.annotation.SuppressLint
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.widget.SearchView
+import androidx.core.content.ContextCompat
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.onlineshop.R
+import com.example.onlineshop.ViewModelFactory
 import com.example.onlineshop.data.entity.orderGet.GetOrders
+import com.example.onlineshop.data.remoteDataSource.RemoteDataSourceImpl
+import com.example.onlineshop.data.roomData.RoomDataSourceImpl
+import com.example.onlineshop.data.roomData.RoomService
 import com.example.onlineshop.databinding.FragmentShowOneOrderBinding
+import com.example.onlineshop.repository.RepositoryImpl
+import com.example.onlineshop.ui.Payment.CheckoutActivity
+import com.example.onlineshop.ui.ShowOneOrderDetails.OrdersListAdapter
+import com.example.onlineshop.ui.ShowOneOrderDetails.ShowOneOrderDetailsVM
+import com.example.onlineshop.utils.FilterData
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.view.*
+import kotlinx.android.synthetic.main.fragment_show_one_order.*
+import java.io.Serializable
+import java.lang.ref.WeakReference
 
 
 class ShowOneOrderDetrailsFragment : Fragment() {
 
     private lateinit var fragmentShowOneOrderBinding: FragmentShowOneOrderBinding
-    private lateinit var showOrderViewModel:ShowOneOrderDetailsVM
+    private lateinit var showOrderViewModel: ShowOneOrderDetailsVM
     private lateinit var images : List<String>
-    lateinit var order : GetOrders.Order}
+    lateinit var order : GetOrders.Order
 
 
-/* @SuppressLint("SetTextI18n")
+ @SuppressLint("SetTextI18n")
   override fun onCreateView(
       inflater: LayoutInflater, container: ViewGroup?,
       savedInstanceState: Bundle?
@@ -28,7 +56,7 @@ class ShowOneOrderDetrailsFragment : Fragment() {
           container,
           false
       )
-      val args: ShowOneOrderFragmentArgs by navArgs()
+      val args: ShowOneOrderDetrailsFragmentArgs by navArgs()
 
       val viewModelFactory = ViewModelFactory(
           RepositoryImpl(
@@ -194,4 +222,4 @@ class ShowOneOrderDetrailsFragment : Fragment() {
       super.onDestroyView()
       fragmentShowOneOrderBinding.progressShowOrderDetails.visibility= View.VISIBLE
 
-}*/
+}}
