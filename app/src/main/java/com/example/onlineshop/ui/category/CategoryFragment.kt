@@ -124,7 +124,7 @@ class CategoryFragment : Fragment() ,SubRecyclerClick,MainRecyclerClick,ItemRecy
         binding.shimmerFrameLayout4.startShimmer()
         changeToolbar()
         subcatList= arrayOf("Shoes","Accessories","T-Shirts")
-        var mainCatList= arrayOf("Home","kids","Men","Sales","Women")
+        var mainCatList= arrayOf("kids","Men","Sales","Women")
         binding.subcategoryRecView.adapter= SubCategoryAdapter(subcatList,this)
         binding.mainCategoryRecView.adapter= MainCategoryAdapter(mainCatList,this)
         if (NetworkChange.isOnline) {
@@ -159,11 +159,11 @@ class CategoryFragment : Fragment() ,SubRecyclerClick,MainRecyclerClick,ItemRecy
     fun getMainCategory(position:Int):Long{
         var main:Long=0
         when(position){
-            0-> main=398034632935
-            1-> main=398034632935//right kids
-            2-> main=398034567399//right men
-            3-> main=398034665703//right on sale
-            4-> main=398034600167// right woman
+                  //home
+           0-> main=398034632935//right kids
+            1-> main=398034567399//right men
+            2-> main=398034665703//right on sale
+            3-> main=398034600167// right woman
             else-> main=0
         }
         return main
