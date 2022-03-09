@@ -6,7 +6,10 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.onlineshop.MainActivity.MainActivityViewModel
 import com.example.onlineshop.repository.IRepository
 import com.example.onlineshop.ui.AllWishList.AllWishListViewModel
+import com.example.onlineshop.ui.ProductDetalis.ProductDetailsVM
 import com.example.onlineshop.ui.ShopTap.ShopViewModel
+import com.example.onlineshop.ui.Show1OrderDetails.ShowOneOrderDetailsVM
+import com.example.onlineshop.ui.cart.OrderViewModel
 import com.example.onlineshop.ui.category.CategoryViewModel
 import com.example.onlineshop.ui.login_register.ui.login.LoginViewModel
 import com.example.onlineshop.ui.meScreen.MeViewModel
@@ -34,6 +37,15 @@ class ViewModelFactory(private val repositoryImpl: IRepository,private val appli
             }
             modelClass.isAssignableFrom(MeViewModel::class.java)-> {
                MeViewModel(repositoryImpl,application) as T
+            }
+            modelClass.isAssignableFrom(ProductDetailsVM::class.java)-> {
+                ProductDetailsVM(repositoryImpl, application) as T
+            }
+            modelClass.isAssignableFrom(OrderViewModel::class.java)-> {
+                OrderViewModel(repositoryImpl, application) as T
+            }
+            modelClass.isAssignableFrom(ShowOneOrderDetailsVM::class.java)-> {
+                ShowOneOrderDetailsVM(repositoryImpl, application) as T
             }
             else -> {
                 throw IllegalArgumentException("ViewModel Not Found")

@@ -149,7 +149,7 @@
         app:launchSingleTop="true"/>
     <fragment
         android:id="@+id/orderConfirmationFragment"
-        android:name="com.example.onlineshop.ui.shopbag.OrderConfirmationFragment"
+        android:name="com.example.onlineshop.ui.cart.OrderConfirmationFragment"
         android:label="OrderConfirmationFragment"
         tools:layout="@layout/fragment_order_confirmation">
         <argument

@@ -155,7 +155,12 @@
 
 
     <string name="please_connect_to_a_network">Please connect to a network</string>
-
+    <string name="signin">signin</string>
+    <string name="sign_in_and_try_again">sign_in_and_try_again</string>
+    <string name="you_are_not_signed">you_are_not_signed</string>
+    <string name="logInToCanAddToCart">logInToCanAddToCart</string>
+    <string name="item_saved_in_cart">item_saved_in_cart</string>
+    <string name="logInToCanAddToWishList">logInToCanAddToWishList</string>
 
 
 </resources>
