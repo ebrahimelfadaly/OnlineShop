@@ -9,6 +9,7 @@ import com.example.onlineshop.ui.AllWishList.AllWishListViewModel
 import com.example.onlineshop.ui.ShopTap.ShopViewModel
 import com.example.onlineshop.ui.category.CategoryViewModel
 import com.example.onlineshop.ui.login_register.ui.login.LoginViewModel
+import com.example.onlineshop.ui.meScreen.MeViewModel
 
 
 class ViewModelFactory(private val repositoryImpl: IRepository,private val application: Application):ViewModelProvider.Factory {
@@ -30,6 +31,9 @@ class ViewModelFactory(private val repositoryImpl: IRepository,private val appli
             modelClass.isAssignableFrom(CategoryViewModel::class.java) -> {
                 CategoryViewModel(repositoryImpl, application) as T
 
+            }
+            modelClass.isAssignableFrom(MeViewModel::class.java)-> {
+               MeViewModel(repositoryImpl,application) as T
             }
             else -> {
                 throw IllegalArgumentException("ViewModel Not Found")

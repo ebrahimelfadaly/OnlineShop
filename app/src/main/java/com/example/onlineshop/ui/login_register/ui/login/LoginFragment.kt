@@ -119,11 +119,11 @@ class LoginFragment : Fragment() {
             }
         }
 
-/*
+
         binding.tvSignup.setOnClickListener {
             view.findNavController()
-                .navigate(SignInFragmentDirections.actionSignInFragmentToSignUpFragment())
-        }*/
+                .navigate(LoginFragmentDirections.actionLoginFragmentToRegisterFragment())
+        }
 
         binding.googleButton.setOnClickListener {
             val providers = arrayListOf(AuthUI.IdpConfig.GoogleBuilder().build())
