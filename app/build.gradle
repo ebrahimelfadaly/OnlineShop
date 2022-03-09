@@ -2,7 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
-
+    id 'androidx.navigation.safeargs.kotlin'
     id 'kotlin-android-extensions'
 }
 apply plugin: 'kotlin-kapt'
@@ -73,9 +73,6 @@ dependencies {
 
 
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
-    //navigation arch component
-    implementation "androidx.navigation:navigation-fragment-ktx:2.4.1"
-    implementation "androidx.navigation:navigation-ui-ktx:2.4.1"
 
     //retrofit
     implementation "com.squareup.retrofit2:retrofit:2.9.0"
@@ -93,7 +90,7 @@ dependencies {
 
 
     //coroutines
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0-native-mt'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0'
 
 
     //GSON
@@ -136,7 +133,8 @@ dependencies {
     //Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.google.code.gson:gson:2.9.0'
-
+    implementation "androidx.navigation:navigation-fragment:2.4.1"
+    implementation "androidx.navigation:navigation-dynamic-features-fragment:2.4.1"
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation 'com.squareup.retrofit2:converter-scalars:2.9.0'
 
@@ -184,8 +182,10 @@ dependencies {
     //timber
     implementation 'com.jakewharton.timber:timber:4.7.1'
 
-
-
-
+    //navigation arch component
+    implementation "androidx.navigation:navigation-ui:2.4.1"
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0-native-mt")
+    implementation "androidx.navigation:navigation-fragment-ktx:2.4.1"
+    implementation "androidx.navigation:navigation-dynamic-features-fragment:2.4.1"
 
 }

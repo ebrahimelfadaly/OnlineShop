@@ -7,30 +7,34 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.SearchView
+import androidx.appcompat.widget.SearchView;
 import android.widget.Toast
 
 import androidx.fragment.app.Fragment
 
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.example.onlineshop.NavGraphDirections
 import com.facebook.shimmer.ShimmerFrameLayout
 import kotlinx.android.synthetic.main.fragment_category.shimmerFrameLayout1
 import kotlinx.android.synthetic.main.fragment_category.shimmerFrameLayout2
 import com.example.onlineshop.R
 import com.example.onlineshop.ViewModelFactory
 import com.example.onlineshop.data.entity.customProduct.Product
+import com.example.onlineshop.data.remoteDataSource.RemoteDataSourceImpl
+import com.example.onlineshop.data.roomData.RoomDataSourceImpl
+import com.example.onlineshop.data.roomData.RoomService
 import com.example.onlineshop.databinding.FragmentCategoryBinding
 import com.example.onlineshop.networkBase.NetworkChange
-
+import com.example.onlineshop.repository.RepositoryImpl
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.cart_toolbar_view.view.*
 import kotlinx.android.synthetic.main.fragment_category.*
 import kotlinx.android.synthetic.main.list_toolbar_view.view.*
 
 
-class CategoryFragment : Fragment() {
-  /* var mainCategoryIndex=0
+class CategoryFragment : Fragment() ,SubRecyclerClick,MainRecyclerClick,ItemRecyclerClick{
+    var mainCategoryIndex=0
     var subCategoryIndex=0
     var colID:Long=268359696582
     lateinit var catViewModel:CategoryViewModel
@@ -59,7 +63,6 @@ class CategoryFragment : Fragment() {
             ViewModelProvider(
                 this, viewModelFactory
             ).get(CategoryViewModel::class.java)
-
         Log.i("output","one")
         return view
     }
@@ -108,18 +111,17 @@ class CategoryFragment : Fragment() {
         }
         binding.mainCategoryRecView.adapter!!.notifyDataSetChanged()
 
-        /*binding.mainCategoriesRecView.findViewHolderForAdapterPosition(position)!!.itemView.underLine.background=
-            ColorDrawable(Color.parseColor("#ffffff"))*/
+
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         Log.i("output","five")
 
-        binding.shimmerFrameLayout1.startAnimation()
-        binding.shimmerFrameLayout2.startShimmerAnimation()
-        binding.shimmerFrameLayout3.startShimmerAnimation()
-        binding.shimmerFrameLayout4.startShimmerAnimation()
+        binding.shimmerFrameLayout1.startShimmer()
+        binding.shimmerFrameLayout2.startShimmer()
+        binding.shimmerFrameLayout3.startShimmer()
+        binding.shimmerFrameLayout4.startShimmer()
         changeToolbar()
         subcatList= arrayOf("Shoes","Accessories","T-Shirts")
         var mainCatList= arrayOf("Home","kids","Men","Sales","Women")
@@ -132,9 +134,9 @@ class CategoryFragment : Fragment() {
             catViewModel.fetchCatProducts(267715608774).observe(requireActivity(), {
                 if(it != null){
                     shimmerFrameLayout1.stopShimmer()
-                    shimmerFrameLayout2.stopShimmerAnimation()
-                    shimmerFrameLayout3.stopShimmerAnimation()
-                    shimmerFrameLayout4.stopShimmerAnimation()
+                    shimmerFrameLayout2.stopShimmer()
+                    shimmerFrameLayout3.stopShimmer()
+                    shimmerFrameLayout4.stopShimmer()
 
                     shimmerFrameLayout1.visibility = View.GONE
                     shimmerFrameLayout2.visibility = View.GONE
@@ -157,11 +159,11 @@ class CategoryFragment : Fragment() {
     fun getMainCategory(position:Int):Long{
         var main:Long=0
         when(position){
-            0-> main=267715608774
-            1-> main=268359663814
-            2-> main=268359598278
-            3-> main=268359696582
-            4-> main=268359631046
+            0-> main=398034632935
+            1-> main=398034632935//right kids
+            2-> main=398034567399//right men
+            3-> main=398034665703//right on sale
+            4-> main=398034600167// right woman
             else-> main=0
         }
         return main
@@ -190,7 +192,7 @@ class CategoryFragment : Fragment() {
 
     private fun changeToolbar() {
         requireActivity().findViewById<SearchView>(R.id.mainSearchView).visibility=View.GONE
-        requireActivity().findViewById<View>(R.id.bottom_nav).visibility = View.VISIBLE
+        requireActivity().findViewById<View>(R.id.nav_view).visibility = View.VISIBLE
         requireActivity().toolbar.visibility = View.VISIBLE
         requireActivity().findViewById<View>(R.id.favourite).favouriteButton.setColorFilter(getResources().getColor(R.color.black))
         requireActivity().findViewById<View>(R.id.cartView).cartButton.setColorFilter(getResources().getColor(R.color.black))
@@ -209,5 +211,5 @@ class CategoryFragment : Fragment() {
 
     override fun onDetach() {
         super.onDetach()
-    }*/
+    }
 }

@@ -10,7 +10,9 @@ import com.example.onlineshop.data.entity.customer.*
 import com.example.onlineshop.data.entity.order.Orders
 import com.example.onlineshop.data.entity.orderGet.GetOrders
 import com.example.onlineshop.data.entity.orderGet.OneOrderResponce
+import com.example.onlineshop.data.entity.smart_collection.Brands
 import com.example.onlineshop.data.itemPojo.ProductItem
+
 import com.example.onlineshop.data.remoteDataSource.network.Network
 import com.example.onlineshop.networkBase.SingleLiveEvent
 import io.reactivex.Observable
@@ -29,6 +31,7 @@ class RemoteDataSourceImpl :RemoteDataIN {
     var menProducts = MutableLiveData<ProductsList>()
     var onSaleProducts = MutableLiveData<ProductsList>()
     var allProductsListt = MutableLiveData<AllProducts>()
+    var allBrand=  MutableLiveData<Brands>()
 
 
     var allDiscountCode = MutableLiveData<AllCodes>()
@@ -36,6 +39,7 @@ class RemoteDataSourceImpl :RemoteDataIN {
     var deleteOrder : MutableLiveData<Boolean> = MutableLiveData<Boolean>()
     var getCreateOrderResponse = SingleLiveEvent<OneOrderResponce?>()
     var catProducts = MutableLiveData<List<Product>>()
+    var getProductBrand=MutableLiveData<ProductItem>()
     var allProducts = MutableLiveData<List<com.example.onlineshop.data.itemPojo.Product>>()
 
 
@@ -188,6 +192,32 @@ class RemoteDataSourceImpl :RemoteDataIN {
         return allDiscountCode
     }
 
+    override fun getAllBrands(): MutableLiveData<Brands> {
+        CoroutineScope(Dispatchers.IO).launch {
+
+            Network.apiService.getAllBrands().enqueue(object : Callback<Brands?> {
+
+                override fun onResponse(
+                    call: Call<Brands?>,
+                    response: Response<Brands?>
+                ) {
+                    if (response.isSuccessful) {
+                        allBrand.postValue(response.body())
+                        Log.i("output", response.body().toString())
+
+                    }
+                }
+
+                override fun onFailure(call: Call<Brands?>, t: Throwable) {
+                    Log.i("output", t.message.toString())
+                    t.printStackTrace()
+
+                }
+            })
+        }
+        return allBrand
+    }
+
     override fun getProuduct(id: Long) {
         Network.apiService.getOneProduct(id).enqueue(object : Callback<ProductItem?> {
             override fun onResponse(call: Call<ProductItem?>, response: Response<ProductItem?>) {
@@ -253,6 +283,8 @@ class RemoteDataSourceImpl :RemoteDataIN {
     override fun getOneOrders(id: Long): Observable<OneOrderResponce> {
         return Network.apiService.getOneOrders(id)
     }
+
+
 
     override suspend fun fetchCustomersData(): List<Customer>? {
         val response = Network.apiService.getCustomers()

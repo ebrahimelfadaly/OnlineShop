@@ -10,7 +10,9 @@
 
 
 
-    <string name="shopOnlie">- #SHOP ONLIE SALE -</string>
+
+    <string name="shopOnlie"> BRANDS </string>
+
 
     <string name="shopping_bag">Shopping bag</string>
     <string name="settings">Settings</string>
@@ -21,6 +23,9 @@
     <string name="unpaid" />
     <string name="unpaid_orders">Unpaid Orders</string>
     <string name="wish_list">WishList</string>
+    <string name="Delete_Item_From_Wish_List">Delete Item From WishList</string>
+    <string name="are_you_sure">Are You Sure?</string>
+    <string name="AllWishList">All WishList</string>
     <string name="see_more">see more</string>
     <string name="_1">1</string>
     <string name="please_log_in">log in to look your wishList</string>
@@ -130,6 +135,7 @@
 
 
     //ebrahim
+    <string name="no_results_found">No results found</string>
     <string-array name="sortArr">
         <item>SORT</item>
         <item>price: Low to High</item>
@@ -137,6 +143,7 @@
         <item>Alphabetically</item>
         <item>none</item>
     </string-array>
+
     <string-array name="filterArr">
         <item>FILTER</item>
         <item>shoes</item>
@@ -145,27 +152,15 @@
         <item>none</item>
     </string-array>
 
-    <string name="no_results_found">No results found</string>
+
+
     <string name="please_connect_to_a_network">Please connect to a network</string>
-    <string name="are_you_sure">are_you_sure</string>
-    <string name="cancel_order">cancel_order</string>
-    <string name="my_orders">my_orders</string>
-    <string name="click_to_add_address">click_to_add_address</string>
-    <string name="change_address">change_address</string>
-    <string name="payment_method">payment_method</string>
-    <string name="apply_voucher">apply_voucher</string>
-    <string name="enter_discount_code">enter_discount_code</string>
-    <string name="item_total">item_total</string>
-    <string name="discount">discount</string>
-    <string name="place_order">place_order</string>
-    <string name="alert_msg">alert_msg</string>
     <string name="signin">signin</string>
-    <string name="ok">ok</string>
     <string name="sign_in_and_try_again">sign_in_and_try_again</string>
     <string name="you_are_not_signed">you_are_not_signed</string>
-    <string name="logInToCanAddToWishList">logInToCanAddToWishList</string>
     <string name="logInToCanAddToCart">logInToCanAddToCart</string>
     <string name="item_saved_in_cart">item_saved_in_cart</string>
+    <string name="logInToCanAddToWishList">logInToCanAddToWishList</string>
 
 
 </resources>

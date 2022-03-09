@@ -1,8 +1,10 @@
 package com.example.onlineshop.utils
 
 import android.annotation.SuppressLint
+import android.util.Log
 import com.example.onlineshop.data.entity.allproducts.allProduct
 import com.example.onlineshop.data.entity.orderGet.GetOrders
+
 
 class FilterData {
     companion object {
@@ -24,11 +26,11 @@ class FilterData {
 
         fun ProductsIDs(orders: List<GetOrders.Order?>): List<List<Long>> {
             val list : MutableList<List<Long>> = arrayListOf()
-            orders.forEach {
-                    order ->
+             orders.forEach {
+                 order ->
                 val  line_items= order?.line_items?.map { it!!.product_id }
-                list.add(line_items as List<Long>)
-            }
+                 list.add(line_items as List<Long>)
+             }
             return list
         }
 
