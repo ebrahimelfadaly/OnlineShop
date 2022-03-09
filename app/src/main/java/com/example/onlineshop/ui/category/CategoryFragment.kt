@@ -15,7 +15,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.onlineshop.NavGraphDirections
-import com.facebook.shimmer.ShimmerFrameLayout
+
 import kotlinx.android.synthetic.main.fragment_category.shimmerFrameLayout1
 import kotlinx.android.synthetic.main.fragment_category.shimmerFrameLayout2
 import com.example.onlineshop.R
@@ -49,7 +49,7 @@ class CategoryFragment : Fragment() ,SubRecyclerClick,MainRecyclerClick,ItemRecy
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentCategoryBinding.inflate(inflater, container, false)
         val view = binding.root
         val application = requireNotNull(this.activity).application
@@ -157,7 +157,7 @@ class CategoryFragment : Fragment() ,SubRecyclerClick,MainRecyclerClick,ItemRecy
     }
 
     fun getMainCategory(position:Int):Long{
-        var main:Long=0
+        var main: Long
         when(position){
             0-> main=398034632935
             1-> main=398034632935//right kids
