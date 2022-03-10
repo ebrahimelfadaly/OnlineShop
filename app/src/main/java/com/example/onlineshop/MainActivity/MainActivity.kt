@@ -78,13 +78,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         searchIcon.setOnClickListener {
-//            Toast.makeText(this,"search",Toast.LENGTH_LONG).show()
-//            navHostFragment = fragment as NavHostFragment
-//            val graphInflater = (navHostFragment as NavHostFragment).navController.navInflater
-//            val navGraph = graphInflater.inflate(R.navigation.nav_graph)
-//            navController = (navHostFragment as NavHostFragment).navController
-//            navGraph.startDestination = R.id.shopSearchFragment
-//            navController!!.graph = navGraph
+
             val action = NavGraphDirections.actionGlobalShopSearchFragment()
             navController?.navigate(action)
 

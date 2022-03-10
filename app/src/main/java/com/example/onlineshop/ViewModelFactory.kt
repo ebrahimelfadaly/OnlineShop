@@ -46,7 +46,7 @@ class ViewModelFactory(private val repositoryImpl: IRepository,private val appli
             }
             modelClass.isAssignableFrom(ProfileViewModel::class.java)-> {
                 ProfileViewModel(repositoryImpl, application) as T
-
+            }
             modelClass.isAssignableFrom(ProductDetailsVM::class.java)-> {
                 ProductDetailsVM(repositoryImpl, application) as T
             }

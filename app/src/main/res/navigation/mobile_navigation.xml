@@ -15,7 +15,9 @@
         <action
             android:id="@+id/action_shopTabFragment2_to_products"
             app:destination="@id/products" />
+
     </fragment>
+
     <fragment
         android:id="@+id/categoryFragment"
         android:name="com.example.onlineshop.ui.category.CategoryFragment"
@@ -46,14 +48,7 @@
             app:destination="@id/prouductDetailsFragment" />
     </fragment>
 
-    <fragment
-        android:id="@+id/womanProductFragment"
-        android:name="com.example.onlineshop.ui.ShopTap.shopTapcategory.WomanProductFragment"
-        android:label="WomanProductFragment">
-        <action
-            android:id="@+id/action_womanProductFragment_to_products2"
-            app:destination="@id/products" />
-    </fragment>
+
 
 
 
