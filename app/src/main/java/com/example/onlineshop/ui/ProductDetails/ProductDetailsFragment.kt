@@ -10,12 +10,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.SearchView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.onlineshop.R
 import com.example.onlineshop.ViewModelFactory
@@ -43,7 +44,7 @@ class ProductDetailsFragment : Fragment() {
     private lateinit var imageSliderAdaper: ImageSilderAdapter
     private lateinit var meDataSourceReo: MeDataSharedPrefrenceReposatory
     private var optionsSelected: String? = null
-    var num = 1
+    private var num = 1
 
     var id: Long? = null
     private var stored = false
@@ -100,8 +101,8 @@ class ProductDetailsFragment : Fragment() {
                 setStoredButton(stored)
 
             } else {
-                // val args: ProuductDetailsFragmentArgs by navArgs()
-                // id = args.productID
+                 val args: ProductDetailsFragmentArgs by navArgs()
+                 id = args.productID
                 checkWishListStored(id ?: 0)
             }
 
@@ -278,7 +279,7 @@ class ProductDetailsFragment : Fragment() {
                 LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             if (product.options?.size ?: 0 >= 2) {
 
-                this.adapter = product.options!!.get(1).values?.let {
+                this.adapter = product.options!![1].values?.let {
                     OptionsAdapter(
                         it,
                         productDetailsViewMode.optionsMutableLiveData
@@ -358,7 +359,7 @@ class ProductDetailsFragment : Fragment() {
 
 
         requireActivity().toolbar.setBackgroundDrawable(ColorDrawable(Color.WHITE))
-        requireActivity().toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.back_arrow))
+        requireActivity().toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.black_arrow))
         requireActivity().toolbar.setNavigationOnClickListener {
             view?.findNavController()?.popBackStack()
         }

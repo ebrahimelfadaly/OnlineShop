@@ -14,7 +14,7 @@ import com.example.onlineshop.data.itemPojo.ProductCartModule
 import com.example.onlineshop.networkBase.SingleLiveEvent
 import com.example.onlineshop.repository.IRepository
 import kotlinx.coroutines.launch
-import timber.log.Timber
+
 
 class OrderViewModel (val repositoryImpl: IRepository, application: Application) :
     AndroidViewModel(application) {
@@ -76,7 +76,7 @@ class OrderViewModel (val repositoryImpl: IRepository, application: Application)
         jop.invokeOnCompletion {
             customerAddresses.postValue(data)
 
-            Timber.i("olaaa+" + data)
+
         }
     }
     fun saveWishList(wishItem: Product) {
