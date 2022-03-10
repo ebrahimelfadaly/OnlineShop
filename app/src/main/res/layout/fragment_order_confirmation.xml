@@ -72,7 +72,7 @@
                         android:textColor="@color/black"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        tools:text="Ola Abaza" />
+                        tools:text="noor" />
 
                     <TextView
                         android:id="@+id/country_txt"
@@ -110,17 +110,6 @@
 
                         />
 
-                    <!--ImageView
-                        android:id="@+id/line2"
-                        android:layout_width="match_parent"
-                        android:layout_height="7dp"
-                        android:layout_marginTop="10dp"
-                        android:layerType="software"
-                        android:orientation="horizontal"
-                        android:src="@drawable/ic_card"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/address_btn" /-->
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
@@ -170,7 +159,7 @@
                             android:buttonTint="@color/gray"
                             android:padding="7dp"
                             android:checked="true"
-                            android:textSize="17dp"
+                            android:textSize="17sp"
                             android:drawableLeft="@drawable/ic_money"
                             android:text="   Cash on delivery" />
 
@@ -182,7 +171,7 @@
                             android:buttonTint="@color/gray"
                             android:drawableLeft="@drawable/ic_credit_card"
                             android:text="   Credit/Debit Card"
-                            android:textSize="17dp" />
+                            android:textSize="17sp" />
 
                     </RadioGroup>
 
@@ -438,21 +427,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-    <!--Button
-        android:id="@+id/place_order_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:padding="10dp"
-        android:text="@string/place_order"
-        android:textAllCaps="true"
-        android:textColor="@color/white"
-        android:textSize="15dp"
-        android:textStyle="bold"
-        app:backgroundTint="@null"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" /-->
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

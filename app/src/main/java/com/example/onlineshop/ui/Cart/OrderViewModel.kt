@@ -14,7 +14,7 @@ import com.example.onlineshop.data.itemPojo.ProductCartModule
 import com.example.onlineshop.networkBase.SingleLiveEvent
 import com.example.onlineshop.repository.IRepository
 import kotlinx.coroutines.launch
-import timber.log.Timber
+
 
 class OrderViewModel (val repositoryImpl: IRepository, application: Application) :
     AndroidViewModel(application) {
@@ -76,7 +76,7 @@ class OrderViewModel (val repositoryImpl: IRepository, application: Application)
         jop.invokeOnCompletion {
             customerAddresses.postValue(data)
 
-            Timber.i("nour+" + data)
+
         }
     }
     fun saveWishList(wishItem: Product) {
@@ -85,23 +85,11 @@ class OrderViewModel (val repositoryImpl: IRepository, application: Application)
         }
     }
 
-    //    fun getPriceRulesList(){
-//        var data: priceRules? = null
-//        val jop = viewModelScope.launch {
-//            data = repository.getPriceRulesList()
-//        }
-//        jop.invokeOnCompletion {
-//            priceRules.postValue(data?.priceRules)
-//
-//            Timber.i("olaaa+" + data)
-//        }
-//    }
+
     fun fetchallDiscountCodeList(): MutableLiveData<AllCodes> {
         return  repositoryImpl.getAllDiscountCodeList()
     }
-//    fun getallDiscountCodeList(): MutableLiveData<AllCodes> {
-//        return repository.getAllDiscountCodes()
-//    }
+
 
     fun createOrder(order: Orders) = repositoryImpl.createOrder(order)
 

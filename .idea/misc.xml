@@ -24,6 +24,7 @@
         <entry key="..\:/AndroidProjectKotlin/OnlineShop/app/src/main/res/layout/fragment_me.xml" value="0.25" />
         <entry key="..\:/AndroidProjectKotlin/OnlineShop/app/src/main/res/layout/fragment_men_product.xml" value="0.1" />
         <entry key="..\:/AndroidProjectKotlin/OnlineShop/app/src/main/res/layout/fragment_one_sale_product.xml" value="0.1" />
+        <entry key="..\:/AndroidProjectKotlin/OnlineShop/app/src/main/res/layout/fragment_profile.xml" value="0.22" />
         <entry key="..\:/AndroidProjectKotlin/OnlineShop/app/src/main/res/layout/fragment_register.xml" value="0.25" />
         <entry key="..\:/AndroidProjectKotlin/OnlineShop/app/src/main/res/layout/fragment_setting.xml" value="0.22" />
         <entry key="..\:/AndroidProjectKotlin/OnlineShop/app/src/main/res/layout/fragment_shop_tap.xml" value="0.1" />
@@ -47,6 +48,7 @@
         <entry key="..\:/OnlineShop/app/src/main/res/layout/activity_splash.xml" value="0.1" />
         <entry key="..\:/OnlineShop/app/src/main/res/layout/activity_welcome.xml" value="0.18489583333333334" />
         <entry key="..\:/OnlineShop/app/src/main/res/layout/cart_toolbar_view.xml" value="0.25" />
+        <entry key="..\:/OnlineShop/app/src/main/res/layout/category_item.xml" value="0.18958333333333333" />
         <entry key="..\:/OnlineShop/app/src/main/res/layout/fragment_add_address.xml" value="0.11851851851851852" />
         <entry key="..\:/OnlineShop/app/src/main/res/layout/fragment_category.xml" value="0.25" />
         <entry key="..\:/OnlineShop/app/src/main/res/layout/fragment_display_order.xml" value="0.5" />
@@ -58,7 +60,7 @@
         <entry key="..\:/OnlineShop/app/src/main/res/layout/fragment_products.xml" value="0.1" />
         <entry key="..\:/OnlineShop/app/src/main/res/layout/fragment_register.xml" value="0.17083333333333334" />
         <entry key="..\:/OnlineShop/app/src/main/res/layout/fragment_search.xml" value="0.18489583333333334" />
-        <entry key="..\:/OnlineShop/app/src/main/res/layout/fragment_shop_tap.xml" value="0.18489583333333334" />
+        <entry key="..\:/OnlineShop/app/src/main/res/layout/fragment_shop_tap.xml" value="0.25" />
         <entry key="..\:/OnlineShop/app/src/main/res/layout/fragment_show_one_order_detrails.xml" value="0.18958333333333333" />
         <entry key="..\:/OnlineShop/app/src/main/res/layout/fragment_woman_product.xml" value="0.25" />
         <entry key="..\:/OnlineShop/app/src/main/res/layout/image_slider.xml" value="0.18489583333333334" />

@@ -55,7 +55,7 @@
 
     </string>
     <string name="team">Team</string>
-    <string name="team_tv"> team of the product :\n
+    <string name="team_tv"> Team of the product :\n\n
                                   Enas Alosta\n
                                   Ebrahim Alfadaly\n
                                   Rania \n
@@ -103,9 +103,19 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-
+    <string name="click_to_add_address">Click to add address</string>
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="apply_voucher">Apply Discount</string>
+    <string name="item_total">Sub Total:</string>
+    <string name="discount">Discount:</string>
+
+    <string name="change_address"><u>Change address</u></string>
+    <string name="payment_method">Payment Method</string>
+
+    <string name="enter_discount_code">Enter Discount Code</string>
+    <string name="place_order">Place Order</string>
+
 
     <string name="waiting_for_payment">waitForPayment</string>
     <string name="payment_type">PaymentType</string>
@@ -155,6 +165,14 @@
 
 
     <string name="please_connect_to_a_network">Please connect to a network</string>
+
+    <string name="edit_profile">Edit Profile</string>
+    <string name="save">Save</string>
+    <string name="change_password">Change Password</string>
+    <string name="current_password">Current Password</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_password">Confirm Password</string>
+
     <string name="signin">signin</string>
     <string name="sign_in_and_try_again">sign_in_and_try_again</string>
     <string name="you_are_not_signed">you_are_not_signed</string>
@@ -163,17 +181,7 @@
     <string name="logInToCanAddToWishList">logInToCanAddToWishList</string>
     <string name="my_orders">my_orders</string>
     <string name="cancel_order">cancel_order</string>
-    <string name="some_error_accurated">some_error_accurated</string>
-    <string name="order_canceld">order_canceld</string>
-    <string name="discount">discount</string>
-    <string name="item_total">item_total</string>
-    <string name="place_order">place_order</string>
-    <string name="click_to_add_address">click_to_add_address</string>
-    <string name="enter_discount_code">enter_discount_code</string>
-    <string name="apply_voucher">apply_voucher</string>
-    <string name="change_address">change_address</string>
-    <string name="payment_method">payment_method</string>
-    <string name="alert_msg">alert_msg</string>
+    <string name="alert_msg">Are you sure to delete this item?</string>
 
 
 </resources>

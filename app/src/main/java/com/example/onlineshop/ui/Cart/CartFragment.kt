@@ -1,17 +1,17 @@
 package com.example.onlineshop.ui.cart
-
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.*
-import androidx.fragment.app.Fragment
+import androidx.appcompat.widget.SearchView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.widget.SearchView
-import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.onlineshop.NavGraphDirections
 import com.example.onlineshop.R
@@ -25,13 +25,9 @@ import com.example.onlineshop.data.sharedprefrences.MeDataSharedPrefrenceReposat
 import com.example.onlineshop.databinding.FragmentCartBinding
 import com.example.onlineshop.networkBase.NetworkChange
 import com.example.onlineshop.repository.RepositoryImpl
-import timber.log.Timber
-import androidx.navigation.findNavController
-import androidx.navigation.Navigation
 import kotlinx.android.synthetic.main.activity_main.*
-import androidx.navigation.NavOptions
-import androidx.lifecycle.Observer
-import androidx.navigation.fragment.findNavController
+
+
 
 class CartFragment : Fragment() {
 
@@ -91,7 +87,7 @@ class CartFragment : Fragment() {
         customerID = meDataSourceReo.loadUsertId()
 
         binding.loginBtn.setOnClickListener {
-            val action = NavGraphDirections.actionGlobalSignInFragment()
+            val action = NavGraphDirections.actionGlobalLoginFragment()
             findNavController().navigate(action)
         }
         orderViewModel.getdelOrderID().observe(viewLifecycleOwner, Observer<Long> {
@@ -103,10 +99,7 @@ class CartFragment : Fragment() {
 
         })
         binding.checkoutButton.setOnClickListener {
-//            val action = NavGraphDirections.actionGlobalOrderConfirmationFragment(
-//                totalPrice.toFloat()
-//            )
-//            findNavController().navigate(action)
+
             view.findNavController()
                 .navigate(
                     CartFragmentDirections.actionCartFragment2ToOrderConfirmationFragment(
@@ -207,7 +200,7 @@ class CartFragment : Fragment() {
         totalPrice = (price?.sumByDouble { it ?: 0.0 }) ?: 0.0
         binding.totalPriceText.text = (price?.sumByDouble { it ?: 0.0 }).toString() + "EGP"
 
-        Timber.i("price" + price + "lj")
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -217,7 +210,7 @@ class CartFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        Timber.i("olaonDestroyView" + cartAdapter.orderList)
+
         if (NetworkChange.isOnline) {
             orderViewModel.insertAllOrder(cartAdapter.orderList)
         } else {
@@ -268,7 +261,7 @@ class CartFragment : Fragment() {
     }
 
     private fun changeToolbar() {
-        requireActivity().findViewById<android.widget.SearchView>(R.id.mainSearchView).visibility=View.GONE
+        requireActivity().findViewById<SearchView>(R.id.mainSearchView).visibility=View.GONE
         requireActivity().findViewById<View>(R.id.nav_view).visibility = View.GONE
         requireActivity().toolbar.visibility = View.VISIBLE
 

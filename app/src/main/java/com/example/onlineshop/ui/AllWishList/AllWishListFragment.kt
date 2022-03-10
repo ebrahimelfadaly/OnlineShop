@@ -16,6 +16,7 @@ import androidx.navigation.NavGraph
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.onlineshop.NavGraphDirections
 import com.example.onlineshop.R
 import com.example.onlineshop.ViewModelFactory
 import com.example.onlineshop.data.itemPojo.Product
@@ -68,14 +69,14 @@ class AllWishListFragment : Fragment() {
          })
 
 
-//        allWishListViewModel.intentTOProductDetails.observe(requireActivity(), {
-//
-//            if (it != null) {
-//                val action = NavGraphDirections.actionGlobalProuductDetailsFragment(it.id)
-//                findNavController().navigate(action)
-//
-//            }
-//        })
+        allWishListViewModel.intentTOProductDetails.observe(requireActivity(), {
+
+            if (it != null) {
+                val action = NavGraphDirections.actionGlobalProuductDetailsFragment(it.id)
+                findNavController().navigate(action)
+
+            }
+        })
              allWishListViewModel.deleteItem.observe(viewLifecycleOwner,{
                  deleteAlert(it.id)
              })

@@ -15,7 +15,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.onlineshop.NavGraphDirections
-import com.facebook.shimmer.ShimmerFrameLayout
+
 import kotlinx.android.synthetic.main.fragment_category.shimmerFrameLayout1
 import kotlinx.android.synthetic.main.fragment_category.shimmerFrameLayout2
 import com.example.onlineshop.R
@@ -49,7 +49,7 @@ class CategoryFragment : Fragment() ,SubRecyclerClick,MainRecyclerClick,ItemRecy
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentCategoryBinding.inflate(inflater, container, false)
         val view = binding.root
         val application = requireNotNull(this.activity).application
@@ -124,7 +124,7 @@ class CategoryFragment : Fragment() ,SubRecyclerClick,MainRecyclerClick,ItemRecy
         binding.shimmerFrameLayout4.startShimmer()
         changeToolbar()
         subcatList= arrayOf("Shoes","Accessories","T-Shirts")
-        var mainCatList= arrayOf("Home","kids","Men","Sales","Women")
+        var mainCatList= arrayOf("Women","kids","Men","Sales")
         binding.subcategoryRecView.adapter= SubCategoryAdapter(subcatList,this)
         binding.mainCategoryRecView.adapter= MainCategoryAdapter(mainCatList,this)
         if (NetworkChange.isOnline) {
@@ -157,13 +157,13 @@ class CategoryFragment : Fragment() ,SubRecyclerClick,MainRecyclerClick,ItemRecy
     }
 
     fun getMainCategory(position:Int):Long{
-        var main:Long=0
+        var main: Long
         when(position){
-            0-> main=398034632935
+            0-> main=398034600167
             1-> main=398034632935//right kids
             2-> main=398034567399//right men
             3-> main=398034665703//right on sale
-            4-> main=398034600167// right woman
+
             else-> main=0
         }
         return main

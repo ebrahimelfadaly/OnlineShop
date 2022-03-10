@@ -14,6 +14,8 @@ import com.example.onlineshop.ui.category.CategoryViewModel
 import com.example.onlineshop.ui.displayOrder.DisplayOrderViewModel
 import com.example.onlineshop.ui.login_register.ui.login.LoginViewModel
 import com.example.onlineshop.ui.meScreen.MeViewModel
+import com.example.onlineshop.ui.profile.ProfileViewModel
+import com.example.onlineshop.ui.settings.SettingViewModel
 
 
 class ViewModelFactory(private val repositoryImpl: IRepository,private val application: Application):ViewModelProvider.Factory {
@@ -39,6 +41,13 @@ class ViewModelFactory(private val repositoryImpl: IRepository,private val appli
             modelClass.isAssignableFrom(MeViewModel::class.java)-> {
                MeViewModel(repositoryImpl,application) as T
             }
+
+            modelClass.isAssignableFrom(SettingViewModel::class.java)-> {
+                SettingViewModel(repositoryImpl, application) as T
+            }
+            modelClass.isAssignableFrom(ProfileViewModel::class.java)-> {
+                ProfileViewModel(repositoryImpl, application) as T
+            }
             modelClass.isAssignableFrom(ProductDetailsVM::class.java)-> {
                 ProductDetailsVM(repositoryImpl, application) as T
             }
@@ -47,6 +56,7 @@ class ViewModelFactory(private val repositoryImpl: IRepository,private val appli
             }
             modelClass.isAssignableFrom(ShowOneOrderDetailsVM::class.java)-> {
                 ShowOneOrderDetailsVM(repositoryImpl, application) as T
+
             }
             modelClass.isAssignableFrom(DisplayOrderViewModel::class.java)-> {
                 DisplayOrderViewModel(repositoryImpl, application) as T
