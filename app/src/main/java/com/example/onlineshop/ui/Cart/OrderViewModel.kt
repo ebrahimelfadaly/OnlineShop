@@ -85,23 +85,11 @@ class OrderViewModel (val repositoryImpl: IRepository, application: Application)
         }
     }
 
-    //    fun getPriceRulesList(){
-//        var data: priceRules? = null
-//        val jop = viewModelScope.launch {
-//            data = repository.getPriceRulesList()
-//        }
-//        jop.invokeOnCompletion {
-//            priceRules.postValue(data?.priceRules)
-//
-//            Timber.i("olaaa+" + data)
-//        }
-//    }
+
     fun fetchallDiscountCodeList(): MutableLiveData<AllCodes> {
         return  repositoryImpl.getAllDiscountCodeList()
     }
-//    fun getallDiscountCodeList(): MutableLiveData<AllCodes> {
-//        return repository.getAllDiscountCodes()
-//    }
+
 
     fun createOrder(order: Orders) = repositoryImpl.createOrder(order)
 

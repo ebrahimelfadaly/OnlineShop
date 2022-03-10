@@ -39,8 +39,7 @@ class MainActivity : AppCompatActivity() {
         if (navController != null) {
             bottomNavigationView.setupWithNavController(navController!!)
         }
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+
 
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)

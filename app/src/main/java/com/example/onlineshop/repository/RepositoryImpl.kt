@@ -160,7 +160,7 @@ class RepositoryImpl(
 
 
     override fun getFourFromWishList(): LiveData<List<com.example.onlineshop.data.itemPojo.Product>> {
-        TODO("Not yet implemented")
+        return roomDataSourceImpl.getFourFromWishList()
     }
 
     override fun getAllWishList(): LiveData<List<com.example.onlineshop.data.itemPojo.Product>> {
