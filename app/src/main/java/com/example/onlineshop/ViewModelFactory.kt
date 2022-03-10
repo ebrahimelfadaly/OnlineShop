@@ -11,6 +11,7 @@ import com.example.onlineshop.ui.ShopTap.ShopViewModel
 import com.example.onlineshop.ui.ShowOneOrderDetails.ShowOneOrderDetailsVM
 import com.example.onlineshop.ui.cart.OrderViewModel
 import com.example.onlineshop.ui.category.CategoryViewModel
+import com.example.onlineshop.ui.displayOrder.DisplayOrderViewModel
 import com.example.onlineshop.ui.login_register.ui.login.LoginViewModel
 import com.example.onlineshop.ui.meScreen.MeViewModel
 
@@ -46,6 +47,9 @@ class ViewModelFactory(private val repositoryImpl: IRepository,private val appli
             }
             modelClass.isAssignableFrom(ShowOneOrderDetailsVM::class.java)-> {
                 ShowOneOrderDetailsVM(repositoryImpl, application) as T
+            }
+            modelClass.isAssignableFrom(DisplayOrderViewModel::class.java)-> {
+                DisplayOrderViewModel(repositoryImpl, application) as T
             }
             else -> {
                 throw IllegalArgumentException("ViewModel Not Found")

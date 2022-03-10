@@ -76,7 +76,7 @@ class OrderViewModel (val repositoryImpl: IRepository, application: Application)
         jop.invokeOnCompletion {
             customerAddresses.postValue(data)
 
-            Timber.i("olaaa+" + data)
+            Timber.i("nour+" + data)
         }
     }
     fun saveWishList(wishItem: Product) {
