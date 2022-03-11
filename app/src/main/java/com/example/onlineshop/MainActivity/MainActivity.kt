@@ -6,9 +6,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.NavAction
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.onlineshop.NavGraphDirections
@@ -39,7 +37,8 @@ class MainActivity : AppCompatActivity() {
         if (navController != null) {
             bottomNavigationView.setupWithNavController(navController!!)
         }
-
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
 
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)

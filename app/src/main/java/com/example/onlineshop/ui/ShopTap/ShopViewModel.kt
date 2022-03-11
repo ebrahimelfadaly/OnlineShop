@@ -13,6 +13,7 @@ import com.example.onlineshop.data.entity.smart_collection.SmartCollection
 import com.example.onlineshop.data.itemPojo.ProductItem
 import com.example.onlineshop.data.itemPojo.ProductsBrand.ProductsModel
 import com.example.onlineshop.data.remoteDataSource.network.Network
+import com.example.onlineshop.networkBase.SingleLiveEvent
 
 import com.example.onlineshop.repository.IRepository
 import kotlinx.coroutines.handleCoroutineException
@@ -22,9 +23,8 @@ class ShopViewModel(val repositoryImpl: IRepository, application: Application) :
     AndroidViewModel(application) {
 
     var intentTOProductDetails: MutableLiveData<SmartCollection> = MutableLiveData()
-  var  intentTOProductBrand: MutableLiveData<allProduct> = MutableLiveData()
+  var  intentTOProductBrand: SingleLiveEvent<allProduct> = SingleLiveEvent()
     private val productsMutable = MutableLiveData<ProductsModel>()
-    val productsByBrand: LiveData<ProductsModel>get()  = productsMutable
 
 
     init {

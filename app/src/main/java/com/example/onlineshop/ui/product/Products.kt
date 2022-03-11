@@ -92,7 +92,7 @@ class Products : Fragment() ,ProductItemAdapter.OnclickBrand{
         shopTabViewModel.intentTOProductBrand.observe(requireActivity(), {
             if (NetworkChange.isOnline){
                 shopTabViewModel.intentTOProductDetails = MutableLiveData()
-                val action = NavGraphDirections.actionGlobalProuductDetailsFragment(it.id.toLong())
+                val action = NavGraphDirections.actionGlobalProductDetailsFragment(it.id.toLong())
                 findNavController().navigate(action)
             }else{
                 Toast.makeText(requireContext(),requireContext().resources.getString(R.string.no_internet_connection),

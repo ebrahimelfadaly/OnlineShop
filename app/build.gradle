@@ -181,6 +181,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics-ktx'
     //timber
     implementation 'com.jakewharton.timber:timber:4.7.1'
+    implementation 'com.makeramen:roundedimageview:2.3.0'
 
     //navigation arch component
     implementation "androidx.navigation:navigation-ui:2.4.1"

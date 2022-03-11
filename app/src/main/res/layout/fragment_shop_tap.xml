@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/white"
     android:layout_height="match_parent"
     tools:context=".ui.ShopTap.ShopTapFragment">
 
@@ -172,6 +173,17 @@
                             android:layout_width="match_parent"
                             android:layout_height="313dp">
 
+<!--                            <androidx.viewpager2.widget.ViewPager2-->
+<!--                                android:id="@+id/viewPagerads"-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="300dp"-->
+<!--                                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                                app:layout_constraintEnd_toEndOf="parent"-->
+
+<!--                                app:layout_constraintStart_toStartOf="parent"-->
+<!--                                app:layout_constraintTop_toTopOf="parent"-->
+<!--                                tools:ignore="SpeakableTextPresentCheck" />-->
+
                             <ImageView
                                 android:id="@+id/ads"
                                 android:layout_width="match_parent"
@@ -182,7 +194,7 @@
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toBottomOf="@id/line"
                                 tools:ignore="NotSibling"
-                                android:contentDescription="TODO" />
+                                />
 
                             <ImageView
                                 android:id="@+id/play"

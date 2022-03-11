@@ -15,7 +15,7 @@ import kotlin.collections.ArrayList
 
 class ImageSilderAdapter (images: List<Images>) : PagerAdapter(){
 
-   // var context: Context
+
     var images: List<Images> = ArrayList()
         set(value) {
             field = value

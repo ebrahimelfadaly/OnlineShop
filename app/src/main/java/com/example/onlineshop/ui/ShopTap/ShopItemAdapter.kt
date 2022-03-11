@@ -34,7 +34,7 @@ class ShopItemAdapter(private val context: Context,private val itemName:List<Sma
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view=LayoutInflater.from(parent.context).inflate(R.layout.shop_item,parent,false)
-nav=Navigation.findNavController(parent)
+           nav=Navigation.findNavController(parent)
         return ViewHolder(view)
     }
 

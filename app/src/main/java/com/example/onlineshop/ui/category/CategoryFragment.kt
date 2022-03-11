@@ -1,5 +1,6 @@
 package com.example.onlineshop.ui.category
 
+import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -114,9 +115,15 @@ class CategoryFragment : Fragment() ,SubRecyclerClick,MainRecyclerClick,ItemRecy
 
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+    }
+
+
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        Log.i("output","five")
 
         binding.shimmerFrameLayout1.startShimmer()
         binding.shimmerFrameLayout2.startShimmer()
@@ -131,21 +138,23 @@ class CategoryFragment : Fragment() ,SubRecyclerClick,MainRecyclerClick,ItemRecy
 
             networkCatView.visibility = View.GONE
             categoryLayout.visibility = View.VISIBLE
-            catViewModel.fetchCatProducts(267715608774).observe(requireActivity(), {
+            catViewModel.fetchCatProducts(398034600167).observe(requireActivity(), {
                 if(it != null){
-                    shimmerFrameLayout1.stopShimmer()
-                    shimmerFrameLayout2.stopShimmer()
-                    shimmerFrameLayout3.stopShimmer()
-                    shimmerFrameLayout4.stopShimmer()
-
-                    shimmerFrameLayout1.visibility = View.GONE
-                    shimmerFrameLayout2.visibility = View.GONE
-                    shimmerFrameLayout3.visibility = View.GONE
-                    shimmerFrameLayout4.visibility = View.GONE
-
-                    binding.itemsRecView.visibility = View.VISIBLE
                     products = it
+                    binding.shimmerFrameLayout1.stopShimmer()
+                    binding.shimmerFrameLayout2.stopShimmer()
+                    binding.shimmerFrameLayout3.stopShimmer()
+                    binding.shimmerFrameLayout4.stopShimmer()
+
+                    binding.shimmerFrameLayout1.visibility = View.GONE
+                    binding.shimmerFrameLayout2.visibility = View.GONE
+                    binding.shimmerFrameLayout3.visibility = View.GONE
+                    binding.shimmerFrameLayout4.visibility = View.GONE
+
                     binding.itemsRecView.adapter = ItemCategoryAdapter(products, requireContext(), this)
+                    binding.itemsRecView.visibility = View.VISIBLE
+
+
                 }
 
             })
@@ -153,6 +162,7 @@ class CategoryFragment : Fragment() ,SubRecyclerClick,MainRecyclerClick,ItemRecy
             networkCatView.visibility = View.VISIBLE
             categoryLayout.visibility = View.GONE
         }
+
 
     }
 
@@ -181,7 +191,7 @@ class CategoryFragment : Fragment() ,SubRecyclerClick,MainRecyclerClick,ItemRecy
 
     override fun itemOnClick(itemId: Long) {
         if (NetworkChange.isOnline){
-            val action = NavGraphDirections.actionGlobalProuductDetailsFragment(itemId)
+            val action = NavGraphDirections.actionGlobalProductDetailsFragment(itemId)
             findNavController().navigate(action)
         }else{
             Toast.makeText(requireContext(),requireContext().resources.getString(R.string.no_internet_connection),
