@@ -162,7 +162,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:visibility="gone"
-                app:constraint_referenced_ids="tv_pass,tv_pass2,tv_pass3" />
+                app:constraint_referenced_ids="tv_pass,tv_pass2,tv_pass3"
+                tools:layout_editor_absoluteX="10dp"
+                tools:layout_editor_absoluteY="10dp" />
 
             <TextView
                 android:id="@+id/tv_pass"
@@ -236,25 +238,14 @@
                 android:id="@+id/google_button"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
-                android:layout_marginStart="130dp"
+                android:layout_marginStart="32dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="32dp"
                 android:background="@drawable/ic_google"
                 android:padding="10dp"
-                app:layout_constraintEnd_toStartOf="@id/facebook_button"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_chainStyle="spread"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_join" />
-
-            <ImageButton
-                android:id="@+id/facebook_button"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="120dp"
-                android:background="@drawable/ic_facebook"
-                android:padding="10dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/google_button"
                 app:layout_constraintTop_toBottomOf="@+id/tv_join" />
 
 

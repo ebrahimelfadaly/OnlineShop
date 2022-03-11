@@ -182,6 +182,9 @@
     <string name="my_orders">my_orders</string>
     <string name="cancel_order">cancel_order</string>
     <string name="alert_msg">Are you sure to delete this item?</string>
+    <string name="state_province_optional">State/Province</string>
+    <string name="post_zip_code">Post/Zip Code</string>
+    <string name="address_line_2">Address 2</string>
 
 
 </resources>

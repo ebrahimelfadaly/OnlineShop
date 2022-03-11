@@ -132,10 +132,7 @@ class RegisterFragment : Fragment() {
             val providers = arrayListOf(AuthUI.IdpConfig.GoogleBuilder().build())
             launchSignInFlow(providers)
         }
-        binding.facebookButton.setOnClickListener {
-            val providers = arrayListOf(AuthUI.IdpConfig.FacebookBuilder().build())
-            launchSignInFlow(providers)
-        }
+
 
     }
 

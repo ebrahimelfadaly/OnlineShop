@@ -130,10 +130,7 @@ class LoginFragment : Fragment() {
             launchSignInFlow(providers)
         }
 
-        binding.facebookButton.setOnClickListener {
-            val providers = arrayListOf(AuthUI.IdpConfig.FacebookBuilder().build())
-            launchSignInFlow(providers)
-        }
+
 
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
