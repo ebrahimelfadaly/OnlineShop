@@ -100,6 +100,38 @@ class SearchFragment : Fragment(),ItemRecyclerClick {
             }
 
         }
+
+
+        binding.filterSpinner.onItemSelectedListener=object : AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                if (parent!!.getItemAtPosition(position).equals("shoes")){
+                    productFilter="shoes"
+                }
+                else if (parent!!.getItemAtPosition(position).equals("t-shirts")){
+                    productFilter="t-shirts"
+                }
+                else if (parent!!.getItemAtPosition(position).equals("accessories")){
+                    productFilter="accessories"
+                }
+                else if (parent!!.getItemAtPosition(position).equals("none")){
+                    productFilter=""
+                }
+                if (!parent!!.getItemAtPosition(position).equals("FILTER")) {
+                    showData()
+                }
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+
+            }
+
+        }
+
         mainSearchView?.setOnQueryTextListener(object :SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 queryText=query?:""
@@ -154,7 +186,7 @@ class SearchFragment : Fragment(),ItemRecyclerClick {
     }
 
     override fun itemOnClick(itemId: Long) {
-        val action = NavGraphDirections.actionGlobalProuductDetailsFragment(itemId)
+        val action = NavGraphDirections.actionGlobalProductDetailsFragment(itemId)
         findNavController().navigate(action)
     }
 

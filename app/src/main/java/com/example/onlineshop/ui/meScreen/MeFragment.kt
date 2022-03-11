@@ -115,7 +115,7 @@ class MeFragment : Fragment() {
 
         meViewModel.intentTOProductDetails.observe(requireActivity(), {
             if (it != null) {
-                val action = NavGraphDirections.actionGlobalProuductDetailsFragment(it.id)
+                val action = NavGraphDirections.actionGlobalProductDetailsFragment(it.id)
                 findNavController().navigate(action)
             }
 

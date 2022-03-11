@@ -8,15 +8,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.widget.SearchView
-
 import android.widget.Toast
+import androidx.appcompat.widget.SearchView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.MutableLiveData
-
 import androidx.lifecycle.ViewModelProvider
-import com.bumptech.glide.Glide
 import com.example.onlineshop.R
 import com.example.onlineshop.ViewModelFactory
 import com.example.onlineshop.data.entity.smart_collection.SmartCollection
@@ -31,15 +28,22 @@ import com.facebook.shimmer.ShimmerFrameLayout
 
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.cart_toolbar_view.view.*
-import kotlinx.android.synthetic.main.fragment_shop_tap.*
-import kotlinx.android.synthetic.main.fragment_shop_tap.itemsRecView
+import kotlinx.android.synthetic.main.fragment_men_product.*
 
+import kotlinx.android.synthetic.main.fragment_shop_tap.*
+import kotlinx.android.synthetic.main.fragment_shop_tap.codeTextView
+import kotlinx.android.synthetic.main.fragment_shop_tap.itemsRecView
+import kotlinx.android.synthetic.main.fragment_shop_tap.lin
+import kotlinx.android.synthetic.main.fragment_shop_tap.play
+import kotlinx.android.synthetic.main.fragment_shop_tap.shimmerFrameLayout1
+import kotlinx.android.synthetic.main.fragment_shop_tap.shimmerFrameLayout2
 import kotlinx.android.synthetic.main.list_toolbar_view.view.*
+
 import kotlinx.coroutines.*
 
 
 class ShopTapFragment : Fragment(),ShopItemAdapter.OnclickBrand{
-
+    private lateinit var adsAdapter: AdsAdapter
     private lateinit var  shopTabViewModel : ShopViewModel
 
     override fun onCreateView(
@@ -57,6 +61,7 @@ class ShopTapFragment : Fragment(),ShopItemAdapter.OnclickBrand{
             ViewModelProvider(
                 this, viewModelFactory
             )[ShopViewModel::class.java]
+
 
         return inflater.inflate(R.layout.fragment_shop_tap, container, false)
     }
@@ -80,6 +85,16 @@ class ShopTapFragment : Fragment(),ShopItemAdapter.OnclickBrand{
         if (NetworkChange.isOnline) {
             networkView.visibility = View.GONE
             woman_linear.visibility = View.VISIBLE
+
+//            var list= mutableListOf<Int>()
+//            list.add(R.drawable.image1)
+//            list.add((R.drawable.image2))
+//            list.add(R.drawable.homepage)
+//            adsAdapter=AdsAdapter(requireContext())
+//            adsAdapter.setAds(list)
+//           viewPagerads.adapter=adsAdapter
+
+
             shopTabViewModel.fetchAllBrands().observe(viewLifecycleOwner, {
                 if (it != null) {
                     shimmerFrameLayout1.stopShimmer()
@@ -102,13 +117,11 @@ class ShopTapFragment : Fragment(),ShopItemAdapter.OnclickBrand{
                 if (allCodes != null) {
                     play.setOnClickListener {
                         play.visibility = View.GONE
-                        Glide.with(this)
-                            .load(R.drawable.woman_three)
-                            .into(ads)
+
                         GlobalScope.launch(Dispatchers.Main) {
                             delay(1500)
                             lin.visibility = View.VISIBLE
-                            codeTextView.text = allCodes.discountCodes[3].code
+                            codeTextView.text = allCodes.discountCodes[0].code
                         }
                     }
 

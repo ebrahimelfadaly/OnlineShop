@@ -22,9 +22,9 @@ class SearchCategoryItemAdapter (var categoryItems:List<allProduct>, var context
 
     override fun onBindViewHolder(holder: CategoryItemViewHolder, position: Int) {
         Glide.with(context).load(categoryItems.get(position).images!!.get(0).src).into(holder.binding.itemIcon)
-        //holder.binding.itemTitle.text=categoryItems.get(position).title
+
         holder.binding.itemTitle.text=""+categoryItems.get(position).title
-        //Log.d("hitler","position: "+position+" price: "+categoryItems.get(position).variants!!.get(0).price)
+
         holder.itemView.setOnClickListener {
             onClick.itemOnClick(categoryItems.get(position).id.toLong())
         }
