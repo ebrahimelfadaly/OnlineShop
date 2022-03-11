@@ -99,9 +99,10 @@ class CategoryFragment : Fragment() ,SubRecyclerClick,MainRecyclerClick,ItemRecy
            catViewModel.fetchCatProducts(colID).observe(requireActivity(),{
                products = it
                binding.placeHolder.visibility=View.GONE
-               binding.itemsRecView.adapter = ItemCategoryAdapter(products, requireContext(), this)
+               binding.itemsRecView.adapter =
+                   context?.let { it1 -> ItemCategoryAdapter(products, it1, this) }
                Log.d("hitler", "list size: " + it.size)
-               binding.itemsRecView.adapter!!.notifyDataSetChanged()
+             // binding.itemsRecView.adapter!!.notifyDataSetChanged()
 
            })
 
@@ -151,7 +152,8 @@ class CategoryFragment : Fragment() ,SubRecyclerClick,MainRecyclerClick,ItemRecy
                     binding.shimmerFrameLayout3.visibility = View.GONE
                     binding.shimmerFrameLayout4.visibility = View.GONE
 
-                    binding.itemsRecView.adapter = ItemCategoryAdapter(products, requireContext(), this)
+                    binding.itemsRecView.adapter =
+                        context?.let { it1 -> ItemCategoryAdapter(products, it1, this) }
                     binding.itemsRecView.visibility = View.VISIBLE
 
 
