@@ -60,6 +60,11 @@
     <string name="logInToCanAddToWishList">logInToCanAddToWishList</string>
     <string name="my_orders">my_orders</string>
     <string name="cancel_order">cancel_order</string>
+
+    <string name="state_province_optional">State/Province</string>
+    <string name="post_zip_code">Post/Zip Code</string>
+    <string name="address_line_2">Address 2</string>
+
     <string name="some_error_accurated">some_error_accurated</string>
     <string name="order_canceld">order_canceld</string>
     <string name="discount">discount</string>
@@ -71,6 +76,7 @@
     <string name="change_address">change_address</string>
     <string name="payment_method">payment_method</string>
     <string name="alert_msg">alert_msg</string>
+
 
 
 </resources>
