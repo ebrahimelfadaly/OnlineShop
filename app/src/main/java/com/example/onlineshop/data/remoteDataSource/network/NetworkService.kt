@@ -48,8 +48,8 @@ interface NetworkService {
     suspend fun getProductsByVendor(@Query("vendor") vendor: String): Response<ProductsModel>
 
 
-  //get number
-    @GET("price_rules/950461759686/discount_codes.json")
+  //get number             1165472071911
+    @GET("price_rules/1165472071911/discount_codes.json")
     fun getAllDiscountCodeList(): Call<AllCodes>
 
 

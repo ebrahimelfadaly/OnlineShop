@@ -23,7 +23,7 @@ lateinit var list:List<Int>
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdsViewHolder {
-       val view =LayoutInflater.from(parent.context).inflate(R.layout.image_slider,parent,false)
+       val view =LayoutInflater.from(parent.context).inflate(R.layout.list_item_image,parent,false)
     return AdsViewHolder(view)
 
     }
