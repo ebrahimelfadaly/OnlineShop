@@ -189,4 +189,10 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:2.4.1"
     implementation "androidx.navigation:navigation-dynamic-features-fragment:2.4.1"
 
+    //paypal
+    implementation 'com.paypal.sdk:paypal-android-sdk:2.16.0'
+
+    //paytabs
+    implementation 'com.paytabs:payment-sdk:6.0.5'
+
 }

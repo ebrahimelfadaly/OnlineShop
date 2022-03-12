@@ -1,5 +1,7 @@
 package com.example.onlineshop.ui.cart
 
+
+
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -11,7 +13,7 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.SearchView
+import  androidx.appcompat.widget.SearchView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -154,7 +156,8 @@ class OrderConfirmationFragment :  Fragment() {
             binding.discountBtn.visibility = View.VISIBLE
         }
         binding.placeOrderBtn.setOnClickListener {
-            if (isDefaultAddress) {
+            //edit on adress
+            if (true) {
                 binding.placeOrderBtn.startAnimation();
 
                 //[do some async task. When it finishes]
@@ -284,7 +287,7 @@ class OrderConfirmationFragment :  Fragment() {
         val items = orderItemsAdapter.orderList.map {
             it.variants?.get(0)
         }
-        Timber.i("itemss" + items)
+
         for (item in items) {
             lineItem.add(LineItem(item?.inventory_quantity, item?.id))
         }

@@ -1,5 +1,6 @@
 package com.example.onlineshop.ui.ShopTap
 
+
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.*
@@ -25,6 +26,7 @@ class ShopViewModel(val repositoryImpl: IRepository, application: Application) :
     var intentTOProductDetails: MutableLiveData<SmartCollection> = MutableLiveData()
   var  intentTOProductBrand: SingleLiveEvent<allProduct> = SingleLiveEvent()
     private val productsMutable = MutableLiveData<ProductsModel>()
+    val productsByBrand: LiveData<ProductsModel>get()  = productsMutable
 
 
     init {
