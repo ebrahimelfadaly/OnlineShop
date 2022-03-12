@@ -5,6 +5,8 @@ import android.content.ClipboardManager
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -40,6 +42,7 @@ import kotlinx.android.synthetic.main.fragment_shop_tap.shimmerFrameLayout2
 import kotlinx.android.synthetic.main.list_toolbar_view.view.*
 
 import kotlinx.coroutines.*
+import java.util.*
 
 
 class ShopTapFragment : Fragment(),ShopItemAdapter.OnclickBrand{
@@ -71,6 +74,38 @@ class ShopTapFragment : Fragment(),ShopItemAdapter.OnclickBrand{
 
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val list= mutableListOf<Int>()
+        list.add(R.drawable.image1)
+        list.add((R.drawable.image2))
+        list.add(R.drawable.homepage)
+        adsAdapter=AdsAdapter(requireContext())
+        adsAdapter.setAds(list)
+//        val DELAY_MS: Long = 3000
+//        val PERIOD_MS: Long = 3000
+//        var currentPage = 0
+//
+//        val handler = Handler(Looper.myLooper()!!)
+//        val Update = Runnable {
+//            if (currentPage == 4 - 1) {
+//                currentPage = 0
+//            }
+//            viewPagerads.setCurrentItem(currentPage++, true)
+//        }
+//
+//        val timer = Timer()
+//
+//        timer.schedule(object : TimerTask() {
+//            override fun run() {
+//                handler.post(Update)
+//            }
+//        }, DELAY_MS, PERIOD_MS)
+
+        viewPagerads.adapter=adsAdapter
+
+    }
+
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -86,13 +121,7 @@ class ShopTapFragment : Fragment(),ShopItemAdapter.OnclickBrand{
             networkView.visibility = View.GONE
             woman_linear.visibility = View.VISIBLE
 
-//            var list= mutableListOf<Int>()
-//            list.add(R.drawable.image1)
-//            list.add((R.drawable.image2))
-//            list.add(R.drawable.homepage)
-//            adsAdapter=AdsAdapter(requireContext())
-//            adsAdapter.setAds(list)
-//           viewPagerads.adapter=adsAdapter
+
 
 
             shopTabViewModel.fetchAllBrands().observe(viewLifecycleOwner, {

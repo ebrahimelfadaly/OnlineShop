@@ -46,10 +46,7 @@ class Products : Fragment() ,ProductItemAdapter.OnclickBrand{
     ): View? {
 
 
-        requireActivity().toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_baseline_arrow_back_ios_24))
-        requireActivity().toolbar.setNavigationOnClickListener {
-            view?.findNavController()?.popBackStack()
-        }
+
 
         val application = requireNotNull(this.activity).application
         val repository = RepositoryImpl(
@@ -74,20 +71,22 @@ class Products : Fragment() ,ProductItemAdapter.OnclickBrand{
          args= arguments?.getString("Brand")
         Log.i("ebtahimmmmm", "onActivityCreated: ${args}")
         shopTabViewModel.fetchallProductsList().observe(viewLifecycleOwner,{
-            var productList=it.products
-            var list:MutableList<allProduct> =
-                mutableListOf()
-            for (i in productList)
-            {
-                if (i.vendor.equals(args)){
-                    list.add(i)
+            if(it!=null) {
+                progressBar.visibility=View.GONE
+                var productList = it.products
+                var list: MutableList<allProduct> =
+                    mutableListOf()
+                for (i in productList) {
+                    if (i.vendor.equals(args)) {
+                        list.add(i)
+                    }
                 }
-            }
-            productAdapter.addList(list)
-            val layoutManager=GridLayoutManager(requireContext(),2)
+                productAdapter.addList(list)
+                val layoutManager = GridLayoutManager(requireContext(), 2)
 
-            itemsRecViewproduct.adapter=productAdapter
-            itemsRecViewproduct.layoutManager=layoutManager
+                itemsRecViewproduct.adapter = productAdapter
+                itemsRecViewproduct.layoutManager = layoutManager
+            }
         })
         shopTabViewModel.intentTOProductBrand.observe(requireActivity(), {
             if (NetworkChange.isOnline){

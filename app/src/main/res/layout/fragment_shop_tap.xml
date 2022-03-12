@@ -173,28 +173,28 @@
                             android:layout_width="match_parent"
                             android:layout_height="313dp">
 
-<!--                            <androidx.viewpager2.widget.ViewPager2-->
-<!--                                android:id="@+id/viewPagerads"-->
-<!--                                android:layout_width="match_parent"-->
-<!--                                android:layout_height="300dp"-->
-<!--                                app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                                app:layout_constraintEnd_toEndOf="parent"-->
-
-<!--                                app:layout_constraintStart_toStartOf="parent"-->
-<!--                                app:layout_constraintTop_toTopOf="parent"-->
-<!--                                tools:ignore="SpeakableTextPresentCheck" />-->
-
-                            <ImageView
-                                android:id="@+id/ads"
+                            <androidx.viewpager2.widget.ViewPager2
+                                android:id="@+id/viewPagerads"
                                 android:layout_width="match_parent"
                                 android:layout_height="300dp"
-                                android:scaleType="fitXY"
-                                android:src="@drawable/homepage"
+                                app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
+
                                 app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@id/line"
-                                tools:ignore="NotSibling"
-                                />
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:ignore="SpeakableTextPresentCheck" />
+
+<!--                            <ImageView-->
+<!--                                android:id="@+id/ads"-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="300dp"-->
+<!--                                android:scaleType="fitXY"-->
+<!--                                android:src="@drawable/homepage"-->
+<!--                                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                                app:layout_constraintStart_toStartOf="parent"-->
+<!--                                app:layout_constraintTop_toBottomOf="@id/line"-->
+<!--                                tools:ignore="NotSibling"-->
+<!--                                />-->
 
                             <ImageView
                                 android:id="@+id/play"
@@ -203,12 +203,12 @@
                                 android:layout_marginStart="171dp"
                                 android:layout_marginEnd="172dp"
                                 android:src="@drawable/play"
-                                android:visibility="gone"
-                                app:layout_constraintBottom_toBottomOf="@+id/ads"
-                                app:layout_constraintEnd_toEndOf="@+id/ads"
+                                android:visibility="visible"
+                                app:layout_constraintBottom_toBottomOf="@+id/viewPagerads"
+                                app:layout_constraintEnd_toEndOf="@+id/viewPagerads"
                                 app:layout_constraintHorizontal_bias="0.0"
-                                app:layout_constraintStart_toStartOf="@+id/ads"
-                                app:layout_constraintTop_toTopOf="@+id/ads" />
+                                app:layout_constraintStart_toStartOf="@+id/viewPagerads"
+                                app:layout_constraintTop_toTopOf="@+id/viewPagerads" />
 
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
