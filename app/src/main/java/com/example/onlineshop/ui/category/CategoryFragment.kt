@@ -1,20 +1,24 @@
 package com.example.onlineshop.ui.category
 
-
-
-import android.annotation.SuppressLint
+import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.SearchView;
 import android.widget.Toast
-import androidx.appcompat.widget.SearchView
+
 import androidx.fragment.app.Fragment
+
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.onlineshop.NavGraphDirections
+
+import kotlinx.android.synthetic.main.fragment_category.shimmerFrameLayout1
+import kotlinx.android.synthetic.main.fragment_category.shimmerFrameLayout2
 import com.example.onlineshop.R
 import com.example.onlineshop.ViewModelFactory
 import com.example.onlineshop.data.entity.customProduct.Product
@@ -26,32 +30,31 @@ import com.example.onlineshop.networkBase.NetworkChange
 import com.example.onlineshop.repository.RepositoryImpl
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.cart_toolbar_view.view.*
+import kotlinx.android.synthetic.main.fragment_category.*
 import kotlinx.android.synthetic.main.list_toolbar_view.view.*
 
 
-class CategoryFragment : Fragment(), SubRecyclerClick, MainRecyclerClick, ItemRecyclerClick {
-    var mainCategoryIndex = 0
-    var subCategoryIndex = 0
-    var colID: Long = 268359696582
-    lateinit var catViewModel: CategoryViewModel
-    var products: List<Product>? = null
-    var subList: List<Product>? = null
-    lateinit var subcatList: Array<String>
+class CategoryFragment : Fragment() ,SubRecyclerClick,MainRecyclerClick,ItemRecyclerClick{
+    var mainCategoryIndex=0
+    var subCategoryIndex=0
+    var colID:Long=268359696582
+    lateinit var catViewModel:CategoryViewModel
+    lateinit var products:List<Product>
+    lateinit var subList:List<Product>
+    lateinit var  subcatList:Array<String>
     private var _binding: FragmentCategoryBinding? = null
+    // This property is only valid between onCreateView and
+// onDestroyView.
     private val binding get() = _binding!!
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentCategoryBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+        val view = binding.root
         val application = requireNotNull(this.activity).application
+        val remoteDataSource = RemoteDataSourceImpl()
         val repository = RepositoryImpl(
             RemoteDataSourceImpl(),
             RoomDataSourceImpl(RoomService.getInstance(application))
@@ -60,59 +63,52 @@ class CategoryFragment : Fragment(), SubRecyclerClick, MainRecyclerClick, ItemRe
         catViewModel =
             ViewModelProvider(
                 this, viewModelFactory
-            )[CategoryViewModel::class.java]
-
-        getProducts()
+            ).get(CategoryViewModel::class.java)
+        Log.i("output","one")
+        return view
     }
 
 
-    @SuppressLint("NotifyDataSetChanged")
+
+
     override fun onSubClick(position: Int) {
         super.onSubClick(position)
-        subCategoryIndex = position
-        subList = getSubCategoryItems(position)
-        when {
-            subList.isNullOrEmpty() -> {
-                return
-            }
-            subList?.isEmpty() == true -> {
-                binding.itemsRecView.adapter =
-                    ItemCategoryAdapter(subList.orEmpty(), this)
-                binding.placeHolder.visibility = View.VISIBLE
-
-            }
-            else -> {
-                binding.placeHolder.visibility = View.GONE
-                binding.itemsRecView.adapter =
-                    ItemCategoryAdapter(subList.orEmpty(), this)
-            }
+        Log.i("output","two")
+        subCategoryIndex=position
+        subList=getSubCategoryItems(position)
+        if (subList.size!=0) {
+            binding.placeHolder.visibility=View.GONE
+            binding.itemsRecView.adapter = ItemCategoryAdapter(subList, requireContext(), this)
+        }else{
+            binding.itemsRecView.adapter = ItemCategoryAdapter(subList, requireContext(), this)
+            binding.placeHolder.visibility=View.VISIBLE
         }
         binding.subcategoryRecView.adapter!!.notifyDataSetChanged()
     }
-
-    @SuppressLint("NotifyDataSetChanged")
     override fun onMainClick(position: Int) {
         super.onMainClick(position)
+        Log.i("output","three")
 
-        binding.subcategoryRecView.adapter = SubCategoryAdapter(subcatList, this)
+        binding.subcategoryRecView.adapter=SubCategoryAdapter(subcatList,this)
         binding.subcategoryRecView.adapter!!.notifyDataSetChanged()
-        mainCategoryIndex = position
-        colID = getMainCategory(position)
+        mainCategoryIndex=position
+        colID=getMainCategory(position)
         if (NetworkChange.isOnline) {
-            binding.networkCatView.visibility = View.GONE
-            binding.categoryLayout.visibility = View.VISIBLE
-            catViewModel.fetchCatProducts(colID).observe(requireActivity()) {
-                products = it
-                binding.placeHolder.visibility = View.GONE
-                binding.subcategoryRecView.visibility = View.VISIBLE
-                binding.itemsRecView.adapter =
-                    ItemCategoryAdapter(products ?: emptyList(), this)
-                binding.itemsRecView.adapter!!.notifyDataSetChanged()
-            }
+            networkCatView.visibility = View.GONE
+            categoryLayout.visibility = View.VISIBLE
+           catViewModel.fetchCatProducts(colID).observe(requireActivity(),{
+               products = it
+               binding.placeHolder.visibility=View.GONE
+               binding.itemsRecView.adapter =
+                   context?.let { it1 -> ItemCategoryAdapter(products, it1, this) }
+               Log.d("hitler", "list size: " + it.size)
+             // binding.itemsRecView.adapter!!.notifyDataSetChanged()
 
-        } else {
-            binding.networkCatView.visibility = View.VISIBLE
-            binding.categoryLayout.visibility = View.GONE
+           })
+
+        }else{
+            networkCatView.visibility = View.VISIBLE
+            categoryLayout.visibility = View.GONE
 
         }
         binding.mainCategoryRecView.adapter!!.notifyDataSetChanged()
@@ -120,22 +116,32 @@ class CategoryFragment : Fragment(), SubRecyclerClick, MainRecyclerClick, ItemRe
 
     }
 
-    private fun getProducts() {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+    }
+
+
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
         binding.shimmerFrameLayout1.startShimmer()
         binding.shimmerFrameLayout2.startShimmer()
         binding.shimmerFrameLayout3.startShimmer()
         binding.shimmerFrameLayout4.startShimmer()
         changeToolbar()
-        subcatList = arrayOf("Shoes", "Accessories", "T-Shirts")
-        var mainCatList = arrayOf("Women", "kids", "Men", "Sales")
-        binding.subcategoryRecView.adapter = SubCategoryAdapter(subcatList, this)
-        binding.mainCategoryRecView.adapter = MainCategoryAdapter(mainCatList, this)
+        subcatList= arrayOf("Shoes","Accessories","T-Shirts")
+        var mainCatList= arrayOf("Women","kids","Men","Sales")
+        binding.subcategoryRecView.adapter= SubCategoryAdapter(subcatList,this)
+        binding.mainCategoryRecView.adapter= MainCategoryAdapter(mainCatList,this)
         if (NetworkChange.isOnline) {
 
-            binding.networkCatView.visibility = View.GONE
-            binding.categoryLayout.visibility = View.VISIBLE
-            catViewModel.fetchCatProducts(267715608774).observe(requireActivity()) {
-                if (it != null) {
+            networkCatView.visibility = View.GONE
+            categoryLayout.visibility = View.VISIBLE
+            catViewModel.fetchCatProducts(398034600167).observe(requireActivity(), {
+                if(it != null){
+                    products = it
                     binding.shimmerFrameLayout1.stopShimmer()
                     binding.shimmerFrameLayout2.stopShimmer()
                     binding.shimmerFrameLayout3.stopShimmer()
@@ -146,70 +152,62 @@ class CategoryFragment : Fragment(), SubRecyclerClick, MainRecyclerClick, ItemRe
                     binding.shimmerFrameLayout3.visibility = View.GONE
                     binding.shimmerFrameLayout4.visibility = View.GONE
 
-                    binding.itemsRecView.visibility = View.VISIBLE
-                    binding.subcategoryRecView.visibility = View.VISIBLE
-                    products = it
                     binding.itemsRecView.adapter =
-                        ItemCategoryAdapter(products ?: emptyList(), this)
+                        context?.let { it1 -> ItemCategoryAdapter(products, it1, this) }
+                    binding.itemsRecView.visibility = View.VISIBLE
+
+
                 }
 
-            }
-        } else {
-            binding.networkCatView.visibility = View.VISIBLE
-            binding.categoryLayout.visibility = View.GONE
+            })
+        }else{
+            networkCatView.visibility = View.VISIBLE
+            categoryLayout.visibility = View.GONE
         }
+
 
     }
 
-    fun getMainCategory(position: Int): Long {
+    fun getMainCategory(position:Int):Long{
         var main: Long
-        when (position) {
-            0 -> main = 398034600167 //woman
-            1 -> main = 398034632935//right kids
-            2 -> main = 398034567399//right men
-            3 -> main = 398034665703//right on sale
+        when(position){
+            0-> main=398034600167
+            1-> main=398034632935//right kids
+            2-> main=398034567399//right men
+            3-> main=398034665703//right on sale
 
-            else -> main = 0
+            else-> main=0
         }
         return main
     }
-
-    private fun getSubCategoryItems(position: Int): List<Product> {
-        var subCatList: List<Product> = when (position) {
-            0 -> products?.filter { it.productType == "SHOES" }.orEmpty()
-            1 -> products?.filter { it.productType == "ACCESSORIES" }.orEmpty()
-            2 -> products?.filter { it.productType == "T-SHIRTS" }.orEmpty()
-            else -> products?.filter { it.productType == "SHOES" }.orEmpty()
+    fun getSubCategoryItems(position:Int):List<Product>{
+        lateinit var subCatList:List<Product>
+        when(position){
+            0-> subCatList=products.filter { it.productType.equals("SHOES")}
+            1-> subCatList=products.filter { it.productType.equals("ACCESSORIES")}
+            2-> subCatList=products.filter { it.productType.equals("T-SHIRTS")}
+            else-> subCatList=products.filter { it.productType.equals("SHOES")}
         }
         return subCatList
     }
 
     override fun itemOnClick(itemId: Long) {
-        if (NetworkChange.isOnline) {
-            val action = NavGraphDirections.actionGlobalProuductDetailsFragment(itemId)
+        if (NetworkChange.isOnline){
+            val action = NavGraphDirections.actionGlobalProductDetailsFragment(itemId)
             findNavController().navigate(action)
-        } else {
-            Toast.makeText(
-                requireContext(),
-                requireContext().resources.getString(R.string.no_internet_connection),
-                Toast.LENGTH_SHORT
-            ).show()
+        }else{
+            Toast.makeText(requireContext(),requireContext().resources.getString(R.string.no_internet_connection),
+                Toast.LENGTH_SHORT).show()
         }
     }
 
 
     private fun changeToolbar() {
-        requireActivity().findViewById<SearchView>(R.id.mainSearchView).visibility = View.GONE
+        requireActivity().findViewById<SearchView>(R.id.mainSearchView).visibility=View.GONE
         requireActivity().findViewById<View>(R.id.nav_view).visibility = View.VISIBLE
         requireActivity().toolbar.visibility = View.VISIBLE
-        requireActivity().findViewById<View>(R.id.favourite).favouriteButton.setColorFilter(
-            getResources().getColor(R.color.black)
-        )
-        requireActivity().findViewById<View>(R.id.cartView).cartButton.setColorFilter(
-            getResources().getColor(
-                R.color.black
-            )
-        )
+        requireActivity().findViewById<View>(R.id.favourite).favouriteButton.setColorFilter(getResources().getColor(R.color.black))
+        requireActivity().findViewById<View>(R.id.cartView).cartButton.setColorFilter(getResources().getColor(R.color.black))
         requireActivity().settingIcon.setColorFilter(getResources().getColor(R.color.black))
         requireActivity().findViewById<View>(R.id.searchIcon).visibility = View.VISIBLE
         requireActivity().findViewById<View>(R.id.settingIcon).visibility = View.INVISIBLE
@@ -223,8 +221,7 @@ class CategoryFragment : Fragment(), SubRecyclerClick, MainRecyclerClick, ItemRe
 
     }
 
-//    override fun onDestroyView() {
-//        super.onDestroyView()
-//        _binding = null
-//    }
+    override fun onDetach() {
+        super.onDetach()
+    }
 }

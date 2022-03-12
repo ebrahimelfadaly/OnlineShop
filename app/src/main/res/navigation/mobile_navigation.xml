@@ -22,11 +22,7 @@
         android:id="@+id/categoryFragment"
         android:name="com.example.onlineshop.ui.category.CategoryFragment"
         android:label="fragment_category"
-        tools:layout="@layout/fragment_category" >
-        <action
-            android:id="@+id/action_categoryFragment_to_shopTabFragment2"
-            app:destination="@id/shopTabFragment2" />
-    </fragment>
+        tools:layout="@layout/fragment_category" />
     <fragment
         android:id="@+id/meFragment"
         android:name="com.example.onlineshop.ui.meScreen.MeFragment"

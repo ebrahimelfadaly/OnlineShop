@@ -1,6 +1,23 @@
 package com.example.onlineshop.ui.ProductDetails
 
-
+import android.annotation.SuppressLint
+import android.app.Activity
+import android.content.Context
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
+import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.appcompat.widget.SearchView
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.content.res.AppCompatResources
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.onlineshop.R
 import com.example.onlineshop.ViewModelFactory
 import com.example.onlineshop.data.itemPojo.Product
@@ -342,10 +359,9 @@ class ProductDetailsFragment : Fragment() {
 
 
         requireActivity().toolbar.setBackgroundDrawable(ColorDrawable(Color.WHITE))
-        requireActivity().toolbar.navigationIcon = ContextCompat.getDrawable(requireActivity(),R.drawable.black_arrow)
+        requireActivity().toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.black_arrow))
         requireActivity().toolbar.setNavigationOnClickListener {
-            findNavController().popBackStack()
-
+            view?.findNavController()?.popBackStack()
         }
 
     }
@@ -359,8 +375,6 @@ class ProductDetailsFragment : Fragment() {
     }
 
     private fun isLoged() = meDataSourceReo.loadUsertstate()
-
-
 
 
 }

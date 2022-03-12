@@ -192,10 +192,4 @@ dependencies {
     implementation "androidx.navigation:navigation-dynamic-features-fragment:2.4.1"
     implementation "androidx.viewpager2:viewpager2:1.0.0"
 
-    //paypal
-    implementation 'com.paypal.sdk:paypal-android-sdk:2.16.0'
-
-    //paytabs
-    implementation 'com.paytabs:payment-sdk:6.0.5'
-
 }
