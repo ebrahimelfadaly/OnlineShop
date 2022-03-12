@@ -150,7 +150,7 @@ class ShopTapFragment : Fragment(),ShopItemAdapter.OnclickBrand{
                         GlobalScope.launch(Dispatchers.Main) {
                             delay(1500)
                             lin.visibility = View.VISIBLE
-                            codeTextView.text = allCodes.discountCodes[0].code
+                            codeTextView.text = allCodes.priceRules?.get(2)?.title
                         }
                     }
 

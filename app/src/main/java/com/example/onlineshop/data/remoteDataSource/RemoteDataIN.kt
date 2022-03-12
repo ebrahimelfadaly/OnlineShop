@@ -10,6 +10,7 @@ import com.example.onlineshop.data.entity.customer.*
 import com.example.onlineshop.data.entity.order.Orders
 import com.example.onlineshop.data.entity.orderGet.GetOrders
 import com.example.onlineshop.data.entity.orderGet.OneOrderResponce
+import com.example.onlineshop.data.entity.priceRules.priceRules
 import com.example.onlineshop.data.entity.smart_collection.Brands
 import com.example.onlineshop.data.itemPojo.ProductItem
 
@@ -23,7 +24,7 @@ interface RemoteDataIN {
     fun getMenProductsList() : MutableLiveData<ProductsList>
     fun getOnSaleProductsList() : MutableLiveData<ProductsList>
     fun getAllProductsList() : MutableLiveData<AllProducts>
-    fun getAllDiscountCodeList() : MutableLiveData<AllCodes>
+    fun getAllDiscountCodeList() : MutableLiveData<priceRules>
     fun getAllBrands() :MutableLiveData<Brands>
     fun getProuduct(id : Long)
 
