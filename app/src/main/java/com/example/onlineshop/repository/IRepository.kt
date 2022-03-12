@@ -10,6 +10,7 @@ import com.example.onlineshop.data.entity.customer.*
 import com.example.onlineshop.data.entity.order.Orders
 import com.example.onlineshop.data.entity.orderGet.GetOrders
 import com.example.onlineshop.data.entity.orderGet.OneOrderResponce
+import com.example.onlineshop.data.entity.priceRules.priceRules
 import com.example.onlineshop.data.entity.smart_collection.Brands
 import com.example.onlineshop.data.itemPojo.OrderObject
 import com.example.onlineshop.data.itemPojo.ProductCartModule
@@ -78,7 +79,7 @@ interface IRepository {
    fun getMenProductsList(): MutableLiveData<ProductsList>
    fun getOnSaleProductsList(): MutableLiveData<ProductsList>
    fun getAllProductsList(): MutableLiveData<AllProducts>
-   fun getAllDiscountCodeList(): MutableLiveData<AllCodes>
+   fun getAllDiscountCodeList(): MutableLiveData<priceRules>
    fun getProuduct(id: Long)
    fun fetchCatProducts(colID: Long): MutableLiveData<List<Product>>
    fun fetchAllProducts(): MutableLiveData<List<com.example.onlineshop.data.itemPojo.Product>>

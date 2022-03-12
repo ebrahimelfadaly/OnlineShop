@@ -10,6 +10,7 @@ import com.example.onlineshop.data.entity.customer.*
 import com.example.onlineshop.data.entity.order.Orders
 import com.example.onlineshop.data.entity.orderGet.GetOrders
 import com.example.onlineshop.data.entity.orderGet.OneOrderResponce
+import com.example.onlineshop.data.entity.priceRules.priceRules
 import com.example.onlineshop.data.entity.smart_collection.Brands
 import com.example.onlineshop.data.itemPojo.ProductItem
 
@@ -34,7 +35,7 @@ class RemoteDataSourceImpl :RemoteDataIN {
     var allBrand=  MutableLiveData<Brands>()
 
 
-    var allDiscountCode = MutableLiveData<AllCodes>()
+    var allDiscountCode = MutableLiveData<priceRules>()
     var prouductDetaild : MutableLiveData<ProductItem> = MutableLiveData()
     var deleteOrder : MutableLiveData<Boolean> = MutableLiveData<Boolean>()
     var getCreateOrderResponse = SingleLiveEvent<OneOrderResponce?>()
@@ -170,19 +171,19 @@ class RemoteDataSourceImpl :RemoteDataIN {
         return allProductsListt
     }
 
-    override fun getAllDiscountCodeList(): MutableLiveData<AllCodes> {
+    override fun getAllDiscountCodeList(): MutableLiveData<priceRules> {
         CoroutineScope(Dispatchers.IO).launch {
 
-            Network.apiService.getAllDiscountCodeList().enqueue(object : Callback<AllCodes?> {
+            Network.apiService.getAllDiscountCodeList().enqueue(object : Callback<priceRules?> {
 
-                override fun onResponse(call: Call<AllCodes?>, response: Response<AllCodes?>) {
+                override fun onResponse(call: Call<priceRules?>, response: Response<priceRules?>) {
                     if (response.isSuccessful) {
                         allDiscountCode.postValue(response.body())
 
                     }
                 }
 
-                override fun onFailure(call: Call<AllCodes?>, t: Throwable) {
+                override fun onFailure(call: Call<priceRules?>, t: Throwable) {
                     t.printStackTrace()
 
 

@@ -8,6 +8,7 @@ import com.example.onlineshop.data.entity.allproducts.AllProducts
 import com.example.onlineshop.data.entity.allproducts.allProduct
 import com.example.onlineshop.data.entity.customProduct.Product
 import com.example.onlineshop.data.entity.customProduct.ProductsList
+import com.example.onlineshop.data.entity.priceRules.priceRules
 import com.example.onlineshop.data.entity.smart_collection.Brands
 import com.example.onlineshop.data.entity.smart_collection.SmartCollection
 import com.example.onlineshop.data.itemPojo.ProductItem
@@ -63,7 +64,7 @@ class ShopViewModel(val repositoryImpl: IRepository, application: Application) :
         return repositoryImpl.getAllProductsList()
     }
 
-    fun fetchallDiscountCodeList(): MutableLiveData<AllCodes> {
+    fun fetchallDiscountCodeList(): MutableLiveData<priceRules> {
         return repositoryImpl.getAllDiscountCodeList()
     }
 

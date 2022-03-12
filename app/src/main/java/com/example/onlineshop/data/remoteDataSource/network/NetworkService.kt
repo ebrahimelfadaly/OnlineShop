@@ -49,8 +49,8 @@ interface NetworkService {
 
 
   //get number             1165472071911
-    @GET("price_rules/1165472071911/discount_codes.json")
-    fun getAllDiscountCodeList(): Call<AllCodes>
+    @GET("price_rules.json")
+    fun getAllDiscountCodeList(): Call<priceRules>
 
 
     @GET("price_rules.json")

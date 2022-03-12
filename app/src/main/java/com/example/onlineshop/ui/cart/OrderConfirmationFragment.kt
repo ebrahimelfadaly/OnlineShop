@@ -28,6 +28,7 @@ import com.example.onlineshop.data.entity.discount.DiscountCode
 import com.example.onlineshop.data.entity.order.*
 import com.example.onlineshop.data.entity.orderGet.OneOrderResponce
 import com.example.onlineshop.data.entity.priceRules.PriceRule
+import com.example.onlineshop.data.entity.priceRules.priceRules
 import com.example.onlineshop.data.remoteDataSource.RemoteDataSourceImpl
 import com.example.onlineshop.data.roomData.RoomDataSourceImpl
 import com.example.onlineshop.data.roomData.RoomService
@@ -211,13 +212,13 @@ class OrderConfirmationFragment :  Fragment() {
 //
 //        })
 
-        orderViewModel.fetchallDiscountCodeList().observe(viewLifecycleOwner, Observer<AllCodes> {
+        orderViewModel.fetchallDiscountCodeList().observe(viewLifecycleOwner, Observer<priceRules> {
         //    discountCodesList = it.discountCodes
 
         })
         binding.discountEdt.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
-                Timber.i("olaa  afterTextChanged")
+
                 checkDiscountCode()
             }
 

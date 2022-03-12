@@ -9,6 +9,7 @@ import com.example.onlineshop.data.entity.ads_discount_codes.AllCodes
 import com.example.onlineshop.data.entity.customer.Addresse
 import com.example.onlineshop.data.entity.order.Orders
 import com.example.onlineshop.data.entity.priceRules.PriceRule
+import com.example.onlineshop.data.entity.priceRules.priceRules
 import com.example.onlineshop.data.itemPojo.Product
 import com.example.onlineshop.data.itemPojo.ProductCartModule
 import com.example.onlineshop.networkBase.SingleLiveEvent
@@ -86,7 +87,7 @@ class OrderViewModel (val repositoryImpl: IRepository, application: Application)
     }
 
 
-    fun fetchallDiscountCodeList(): MutableLiveData<AllCodes> {
+    fun fetchallDiscountCodeList(): MutableLiveData<priceRules> {
         return  repositoryImpl.getAllDiscountCodeList()
     }
 
