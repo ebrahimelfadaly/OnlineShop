@@ -9,7 +9,10 @@ import com.example.onlineshop.data.entity.order.Orders
 import com.example.onlineshop.data.entity.orderGet.GetOrders
 import com.example.onlineshop.repository.IRepository
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 class PaymentViewModel(val repositoryImpl: IRepository, application: Application):AndroidViewModel(application) {
     fun createOrderInPayment(order: GetOrders.Order) {
         val customerOrder = CustomerOrder(order.customer!!.id)
@@ -30,5 +33,8 @@ class PaymentViewModel(val repositoryImpl: IRepository, application: Application
     fun cancelOrder(orderId: Long){
         repositoryImpl.deleteOrder(orderId)
     }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 }

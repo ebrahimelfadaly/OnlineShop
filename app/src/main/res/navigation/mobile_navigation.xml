@@ -16,7 +16,11 @@
         android:id="@+id/categoryFragment"
         android:name="com.example.onlineshop.ui.category.CategoryFragment"
         android:label="fragment_category"
-        tools:layout="@layout/fragment_category" />
+        tools:layout="@layout/fragment_category" >
+        <action
+            android:id="@+id/action_categoryFragment_to_shopTabFragment2"
+            app:destination="@id/shopTabFragment2" />
+    </fragment>
     <fragment
         android:id="@+id/meFragment"
         android:name="com.example.onlineshop.ui.meScreen.MeFragment"
@@ -86,7 +90,7 @@
         android:id="@+id/cartFragment2"
         android:name="com.example.onlineshop.ui.cart.CartFragment"
         android:label="CartFragment"
-        tools:layout="@layout/fragment_cart2">
+        tools:layout="@layout/fragment_cart">
         <action
             android:id="@+id/action_cartFragment2_to_orderConfirmationFragment"
             app:destination="@id/orderConfirmationFragment"
