@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import com.example.onlineshop.R
 import com.example.onlineshop.utils.Utils
@@ -65,9 +66,9 @@ class RegisterFragment : Fragment() {
         requireActivity().nav_view.visibility = View.GONE
         meDataSourceReo = MeDataSharedPrefrenceReposatory(requireActivity())
 
-      /*  binding.tvSignin.setOnClickListener(
-            Navigation.createNavigateOnClickListener(R.id.action_signUpFragment_to_signInFragment)
-        )*/
+        binding.tvSignin.setOnClickListener(
+            Navigation.createNavigateOnClickListener(R.id.action_registerFragment_to_loginFragment)
+        )
 
         binding.registerBtn.setOnClickListener {
             if (!(Utils.validateEmail(binding.emailEdt.text.toString())))
@@ -131,10 +132,7 @@ class RegisterFragment : Fragment() {
             val providers = arrayListOf(AuthUI.IdpConfig.GoogleBuilder().build())
             launchSignInFlow(providers)
         }
-        binding.facebookButton.setOnClickListener {
-            val providers = arrayListOf(AuthUI.IdpConfig.FacebookBuilder().build())
-            launchSignInFlow(providers)
-        }
+
 
     }
 

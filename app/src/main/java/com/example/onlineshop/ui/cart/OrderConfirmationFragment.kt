@@ -1,12 +1,18 @@
 package com.example.onlineshop.ui.cart
 
+
+
+import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-<<<<<<< Updated upstream
-=======
 import  androidx.appcompat.widget.SearchView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -16,20 +22,67 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.onlineshop.NavGraphDirections
->>>>>>> Stashed changes
 import com.example.onlineshop.R
+import com.example.onlineshop.ViewModelFactory
+import com.example.onlineshop.data.entity.ads_discount_codes.AllCodes
+import com.example.onlineshop.data.entity.customer.Addresse
+import com.example.onlineshop.data.entity.discount.DiscountCode
+import com.example.onlineshop.data.entity.order.*
+import com.example.onlineshop.data.entity.orderGet.OneOrderResponce
+import com.example.onlineshop.data.entity.priceRules.PriceRule
+import com.example.onlineshop.data.remoteDataSource.RemoteDataSourceImpl
+import com.example.onlineshop.data.roomData.RoomDataSourceImpl
+import com.example.onlineshop.data.roomData.RoomService
+import com.example.onlineshop.data.sharedprefrences.MeDataSharedPrefrenceReposatory
+import com.example.onlineshop.databinding.FragmentOrderConfirmationBinding
+import com.example.onlineshop.networkBase.NetworkChange
+import com.example.onlineshop.repository.RepositoryImpl
+import com.example.onlineshop.ui.Payment.CheckoutActivity
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.view.*
+import kotlinx.android.synthetic.main.fragment_order_confirmation.*
+import timber.log.Timber
+import java.io.Serializable
 
-class OrderConfirmationFragment : Fragment() {
+class OrderConfirmationFragment :  Fragment() {
+    private lateinit var orderViewModel: OrderViewModel
+    private lateinit var meDataSourceReo: MeDataSharedPrefrenceReposatory
+    private lateinit var binding: FragmentOrderConfirmationBinding
+    private lateinit var orderItemsAdapter: OrderItemsAdapter
+
+    private var totalPrice = 0.0f
+    private var totalDiscont = 0.0f
+    private var discountAmount = 0.0f
+    private var discountCode = ""
+    private var customerID = ""
+    private var paymentMethod = ""
+    private var isDefaultAddress = false
+    private var isDiscount = false
+    private var isCash = false
+    private var priceRulesList: List<PriceRule> = arrayListOf()
+    private var discountCodesList: List<DiscountCode> = arrayListOf()
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        meDataSourceReo = MeDataSharedPrefrenceReposatory(requireActivity())
+        binding = FragmentOrderConfirmationBinding.inflate(layoutInflater)
+        val args: OrderConfirmationFragmentArgs by navArgs()
+        totalPrice = args.totalPrice
+        val application = requireNotNull(this.activity).application
+        val repository = RepositoryImpl(
+            RemoteDataSourceImpl(),
+            RoomDataSourceImpl(RoomService.getInstance(application))
+        )
+        val viewModelFactory = ViewModelFactory(repository, application)
+        orderViewModel =
+            ViewModelProvider(
+                this, viewModelFactory
+            ).get(OrderViewModel::class.java)
         // Inflate the layout for this fragment
-<<<<<<< Updated upstream
-        return inflater.inflate(R.layout.fragment_order_confirmation, container, false)
-=======
         return binding.root
     }
 
@@ -267,8 +320,48 @@ class OrderConfirmationFragment : Fragment() {
             isCash = false
         }
 
->>>>>>> Stashed changes
     }
 
+    private fun isLoged(): Boolean {
+        return meDataSourceReo.loadUsertstate()
+    }
 
+    private fun changeToolbar() {
+        requireActivity().findViewById<SearchView>(R.id.mainSearchView).visibility=View.GONE
+        requireActivity().findViewById<View>(R.id.nav_view).visibility = View.GONE
+        requireActivity().toolbar.visibility = View.VISIBLE
+        requireActivity().toolbar.searchIcon.visibility = View.INVISIBLE
+        requireActivity().toolbar.cartView.visibility = View.INVISIBLE
+        requireActivity().toolbar.settingIcon.visibility = View.INVISIBLE
+        requireActivity().toolbar.favourite.visibility = View.INVISIBLE
+        requireActivity().toolbar_title.setTextColor(Color.WHITE)
+
+        requireActivity().toolbar.setBackgroundDrawable(ColorDrawable(Color.BLACK))
+        requireActivity().toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_baseline_arrow_back_ios_24))
+        requireActivity().toolbar.setNavigationOnClickListener {
+            view?.findNavController()?.popBackStack()
+        }
+        requireActivity().toolbar_title.text = "OrderConfirmation"
+    }
+//   fun clearBackStack() {
+//        FragmentUtils.sDisableFragmentAnimations = true
+//        getActivity()?.getSupportFragmentManager()?.popBackStackImmediate(
+//            null,
+//            FragmentManager.POP_BACK_STACK_INCLUSIVE
+//        )
+//        FragmentUtils.sDisableFragmentAnimations = false
+//    }
+//
+//    object FragmentUtils {
+//        var sDisableFragmentAnimations = false
+//    }
+//
+//    override fun onCreateAnimation(transit: Int, enter: Boolean, nextAnim: Int): Animation? {
+//        if (FragmentUtils.sDisableFragmentAnimations) {
+//            val a: Animation = object : Animation() {}
+//            a.duration = 0
+//            return a
+//        }
+//        return super.onCreateAnimation(transit, enter, nextAnim)
+//    }
 }

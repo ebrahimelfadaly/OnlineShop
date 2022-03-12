@@ -10,10 +10,13 @@ import com.example.onlineshop.data.entity.customer.*
 import com.example.onlineshop.data.entity.order.Orders
 import com.example.onlineshop.data.entity.orderGet.GetOrders
 import com.example.onlineshop.data.entity.orderGet.OneOrderResponce
+import com.example.onlineshop.data.entity.smart_collection.Brands
 import com.example.onlineshop.data.itemPojo.OrderObject
 import com.example.onlineshop.data.itemPojo.ProductCartModule
 import com.example.onlineshop.data.itemPojo.ProductItem
+
 import com.example.onlineshop.data.remoteDataSource.RemoteDataIN
+import com.example.onlineshop.data.remoteDataSource.network.Network
 
 import com.example.onlineshop.data.roomData.RoomDataSourceImpl
 import com.example.onlineshop.networkBase.SingleLiveEvent
@@ -26,6 +29,7 @@ interface IRepository {
 
 
    ////////////////////cart list////////////////
+
    fun getAllCartList(): LiveData<List<ProductCartModule>>
 
    suspend fun saveCartList(withItem: ProductCartModule)
@@ -68,6 +72,7 @@ interface IRepository {
    fun getCreateOrderResponse(): SingleLiveEvent<OneOrderResponce?>
 
    ///////////////////products/////////////////////////
+   fun getAllBrands():MutableLiveData<Brands>
    fun getWomanProductsList(): MutableLiveData<ProductsList>?
    fun getKidsProductsList(): MutableLiveData<ProductsList>
    fun getMenProductsList(): MutableLiveData<ProductsList>
@@ -84,6 +89,7 @@ interface IRepository {
    fun getAllWishList(): LiveData<List<com.example.onlineshop.data.itemPojo.Product>>
 
    suspend fun saveWishList(withItem: com.example.onlineshop.data.itemPojo.Product)
+   suspend fun getProductBrand(vendor: String) = Network.apiService.getProductsByVendor(vendor)
 
    suspend fun deleteOneWithItem(id: Long)
    fun getFourWishList(): LiveData<List<com.example.onlineshop.data.itemPojo.Product>>

@@ -1,5 +1,7 @@
 package com.example.onlineshop.ui.category
 
+
+
 import android.annotation.SuppressLint
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -13,12 +15,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.onlineshop.NavGraphDirections
-<<<<<<< Updated upstream
-import com.facebook.shimmer.ShimmerFrameLayout
-import kotlinx.android.synthetic.main.fragment_category.shimmerFrameLayout1
-import kotlinx.android.synthetic.main.fragment_category.shimmerFrameLayout2
-=======
->>>>>>> Stashed changes
 import com.example.onlineshop.R
 import com.example.onlineshop.ViewModelFactory
 import com.example.onlineshop.data.entity.customProduct.Product
@@ -48,7 +44,7 @@ class CategoryFragment : Fragment(), SubRecyclerClick, MainRecyclerClick, ItemRe
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentCategoryBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -130,17 +126,10 @@ class CategoryFragment : Fragment(), SubRecyclerClick, MainRecyclerClick, ItemRe
         binding.shimmerFrameLayout3.startShimmer()
         binding.shimmerFrameLayout4.startShimmer()
         changeToolbar()
-<<<<<<< Updated upstream
-        subcatList= arrayOf("Shoes","Accessories","T-Shirts")
-        var mainCatList= arrayOf("kids","Men","Sales","Women")
-        binding.subcategoryRecView.adapter= SubCategoryAdapter(subcatList,this)
-        binding.mainCategoryRecView.adapter= MainCategoryAdapter(mainCatList,this)
-=======
         subcatList = arrayOf("Shoes", "Accessories", "T-Shirts")
         var mainCatList = arrayOf("Women", "kids", "Men", "Sales")
         binding.subcategoryRecView.adapter = SubCategoryAdapter(subcatList, this)
         binding.mainCategoryRecView.adapter = MainCategoryAdapter(mainCatList, this)
->>>>>>> Stashed changes
         if (NetworkChange.isOnline) {
 
             binding.networkCatView.visibility = View.GONE
@@ -172,27 +161,15 @@ class CategoryFragment : Fragment(), SubRecyclerClick, MainRecyclerClick, ItemRe
 
     }
 
-<<<<<<< Updated upstream
-    fun getMainCategory(position:Int):Long{
-        var main:Long=0
-        when(position){
-                  //home
-           0-> main=398034632935//right kids
-            1-> main=398034567399//right men
-            2-> main=398034665703//right on sale
-            3-> main=398034600167// right woman
-            else-> main=0
-=======
     fun getMainCategory(position: Int): Long {
         var main: Long
         when (position) {
-            0 -> main = 398034600167
+            0 -> main = 398034600167 //woman
             1 -> main = 398034632935//right kids
             2 -> main = 398034567399//right men
             3 -> main = 398034665703//right on sale
 
             else -> main = 0
->>>>>>> Stashed changes
         }
         return main
     }

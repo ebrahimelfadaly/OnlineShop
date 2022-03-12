@@ -3,14 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-<<<<<<< Updated upstream
+
         <entry key="..\:/AndroidProjectKotlin/OnlineShop/app/src/main/res/drawable-v24/cursor_color.xml" value="0.1388888888888889" />
         <entry key="..\:/AndroidProjectKotlin/OnlineShop/app/src/main/res/drawable-v24/ic_baseline_logout_24.xml" value="0.1125" />
         <entry key="..\:/AndroidProjectKotlin/OnlineShop/app/src/main/res/drawable-v24/ic_facebook.xml" value="0.2203125" />
         <entry key="..\:/AndroidProjectKotlin/OnlineShop/app/src/main/res/drawable-v24/ic_google.xml" value="0.2203125" />
         <entry key="..\:/AndroidProjectKotlin/OnlineShop/app/src/main/res/drawable/border.xml" value="0.17592592592592593" />
         <entry key="..\:/AndroidProjectKotlin/OnlineShop/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/AndroidProjectKotlin/OnlineShop/app/src/main/res/layout/activity_splash.xml" value="0.67" />
+
+        <entry key="..\:/AndroidProjectKotlin/OnlineShop/app/src/main/res/layout/activity_splash.xml" value="0.1" />
+
         <entry key="..\:/AndroidProjectKotlin/OnlineShop/app/src/main/res/layout/activity_welcome.xml" value="0.1" />
         <entry key="..\:/AndroidProjectKotlin/OnlineShop/app/src/main/res/layout/address_report.xml" value="0.29213483146067415" />
         <entry key="..\:/AndroidProjectKotlin/OnlineShop/app/src/main/res/layout/cart_toolbar_view.xml" value="0.1" />
@@ -27,6 +29,7 @@
         <entry key="..\:/AndroidProjectKotlin/OnlineShop/app/src/main/res/layout/fragment_me.xml" value="0.25" />
         <entry key="..\:/AndroidProjectKotlin/OnlineShop/app/src/main/res/layout/fragment_men_product.xml" value="0.1" />
         <entry key="..\:/AndroidProjectKotlin/OnlineShop/app/src/main/res/layout/fragment_one_sale_product.xml" value="0.1" />
+        <entry key="..\:/AndroidProjectKotlin/OnlineShop/app/src/main/res/layout/fragment_profile.xml" value="0.22" />
         <entry key="..\:/AndroidProjectKotlin/OnlineShop/app/src/main/res/layout/fragment_register.xml" value="0.25" />
         <entry key="..\:/AndroidProjectKotlin/OnlineShop/app/src/main/res/layout/fragment_setting.xml" value="0.22" />
         <entry key="..\:/AndroidProjectKotlin/OnlineShop/app/src/main/res/layout/fragment_shop_tap.xml" value="0.1" />
@@ -45,12 +48,15 @@
         <entry key="..\:/OnlineShop/app/src/main/res/drawable-v24/ic_search.xml" value="0.1" />
         <entry key="..\:/OnlineShop/app/src/main/res/drawable/bottom_nav.xml" value="0.1" />
         <entry key="..\:/OnlineShop/app/src/main/res/drawable/ic_baseline_add_shopping_cart_24.xml" value="0.20104166666666667" />
+        <entry key="..\:/OnlineShop/app/src/main/res/drawable/ic_baseline_arrow_back_ios_24.xml" value="0.20572916666666666" />
+        <entry key="..\:/OnlineShop/app/src/main/res/drawable/ic_loading.xml" value="0.20572916666666666" />
         <entry key="..\:/OnlineShop/app/src/main/res/layout/activity_checkout.xml" value="0.1" />
         <entry key="..\:/OnlineShop/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/OnlineShop/app/src/main/res/layout/activity_pay_pal.xml" value="0.18489583333333334" />
         <entry key="..\:/OnlineShop/app/src/main/res/layout/activity_splash.xml" value="0.1" />
         <entry key="..\:/OnlineShop/app/src/main/res/layout/activity_welcome.xml" value="0.18489583333333334" />
         <entry key="..\:/OnlineShop/app/src/main/res/layout/cart_toolbar_view.xml" value="0.25" />
+
         <entry key="..\:/OnlineShop/app/src/main/res/layout/fragment_category.xml" value="0.16574074074074074" />
         <entry key="..\:/OnlineShop/app/src/main/res/layout/fragment_kids_product.xml" value="0.25" />
         <entry key="..\:/OnlineShop/app/src/main/res/layout/fragment_me.xml" value="0.25" />
@@ -60,10 +66,50 @@
         <entry key="..\:/OnlineShop/app/src/main/res/layout/fragment_search.xml" value="0.18489583333333334" />
         <entry key="..\:/OnlineShop/app/src/main/res/layout/fragment_shop_tap.xml" value="0.18489583333333334" />
         <entry key="..\:/OnlineShop/app/src/main/res/layout/fragment_woman_product.xml" value="0.2" />
+
+        <entry key="..\:/OnlineShop/app/src/main/res/layout/category_item.xml" value="0.18958333333333333" />
+        <entry key="..\:/OnlineShop/app/src/main/res/layout/fragment_add_address.xml" value="0.11851851851851852" />
+        <entry key="..\:/OnlineShop/app/src/main/res/layout/fragment_category.xml" value="0.25" />
+        <entry key="..\:/OnlineShop/app/src/main/res/layout/fragment_display_order.xml" value="0.5" />
+        <entry key="..\:/OnlineShop/app/src/main/res/layout/fragment_kids_product.xml" value="0.5" />
+        <entry key="..\:/OnlineShop/app/src/main/res/layout/fragment_me.xml" value="0.25" />
+        <entry key="..\:/OnlineShop/app/src/main/res/layout/fragment_men_product.xml" value="0.25" />
+        <entry key="..\:/OnlineShop/app/src/main/res/layout/fragment_one_sale_product.xml" value="0.17083333333333334" />
+        <entry key="..\:/OnlineShop/app/src/main/res/layout/fragment_product_details.xml" value="0.1" />
+        <entry key="..\:/OnlineShop/app/src/main/res/layout/fragment_products.xml" value="0.1" />
+        <entry key="..\:/OnlineShop/app/src/main/res/layout/fragment_register.xml" value="0.17083333333333334" />
+        <entry key="..\:/OnlineShop/app/src/main/res/layout/fragment_search.xml" value="0.18489583333333334" />
+        <entry key="..\:/OnlineShop/app/src/main/res/layout/fragment_shop_tap.xml" value="0.25" />
+        <entry key="..\:/OnlineShop/app/src/main/res/layout/fragment_show_one_order_detrails.xml" value="0.18958333333333333" />
+        <entry key="..\:/OnlineShop/app/src/main/res/layout/fragment_woman_product.xml" value="0.25" />
+        <entry key="..\:/OnlineShop/app/src/main/res/layout/image_slider.xml" value="0.18489583333333334" />
+        <entry key="..\:/OnlineShop/app/src/main/res/layout/item_order_confirm.xml" value="0.18489583333333334" />
+        <entry key="..\:/OnlineShop/app/src/main/res/layout/item_order_display.xml" value="0.33" />
         <entry key="..\:/OnlineShop/app/src/main/res/layout/list_toolbar_view.xml" value="0.25" />
         <entry key="..\:/OnlineShop/app/src/main/res/layout/shimmer_layout.xml" value="0.18489583333333334" />
+
         <entry key="..\:/OnlineShop/app/src/main/res/layout/shop_item.xml" value="0.18489583333333334" />
         <entry key="..\:/OnlineShop/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25" />
+        <entry key="..\:/OnlineShop/app/src/main/res/layout/shop_item.xml" value="0.33" />
+        <entry key="..\:/OnlineShop/app/src/main/res/layout/subcategory_title.xml" value="0.18489583333333334" />
+        <entry key="..\:/OnlineShop/app/src/main/res/layout/wishlist_report.xml" value="0.18489583333333334" />
+        <entry key="..\:/OnlineShop/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25" />
+        <entry key="..\:/Users/DELL/Desktop/project/OnlineShop/app/src/main/res/drawable-v24/back_arrow.xml" value="0.10462962962962963" />
+        <entry key="..\:/Users/DELL/Desktop/project/OnlineShop/app/src/main/res/drawable-v24/ic_baseline_check_24.xml" value="0.1388888888888889" />
+        <entry key="..\:/Users/DELL/Desktop/project/OnlineShop/app/src/main/res/drawable-v24/item_bg.xml" value="0.2703125" />
+        <entry key="..\:/Users/DELL/Desktop/project/OnlineShop/app/src/main/res/drawable/check_yes.xml" value="0.1388888888888889" />
+        <entry key="..\:/Users/DELL/Desktop/project/OnlineShop/app/src/main/res/drawable/checked_no.xml" value="0.1388888888888889" />
+        <entry key="..\:/Users/DELL/Desktop/project/OnlineShop/app/src/main/res/drawable/order_update_status_background_shape.xml" value="0.1111111111111111" />
+        <entry key="..\:/Users/DELL/Desktop/project/OnlineShop/app/src/main/res/layout/activity_splash.xml" value="0.19722222222222222" />
+        <entry key="..\:/Users/DELL/Desktop/project/OnlineShop/app/src/main/res/layout/fragment_product_details.xml" value="0.1" />
+        <entry key="..\:/Users/DELL/Desktop/project/OnlineShop/app/src/main/res/layout/fragment_show_one_order.xml" value="0.16574074074074074" />
+        <entry key="..\:/Users/DELL/Desktop/project/OnlineShop/app/src/main/res/layout/fragment_show_one_order_detrails.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/DELL/Desktop/project/OnlineShop/app/src/main/res/layout/splash.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/DELL/Desktop/project/OnlineShop/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/DELL/Desktop/project/OnlineShop/app/src/main/res/menu/empty_menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/DELL/Desktop/project/OnlineShop/app/src/main/res/menu/me_menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/DELL/Desktop/project/OnlineShop/app/src/main/res/menu/product_details_menu.xml" value="0.25416666666666665" />
+
         <entry key="..\:/Users/Dell/Documents/GitHub/OnlineShop/OnlineShop/app/src/main/res/drawable/ic__favorite_border_24.xml" value="0.19166666666666668" />
         <entry key="..\:/Users/Dell/Documents/GitHub/OnlineShop/OnlineShop/app/src/main/res/drawable/ic_add.xml" value="0.19166666666666668" />
         <entry key="..\:/Users/Dell/Documents/GitHub/OnlineShop/OnlineShop/app/src/main/res/drawable/ic_bag.xml" value="0.19166666666666668" />
@@ -77,11 +123,10 @@
         <entry key="..\:/Users/Dell/Documents/GitHub/OnlineShop/OnlineShop/app/src/main/res/layout/activity_pay_pal.xml" value="0.14492753623188406" />
         <entry key="..\:/Users/Dell/Documents/GitHub/OnlineShop/OnlineShop/app/src/main/res/layout/activity_stripe.xml" value="0.14492753623188406" />
         <entry key="..\:/Users/Dell/Documents/GitHub/OnlineShop/OnlineShop/app/src/main/res/layout/cart_toolbar_view.xml" value="0.14402173913043478" />
-        <entry key="..\:/Users/Dell/Documents/GitHub/OnlineShop/OnlineShop/app/src/main/res/layout/category_item.xml" value="0.12635869565217392" />
         <entry key="..\:/Users/Dell/Documents/GitHub/OnlineShop/OnlineShop/app/src/main/res/layout/fragment_about.xml" value="0.14402173913043478" />
         <entry key="..\:/Users/Dell/Documents/GitHub/OnlineShop/OnlineShop/app/src/main/res/layout/fragment_cart.xml" value="0.14402173913043478" />
         <entry key="..\:/Users/Dell/Documents/GitHub/OnlineShop/OnlineShop/app/src/main/res/layout/fragment_category.xml" value="0.12635869565217392" />
-        <entry key="..\:/Users/Dell/Documents/GitHub/OnlineShop/OnlineShop/app/src/main/res/layout/fragment_order_confirmation.xml" value="0.14583333333333334" />
+        <entry key="..\:/Users/Dell/Documents/GitHub/OnlineShop/OnlineShop/app/src/main/res/layout/fragment_order_confirmation.xml" value="0.14583333333333334" /
         <entry key="..\:/Users/Dell/Documents/GitHub/OnlineShop/OnlineShop/app/src/main/res/layout/fragment_product_details.xml" value="0.14402173913043478" />
         <entry key="..\:/Users/Dell/Documents/GitHub/OnlineShop/OnlineShop/app/src/main/res/layout/fragment_shop_tap.xml" value="0.14402173913043478" />
         <entry key="..\:/Users/Dell/Documents/GitHub/OnlineShop/OnlineShop/app/src/main/res/layout/image_slider.xml" value="0.14402173913043478" />
@@ -122,11 +167,12 @@
         <entry key="..\:/Users/Dell/Documents/GitHub/OnlineShop/app/src/main/res/layout/shimmer_layout.xml" value="0.10144927536231885" />
         <entry key="..\:/Users/Dell/Documents/GitHub/OnlineShop/app/src/main/res/layout/shop_item.xml" value="0.1" />
         <entry key="..\:/Users/Dell/Documents/GitHub/OnlineShop/app/src/main/res/layout/subcategory_title.xml" value="0.10144927536231885" />
-=======
+
+
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.36875" />
         <entry key="app/src/main/res/layout/fragment_category.xml" value="0.36875" />
         <entry key="app/src/main/res/layout/fragment_product_details.xml" value="0.30462962962962964" />
->>>>>>> Stashed changes
+
       </map>
     </option>
   </component>
@@ -136,4 +182,12 @@
   <component name="ProjectType">
     <option name="id" value="Android" />
   </component>
+
+        <entry key="..\:/Users/Dell/Documents/GitHub/OnlineShop/app/src/main/res/xml/activity_splash.xml" value="0.10144927536231885" />
+      </map>
+    </option>
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
+
 </project>

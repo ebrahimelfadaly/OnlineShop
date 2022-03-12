@@ -9,8 +9,11 @@ import com.example.onlineshop.data.entity.order.Orders
 import com.example.onlineshop.data.entity.orderGet.GetOrders
 import com.example.onlineshop.data.entity.orderGet.OneOrderResponce
 import com.example.onlineshop.data.entity.priceRules.priceRules
+import com.example.onlineshop.data.entity.smart_collection.Brands
 import com.example.onlineshop.data.itemPojo.Product
 import com.example.onlineshop.data.itemPojo.ProductItem
+import com.example.onlineshop.data.itemPojo.ProductsBrand.ProductsModel
+
 import io.reactivex.Observable
 import okhttp3.ResponseBody
 import retrofit2.Call
@@ -18,6 +21,8 @@ import retrofit2.Response
 import retrofit2.http.*
 
 interface NetworkService {
+    @GET("smart_collections.json")
+    fun getAllBrands():Call<Brands>
     @GET("collections/398034600167/products.json")
     fun getWomanProductsList(): Call<ProductsList>
 
@@ -38,6 +43,9 @@ interface NetworkService {
 
     @GET("products.json")
     fun getAllProductsList(): Call<AllProducts>
+
+    @GET("products.json")
+    suspend fun getProductsByVendor(@Query("vendor") vendor: String): Response<ProductsModel>
 
 
   //get number

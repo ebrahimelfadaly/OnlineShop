@@ -1,12 +1,7 @@
 package com.example.onlineshop.ui.ShopTap
 
+
 import android.app.Application
-<<<<<<< Updated upstream
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import com.example.onlineshop.repository.IRepository
-=======
 import android.util.Log
 import androidx.lifecycle.*
 import com.example.onlineshop.data.entity.ads_discount_codes.AllCodes
@@ -53,17 +48,22 @@ class ShopViewModel(val repositoryImpl: IRepository, application: Application) :
     fun fetchWomanProductsList(): MutableLiveData<ProductsList>? {
         return repositoryImpl.getWomanProductsList()
     }
->>>>>>> Stashed changes
 
-class ShopViewModel(val repositoryImpl: IRepository, application: Application) : ViewModel() {
-
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
+    fun fetchMenProductsList(): MutableLiveData<ProductsList> {
+        return repositoryImpl.getMenProductsList()
     }
-<<<<<<< Updated upstream
-    val text: LiveData<String> = _text
-}
-=======
+
+    fun fetchOnSaleProductsList(): MutableLiveData<ProductsList> {
+        return repositoryImpl.getOnSaleProductsList()
+    }
+
+    fun fetchKidsProductsList(): MutableLiveData<ProductsList> {
+        return repositoryImpl.getKidsProductsList()
+    }
+
+    fun fetchallProductsList(): MutableLiveData<AllProducts> {
+        return repositoryImpl.getAllProductsList()
+    }
 
     fun fetchallDiscountCodeList(): MutableLiveData<AllCodes> {
         return repositoryImpl.getAllDiscountCodeList()
@@ -87,4 +87,3 @@ class ShopViewModel(val repositoryImpl: IRepository, application: Application) :
 
 
 }
->>>>>>> Stashed changes

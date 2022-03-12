@@ -3,15 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/shopTabFragment2">
+    app:startDestination="@id/shopTabFragment">
     <activity
         android:id="@+id/CheckoutActivity"
         android:name="com.example.onlineshop.ui.Payment.CheckoutActivity" />
     <fragment
-        android:id="@+id/shopTabFragment2"
+        android:id="@+id/shopTabFragment"
         android:name="com.example.onlineshop.ui.ShopTap.ShopTapFragment"
         android:label="fragment_shop_tab"
-        tools:layout="@layout/fragment_shop_tap" />
+        tools:layout="@layout/fragment_shop_tap" >
+        <action
+            android:id="@+id/action_shopTabFragment2_to_products"
+            app:destination="@id/products" />
+
+    </fragment>
+
     <fragment
         android:id="@+id/categoryFragment"
         android:name="com.example.onlineshop.ui.category.CategoryFragment"
@@ -25,52 +31,65 @@
         android:id="@+id/meFragment"
         android:name="com.example.onlineshop.ui.meScreen.MeFragment"
         android:label="fragment_me"
-        tools:layout="@layout/fragment_me" >
+        tools:layout="@layout/fragment_me" />
+
+    <action
+        android:id="@+id/action_meFragment_to_settingFragment"
+        app:destination="@id/settingFragment"
+        app:enterAnim="@anim/slide_in_left"
+        app:exitAnim="@anim/slide_in_right"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_in_right"/>
+
+    <fragment
+        android:id="@+id/products"
+        android:name="com.example.onlineshop.ui.product.Products"
+        android:label="fragment_products"
+        tools:layout="@layout/fragment_products">
+
         <action
-            android:id="@+id/action_meFragment_to_settingsFragment"
-            app:destination="@id/settingsFragment"
-            app:enterAnim="@anim/slide_in_left"
-            app:exitAnim="@anim/slide_in_right"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_in_right"/>
+            android:id="@+id/action_products_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment"
+            app:popUpTo="@id/products"
+            app:popUpToInclusive="true"/>
     </fragment>
 
     <fragment
-        android:id="@+id/signInFragment"
+        android:id="@+id/loginFragment"
         android:name="com.example.onlineshop.ui.login_register.ui.login.LoginFragment"
-        android:label="SignInFragment"
+        android:label="LoginFragment"
         tools:layout="@layout/fragment_login">
         <action
-            android:id="@+id/action_signInFragment_to_signUpFragment"
-            app:destination="@id/signUpFragment"
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment"
             app:enterAnim="@anim/slide_in_left"
             app:exitAnim="@anim/slide_in_right"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_in_right"
-            app:popUpTo="@id/signInFragment"
+            app:popUpTo="@id/loginFragment"
             app:popUpToInclusive="true"/>
 
     </fragment>
     <fragment
-        android:id="@+id/signUpFragment"
+        android:id="@+id/registerFragment"
         android:name="com.example.onlineshop.ui.login_register.register.RegisterFragment"
-        android:label="SignUpFragment"
+        android:label="RegisterFragment"
         tools:layout="@layout/fragment_register">
         <action
-            android:id="@+id/action_signUpFragment_to_signInFragment"
-            app:destination="@id/signInFragment"
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_in_left"
             app:popEnterAnim="@anim/slide_in_right"
             app:popExitAnim="@anim/slide_in_left"
-            app:popUpTo="@id/signUpFragment"
+            app:popUpTo="@id/registerFragment"
             app:popUpToInclusive="true" />
 
     </fragment>
 
     <fragment
         android:id="@+id/addressFragment"
-        android:name="com.example.onlineshop.ui.meScreen.settings.address.AddressFragment"
+        android:name="com.example.onlineshop.ui.address.AddressFragment"
         android:label="AddressFragment"
         tools:layout="@layout/fragment_address">
         <action
@@ -102,9 +121,9 @@
             app:popUpToInclusive="true"/>
     </fragment>
     <fragment
-        android:id="@+id/prouductDetailsFragment"
+        android:id="@+id/productDetailsFragment"
         android:name="com.example.onlineshop.ui.ProductDetails.ProductDetailsFragment"
-        android:label="ProuductDetailsFragment" >
+        android:label="ProductDetailsFragment" >
         <argument
             android:name="productID"
             app:argType="long" />
@@ -113,15 +132,15 @@
         android:id="@+id/allWishListFragment"
         android:name="com.example.onlineshop.ui.AllWishList.AllWishListFragment"
         android:label="AllWishListFragment" />
-    <action android:id="@+id/action_global_prouductDetailsFragment"
-        app:destination="@id/prouductDetailsFragment"
+    <action android:id="@+id/action_global_productDetailsFragment"
+        app:destination="@id/productDetailsFragment"
         app:launchSingleTop="true"
         app:popUpTo="@id/cartFragment2"
         app:popUpToInclusive="true"
         />
     <action android:id="@+id/action_global_allWishListFragment" app:destination="@id/allWishListFragment"  app:popUpTo="@+id/allWishListFragment"
         app:launchSingleTop="true" />
-    <action android:id="@+id/action_global_signInFragment" app:destination="@id/signInFragment" app:popUpTo="@+id/signInFragment"
+    <action android:id="@+id/action_global_loginFragment" app:destination="@id/loginFragment" app:popUpTo="@+id/loginFragment"
         app:launchSingleTop="true"/>
     <fragment
         android:id="@+id/orderConfirmationFragment"
@@ -134,12 +153,12 @@
             android:defaultValue="0" />
         <action
             android:id="@+id/action_orderConfirmationFragment_to_shopTabFragment2"
-            app:destination="@id/shopTabFragment2"
+            app:destination="@id/shopTabFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_in_left"
             app:popEnterAnim="@anim/slide_in_right"
             app:popExitAnim="@anim/slide_in_left"
-            app:popUpTo="@id/prouductDetailsFragment"
+            app:popUpTo="@id/productDetailsFragment"
             app:popUpToInclusive="true"/>
 
     </fragment>
@@ -147,7 +166,7 @@
     <action android:id="@+id/action_global_addressFragment" app:destination="@id/addressFragment" />
     <fragment
         android:id="@+id/addAddressFragment"
-        android:name="com.example.onlineshop.ui.meScreen.settings.address.AddAddressFragment"
+        android:name="com.example.onlineshop.ui.address.AddAddressFragment"
         android:label="AddAddressFragment"
         tools:layout="@layout/fragment_add_address">
 
@@ -167,7 +186,7 @@
             app:popUpTo="@id/addAddressFragment"
             app:popUpToInclusive="true" />
     </fragment>
-    <action android:id="@+id/action_global_shopTabFragment2" app:destination="@id/shopTabFragment2" />
+    <action android:id="@+id/action_global_shopTabFragment2" app:destination="@id/shopTabFragment" />
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.onlineshop.ui.profile.ProfileFragment"
@@ -185,27 +204,35 @@
     </fragment>
     <action android:id="@+id/action_global_displayOrderFragment" app:destination="@id/displayOrderFragment"/>
     <fragment
-        android:id="@+id/settingsFragment"
-        android:name="com.example.onlineshop.ui.meScreen.settings.SettingFragment"
-        android:label="fragment_settings"
+        android:id="@+id/settingFragment"
+        android:name="com.example.onlineshop.ui.settings.SettingFragment"
+        android:label="fragment_setting"
         tools:layout="@layout/fragment_setting" >
         <action
-            android:id="@+id/action_settingsFragment_to_meFragment"
+            android:id="@+id/action_settingFragment_to_meFragment"
             app:destination="@id/meFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_in_left"
             app:popEnterAnim="@anim/slide_in_right"
             app:popExitAnim="@anim/slide_in_left"
-            app:popUpTo="@id/settingsFragment"
+            app:popUpTo="@id/settingFragment"
             app:popUpToInclusive="true"/>
 
         <action
-            android:id="@+id/action_settingsFragment_to_aboutFragment"
+            android:id="@+id/action_settingFragment_to_aboutFragment"
             app:destination="@id/aboutFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_in_left"
             app:popEnterAnim="@anim/slide_in_right"
             app:popExitAnim="@anim/slide_in_left"/>
+        <action
+            android:id="@+id/action_settingFragment_to_contactFragment"
+            app:destination="@id/contactFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_in_left"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_in_left"/>
+
 
 
     </fragment>
@@ -229,18 +256,22 @@
     </fragment>
     <action android:id="@+id/action_global_showOneOrderFragment" app:destination="@id/showOneOrderFragment" />
 
-
-
     <fragment
         android:id="@+id/aboutFragment"
-        android:name="com.example.onlineshop.ui.meScreen.settings.AboutFragment"
+        android:name="com.example.onlineshop.ui.settings.AboutFragment"
         android:label="fragment_about"
         tools:layout="@layout/fragment_about" />
-
+    <fragment
+        android:id="@+id/contactFragment"
+        android:name="com.example.onlineshop.ui.settings.ContactFragment"
+        android:label="fragment_contact"
+        tools:layout="@layout/fragment_contact" />
     <action android:id="@+id/action_global_meFragment" app:destination="@id/meFragment"
         app:launchSingleTop="true"/>
     <action android:id="@+id/action_global_categoryFragment" app:destination="@id/categoryFragment"
         app:launchSingleTop="true"/>
+
+
 
 
 

@@ -119,21 +119,18 @@ class LoginFragment : Fragment() {
             }
         }
 
-/*
+
         binding.tvSignup.setOnClickListener {
             view.findNavController()
-                .navigate(SignInFragmentDirections.actionSignInFragmentToSignUpFragment())
-        }*/
+                .navigate(LoginFragmentDirections.actionLoginFragmentToRegisterFragment())
+        }
 
         binding.googleButton.setOnClickListener {
             val providers = arrayListOf(AuthUI.IdpConfig.GoogleBuilder().build())
             launchSignInFlow(providers)
         }
 
-        binding.facebookButton.setOnClickListener {
-            val providers = arrayListOf(AuthUI.IdpConfig.FacebookBuilder().build())
-            launchSignInFlow(providers)
-        }
+
 
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
