@@ -25,7 +25,7 @@
         tools:layout="@layout/fragment_category" >
         <action
             android:id="@+id/action_categoryFragment_to_shopTabFragment2"
-            app:destination="@id/shopTabFragment2" />
+            app:destination="@id/shopTabFragment" />
     </fragment>
     <fragment
         android:id="@+id/meFragment"

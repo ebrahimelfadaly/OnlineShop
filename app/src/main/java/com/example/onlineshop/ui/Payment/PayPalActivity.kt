@@ -6,11 +6,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.onlineshop.R
-import com.paypal.android.sdk.payments.*
+
 import kotlinx.android.synthetic.main.activity_pay_pal.*
 import java.math.BigDecimal
 
 class PayPalActivity : AppCompatActivity() {
+    /*
     var m_configuration: PayPalConfiguration? = null
 
     //the id is the link to paypal account,we have to create an app and get its id
@@ -59,4 +60,7 @@ class PayPalActivity : AppCompatActivity() {
             Toast.makeText(this, " :(", Toast.LENGTH_LONG).show()
         }
     }
+
+
+     */
 }

@@ -1,8 +1,6 @@
 package com.example.onlineshop.ui.Payment;
 
-<<<<<<< Updated upstream
-public class CheckoutActivity {
-=======
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -294,5 +292,5 @@ public class CheckoutActivity extends AppCompatActivity {
         payButton.dispose();
     }
 
->>>>>>> Stashed changes
+
 }

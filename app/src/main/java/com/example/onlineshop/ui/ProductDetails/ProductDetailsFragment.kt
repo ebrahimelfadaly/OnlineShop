@@ -227,7 +227,7 @@ class ProductDetailsFragment : Fragment() {
         })
     }
 
-    @SuppressLint("SetTextI18n")
+
     private fun updateUI(product: Product, activity: Activity) {
         //activity.title = product.title ?: "null"
 

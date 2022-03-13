@@ -5,10 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 
 import com.example.onlineshop.R
-import com.payment.paymentsdk.PaymentSdkActivity.Companion.startCardPayment
-import com.payment.paymentsdk.PaymentSdkConfigBuilder
-import com.payment.paymentsdk.integrationmodels.*
-import com.payment.paymentsdk.sharedclasses.interfaces.CallbackPaymentInterface
+
 
 
 
@@ -16,7 +13,8 @@ import com.payment.paymentsdk.sharedclasses.interfaces.CallbackPaymentInterface
 import kotlinx.android.synthetic.main.activity_pay_pal.*
 
 
-class PayTapsActivity : AppCompatActivity(), CallbackPaymentInterface {
+class PayTapsActivity : AppCompatActivity() {
+    /*
     private var token: String? = null
     private var transRef: String? = null
     var version = ""
@@ -77,4 +75,6 @@ class PayTapsActivity : AppCompatActivity(), CallbackPaymentInterface {
             Toast.LENGTH_SHORT
         ).show()
     }
+
+     */
 }
